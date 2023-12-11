@@ -6,16 +6,6 @@ if ($conn->connect_error) {
     echo "Error: could no connect. " . mysqli_connect_error();
 }
 
-// $sql = "SELECT * FROM student where department_id = 1 and grade = 2";
-// $result = $conn->query($sql);
-
-// $arr_id = [];
-// while ($row = $result->fetch_assoc()) {
-//     array_push($arr_id, $row['student_id']);
-// }
-// print_r($arr_id);
-
-// $conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +13,7 @@ if ($conn->connect_error) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/421f6f321f.js" crossorigin="anonymous"></script>
@@ -52,9 +42,9 @@ if ($conn->connect_error) {
                 <label for="jurusan" class="form-label">Jurusan</label>
                 <select class="form-select" aria-label="Default select example" name="JurusanInput">
                     <option value="">All</option>
-                    <option>IPA</option>
-                    <option>IPS</option>
-                    <option>Bahasa</option>
+                    <option>Science</option>
+                    <option>Social Science</option>
+                    <option>Language</option>
                 </select>
             </div>
             <div class="col-sm">
@@ -83,17 +73,18 @@ if ($conn->connect_error) {
                         <th scope="col">Full Name</th>
                         <th scope="col">Batch</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         if (!empty($_POST['JurusanInput'])) {
-                            if ($_POST['JurusanInput'] == 'IPA') {
+                            if ($_POST['JurusanInput'] == 'Science') {
                                 $jurusan = 1;
-                            } elseif ($_POST['JurusanInput'] == 'IPS') {
+                            } elseif ($_POST['JurusanInput'] == 'Social Science') {
                                 $jurusan = 2;
-                            } elseif ($_POST['JurusanInput'] == 'Bahasa') {
+                            } elseif ($_POST['JurusanInput'] == 'Language') {
                                 $jurusan = 3;
                             }
                         }
@@ -118,10 +109,13 @@ if ($conn->connect_error) {
                     ?>
                         <tr>
                             <td><?= $rowCount ?></td>
-                            <td><?= $row['student_id'] ?></td>
+                            <td><?= $row['visual_only'] ?></td>
                             <td><?= $row['full_name'] ?></td>
                             <td><?= $row['student_reg_year'] ?></td>
                             <td><?= $row['email'] ?></td>
+                            <td>
+                                <button type="button" class="btn btn-warning" onclick="redirectToDetailPage(<?= $row['student_id'] ?>)">Detail</button>
+                            </td>
                         </tr>
                     <?php
                     }
@@ -131,6 +125,12 @@ if ($conn->connect_error) {
         </div>
     </div>
 </body>
+<script>
+    function redirectToDetailPage(studentID) {
+        var encodedStudentID = encodeURIComponent(studentID);
 
+        window.location.href = 'detail.php?student_id=' + encodedStudentID;
+    }
+</script>
 
 </html>
