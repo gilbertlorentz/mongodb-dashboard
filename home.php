@@ -214,10 +214,10 @@ for ($i = 0; $i < 1; $i++) {
     $total_teachers = $row['teachers'];
 }
 
-for($i = 0; $i < 1; $i++){
+for ($i = 0; $i < 1; $i++) {
     $sql = "SELECT COUNT(*) AS new_teachers FROM teacher WHERE SUBSTRING_INDEX(hire_date, '/', -1) = '2022'";
     $result = $conn->query($sql);
-    
+
     if ($result) {
         $row = $result->fetch_assoc();
         $new_teachers = $row['new_teachers'];
@@ -306,6 +306,21 @@ for($i = 0; $i < 1; $i++){
             display: flex;
             justify-content: center;
             margin: 50px 30px;
+            /* border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            background-color: white; */
+            padding: 0px;
+            max-width: 900px;
+            /* Adjust as needed */
+            height: 510px;
+            /* Adjust as needed */
+        }
+
+        #AverageScoreGradeDeptDiv {
+            display: flex;
+            justify-content: center;
+            margin: 30px 32px;
             border-radius: 8px;
             border: 1px solid #ddd;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -329,6 +344,12 @@ for($i = 0; $i < 1; $i++){
         #TeachersAccDiv {
             flex: 2;
             max-width: 900px;
+            height: 300px;
+        }
+
+        #AverageScoreGradeDeptDiv {
+            flex: 2;
+            max-width: 900px;
             height: 400px;
         }
 
@@ -339,15 +360,16 @@ for($i = 0; $i < 1; $i++){
 
         #AvgTeacherSalDiv {
             flex: 2;
-            max-width: 700px;
-            height: 830px;
+            max-width: 600px;
+            height: 850px;
+            padding: 20px;
         }
 
         #StudentDeptDiv,
         #TeacherDeptDiv {
             flex: 1;
-            max-width: 700px;
-            height: 400px;
+            max-width: 300px;
+            height: 300px;
         }
 
         /* Container within the row */
@@ -367,7 +389,9 @@ for($i = 0; $i < 1; $i++){
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: white;
-            padding: 20px;
+            padding: 10px 30px 0px 0px;
+            margin-bottom: 20px;
+            background-color: #f3f3f3;
         }
 
         .widget-card {
@@ -400,6 +424,18 @@ for($i = 0; $i < 1; $i++){
             font-size: 14px;
         }
 
+        .no-padding {
+            padding: 0;
+        }
+
+        .card-border {
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
+
         /* Media query for smaller screens */
         @media (max-width: 768px) {
             #mainContainer {
@@ -419,6 +455,7 @@ for($i = 0; $i < 1; $i++){
 
     $department_name = $departments->distinct('department_name');
 
+    // Average Student Score
     $pipeline1 = [
         [
             '$unwind' => '$SCORE_DATA'
@@ -456,11 +493,148 @@ for($i = 0; $i < 1; $i++){
         ]
     ];
     $score_avg = $exams->aggregate($pipeline1);
-
     $averageScore = null;
 
     foreach ($score_avg as $document) {
         $averageScore = $document->averageScore;
+    }
+
+
+    // Average Teachers Rating
+    $pipeline2 = [
+        ['$unwind' => '$subjects'],
+        ['$unwind' => '$subjects.teachers_list'],
+        ['$project' => [
+            '_id' => 0,
+            'teacher_id' => '$subjects.teachers_list.teacher_id',
+            'rating' => '$subjects.teachers_list.rating'
+        ]],
+        ['$group' => [
+            '_id' => null,
+            'totalRatings' => ['$sum' => '$rating'],
+            'count' => ['$sum' => 1]
+        ]],
+        ['$project' => [
+            '_id' => 0,
+            'averageRating' => ['$divide' => ['$totalRatings', '$count']]
+        ]]
+    ];
+    $rating_avg = $departments->aggregate($pipeline2)->toArray();
+    $averageRating = $rating_avg[0]->averageRating;
+
+
+
+
+    // Average Student Score by Grades
+    $avg_grade1 = 0;
+    $avg_grade2 = 0;
+    $avg_grade3 = 0;
+    $pipeline3 = [
+        ['$unwind' => '$SCORE_DATA'],
+        ['$group' => [
+            '_id' => '$GRADE',
+            'averageScore' => [
+                '$avg' => [
+                    '$sum' => ['$add' => ['$SCORE_DATA.scores.score1', '$SCORE_DATA.scores.score2']]
+                ]
+            ]
+        ]]
+    ];
+
+    $aggregation = $exams->aggregate($pipeline3)->toArray();
+
+    foreach ($aggregation as $result) {
+        switch ($result->_id) {
+            case 1:
+                $avg_grade1 = $result->averageScore;
+                break;
+            case 2:
+                $avg_grade2 = $result->averageScore;
+                break;
+            case 3:
+                $avg_grade3 = $result->averageScore;
+                break;
+            default:
+                break;
+        }
+    }
+
+
+
+
+
+    // Average Student Score by Grades and Departments
+    $avg_grade1_science = 0;
+    $avg_grade1_social = 0;
+    $avg_grade1_language = 0;
+    $avg_grade2_science = 0;
+    $avg_grade2_social = 0;
+    $avg_grade2_language = 0;
+    $avg_grade3_science = 0;
+    $avg_grade3_social = 0;
+    $avg_grade3_language = 0;
+
+    $pipeline4 = [
+        ['$unwind' => '$SCORE_DATA'],
+        [
+            '$group' => [
+                '_id' => [
+                    'grade' => '$GRADE',
+                    'department' => '$DEPARTMENT'
+                ],
+                'averageScore' => [
+                    '$avg' => [
+                        '$sum' => ['$add' => ['$SCORE_DATA.scores.score1', '$SCORE_DATA.scores.score2']]
+                    ]
+                ]
+            ]
+        ]
+    ];
+
+    $aggregation = $exams->aggregate($pipeline4)->toArray();
+
+    foreach ($aggregation as $result) {
+        switch ($result->_id['grade']) {
+            case 1:
+                switch ($result->_id['department']) {
+                    case 'Science':
+                        $avg_grade1_science = $result->averageScore;
+                        break;
+                    case 'Social':
+                        $avg_grade1_social = $result->averageScore;
+                        break;
+                    case 'Language':
+                        $avg_grade1_language = $result->averageScore;
+                        break;
+                }
+                break;
+            case 2:
+                switch ($result->_id['department']) {
+                    case 'Science':
+                        $avg_grade2_science = $result->averageScore;
+                        break;
+                    case 'Social':
+                        $avg_grade2_social = $result->averageScore;
+                        break;
+                    case 'Language':
+                        $avg_grade2_language = $result->averageScore;
+                        break;
+                }
+                break;
+            case 3:
+                switch ($result->_id['department']) {
+                    case 'Science':
+                        $avg_grade3_science = $result->averageScore;
+                        break;
+                    case 'Social':
+                        $avg_grade3_social = $result->averageScore;
+                        break;
+                    case 'Language':
+                        $avg_grade3_language = $result->averageScore;
+                        break;
+                }
+                break;
+        }
     }
     ?>
 
@@ -484,7 +658,7 @@ for($i = 0; $i < 1; $i++){
     <h1 class="text-center pt-1" style="font-family: fantasy; font-size:60px; color:brown">DASHBOARD</h1>
 
     <div class="col-lg-12 justify-content-center" style="display: flex;">
-        <div id="TeachersAccDiv"></div>
+        <div id="AverageScoreGradeDeptDiv" style="padding-right: 30px;"></div>
         <div id="widgetsWrapper" class="grid-container">
             <div id="chartDiv1" class="chartDiv">
                 <h3 style="margin-top: 20px;">Total New Students</h3>
@@ -514,20 +688,32 @@ for($i = 0; $i < 1; $i++){
     </div>
     </div>
 
+
+
+
+
     <div class="col-lg-12 justify-content-center" id="mainContainer">
-        <div class="col-lg-6">
+        <div class="col-lg-6" style="padding-top: 20px;">
             <!-- Average Teachers Salary -->
-            <div id="AvgTeacherSalDiv"></div>
+            <div id="AvgTeacherSalDiv" class="card-border"></div>
         </div>
         <div class="col-lg-6 row">
-            <div class="col-lg-12"><!-- Students per Dept -->
-                <div id="StudentDeptDiv"></div>
+            <div class="col-lg-12"><!-- per Dept -->
+                <div class="row card-border">
+                    <div class="col-lg-6 no-padding"><!-- First Column for Students per Dept -->
+                        <div id="StudentDeptDiv"></div>
+                    </div>
+                    <div class="col-lg-6 no-padding"><!-- Second Column for Teachers per Dept -->
+                        <div id="TeacherDeptDiv"></div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-12"><!-- Teachers per Dept -->
-                <div id="TeacherDeptDiv"></div>
+            <div class="col-lg-12 no-padding card-border" style="margin-top: 30px;"><!-- Teachers per Dept -->
+                <div id="TeachersAccDiv"></div>
             </div>
         </div>
     </div>
+
 
 
 
@@ -552,12 +738,12 @@ for($i = 0; $i < 1; $i++){
                     fontFamily: 'Verdana',
                     color: 'black',
                     fontWeight: 200,
-                    fontSize: 20
+                    fontSize: 14
                 }
             },
             xAxis: {
                 label_text: 'Department',
-                categories: ['IPA', 'IPS', 'BAHASA']
+                categories: ['SCIENCE', 'SOCIAL', 'LANGUAGE']
             },
             series: [
 
@@ -593,12 +779,12 @@ for($i = 0; $i < 1; $i++){
                     fontFamily: 'Verdana',
                     color: 'black',
                     fontWeight: 200,
-                    fontSize: 20
+                    fontSize: 14
                 }
             },
             xAxis: {
                 label_text: 'Department',
-                categories: ['IPA', 'IPS', 'BAHASA', 'MANDATORY']
+                categories: ['SCIENCE', 'SOCIAL', 'LANGUAGE', 'MANDATORY']
             },
             series: [{
                     name: 'S1',
@@ -635,7 +821,7 @@ for($i = 0; $i < 1; $i++){
             },
             xAxis: {
                 label_text: 'Department',
-                categories: ['IPA', 'IPS', 'BAHASA', 'MANDATORY']
+                categories: ['SCIENCE', 'SOCIAL', 'LANGUAGE', 'MANDATORY']
             },
             series: [{
                     name: 'S1',
@@ -696,7 +882,7 @@ for($i = 0; $i < 1; $i++){
             },
 
             series: [{
-                    name: 'IPA',
+                    name: 'SCIENCE',
                     points: <?php echo '[';
                             for ($i = 0; $i < 15; $i++) {
                                 echo "{ x: '" . $teacher_acc_modified[0][$i][0] . "', y: " . $teacher_acc_modified[0][$i][1] . " }";
@@ -708,7 +894,7 @@ for($i = 0; $i < 1; $i++){
                             ?>
                 },
                 {
-                    name: 'IPS',
+                    name: 'SOCIAL',
                     points: <?php echo '[';
                             for ($i = 0; $i < 15; $i++) {
                                 echo "{ x: '" . $teacher_acc_modified[1][$i][0] . "', y: " . $teacher_acc_modified[1][$i][1] . " }";
@@ -747,36 +933,150 @@ for($i = 0; $i < 1; $i++){
         });
 
 
+        var chart = JSC.chart('AverageScoreGradeDeptDiv', {
+            debug: true,
+            defaultSeries: {
+                type: 'pieDonut',
+                shape_center: '50%,50%'
+            },
+            title: {
+                label: {
+                    text: 'Students Average Score by Grades and Departments',
+                    style_fontSize: 22
+                },
+                position: 'center'
+            },
+            defaultPoint: {
+                tooltip: '<b>%name</b><br>Average Score: <b>%value/100</b>'
+            },
+            legend: {
+                template: '%value %icon %name',
+                position: 'right'
+            },
+            series: [{
+                    name: 'Grades',
+                    points: [{
+                            x: 'Grade 1',
+                            y: <?php echo number_format((float)$avg_grade1, 2); ?>,
+                            legendEntry: {
+                                sortOrder: 1
+                            }
+                        },
+                        {
+                            x: 'Grade 2',
+                            y: <?php echo number_format((float)$avg_grade2, 2); ?>,
+                            legendEntry: {
+                                sortOrder: 3,
+                                lineAbove: true
+                            }
+                        },
+                        {
+                            x: 'Grade 3',
+                            y: <?php echo number_format((float)$avg_grade3, 2); ?>,
+                            legendEntry: {
+                                sortOrder: 5,
+                                lineAbove: true
+                            }
+                        }
+                    ],
+                    shape: {
+                        innerSize: '5%',
+                        size: '40%'
+                    },
+                    defaultPoint_label: {
+                        text: '<b>%name</b>',
+                        placement: 'inside'
+                    },
+                    palette: ['#66bb6a', '#ffca28', '#ef5350']
+                },
+                {
+                    name: 'Departments',
+                    points: [{
+                            x: 'Grade 1 SCIENCE',
+                            y: <?php echo number_format((float)$avg_grade1_science, 2); ?>,
+                            legendEntry_sortOrder: 2,
+                            attributes_year: '2016'
+                        },
+                        {
+                            x: 'Grade 1 SOCIAL',
+                            y: <?php echo number_format((float)$avg_grade1_social, 2); ?>,
+                            legendEntry_sortOrder: 2,
+                            attributes_year: '2016'
+                        },
+                        {
+                            x: 'Grade 1 LANGUAGE',
+                            y: <?php echo number_format((float)$avg_grade1_language, 2); ?>,
+                            legendEntry_sortOrder: 2,
+                            attributes_year: '2016'
+                        },
+                        {
+                            x: 'Grade 2 SCIENCE',
+                            y: <?php echo number_format((float)$avg_grade2_science, 2); ?>,
+                            legendEntry_sortOrder: 4,
+                            attributes_year: '2017'
+                        },
+                        {
+                            x: 'Grade 2 SOCIAL',
+                            y: <?php echo number_format((float)$avg_grade2_social, 2); ?>,
+                            legendEntry_sortOrder: 4,
+                            attributes_year: '2017'
+                        },
+                        {
+                            x: 'Grade 2 LANGUAGE',
+                            y: <?php echo number_format((float)$avg_grade2_language, 2); ?>,
+                            legendEntry_sortOrder: 4,
+                            attributes_year: '2017'
+                        },
+                        {
+                            x: 'Grade 3 SCIENCE',
+                            y: <?php echo number_format((float)$avg_grade3_science, 2); ?>,
+                            legendEntry_sortOrder: 6,
+                            attributes_year: '2018'
+                        },
+                        {
+                            x: 'Grade 3 SOCIAL',
+                            y: <?php echo number_format((float)$avg_grade3_social, 2); ?>,
+                            legendEntry_sortOrder: 6,
+                            attributes_year: '2018'
+                        },
+                        {
+                            x: 'Grade 3 LANGUAGE',
+                            y: <?php echo number_format((float)$avg_grade3_language, 2); ?>,
+                            legendEntry_sortOrder: 6,
+                            attributes_year: '2018'
+                        }
+                    ],
+                    defaultPoint_tooltip: '<b>%name</b><br>Average Score: <b>%value/100</b>',
+                    shape: {
+                        innerSize: '55%',
+                        size: '80%'
+                    },
+                    palette: JSC.colorToPalette(
+                        '#66bb6a', {
+                            lightness: 0.4
+                        },
+                        3,
+                        0
+                    ).concat(
+                        JSC.colorToPalette(
+                            '#ffca28', {
+                                lightness: 0.4
+                            },
+                            3,
+                            0
+                        ),
+                        JSC.colorToPalette(
+                            '#ef5350', {
+                                lightness: 0.4
+                            },
+                            3,
+                            0
+                        )
+                    )
+                }
+            ]
+        });
 
-
-
-
-        // var widget2 = new JSCWidgets.Circular(
-        //     'chartDiv2', {
-        //         label: 'Signal Strength',
-        //         value: 0.31,
-        //         icon: 'material/notification/wifi',
-        //         max: 1,
-        //         color: '#E65100',
-        //         valueFormat: 'p',
-        //         valueText: '%value',
-        //         barWidth: 2,
-        //         barBackgroundWidth: 10,
-        //         barBackgroundColor: 'rgba(255,121,52,0.2)'
-        //     },
-        //     function(widget) {
-        //         // Update the chart when the rendering thread is free.
-        //         setTimeout(function() {
-        //             widget.options({
-        //                 value: 0.75
-        //             }, {
-        //                 animation: {
-        //                     duration: 1000
-        //                 }
-        //             });
-        //         }, 1);
-        //     }
-        // );
 
         var widget3 = new JSCWidgets.Circular(
             'chartDiv3', {
@@ -786,7 +1086,7 @@ for($i = 0; $i < 1; $i++){
                 value: 0,
                 icon: 'material/social/school',
                 max: 100,
-                valueText: '%value',
+                valueText: '%value<span style="font-size:9.5px;">/{%max}</span>',
                 // labelText: '{%max-%value} GB <br>Remaining',
                 barWidth: 5
             },
@@ -794,7 +1094,7 @@ for($i = 0; $i < 1; $i++){
                 // Update the chart when the rendering thread is free.
                 setTimeout(function() {
                     widget.options({
-                        value: <?php echo number_format((float) $averageScore, 2); ?>
+                        value: <?php echo number_format((float)$averageScore, 2); ?>
                     }, {
                         animation: {
                             duration: 2000
@@ -805,57 +1105,30 @@ for($i = 0; $i < 1; $i++){
         );
 
         var widget4 = new JSCWidgets.Circular('chartDiv4', {
-            label: 'Progress',
-            value: 85,
-            max: 100,
-            color: '#1bb045',
-            valueText: '%value%',
-            labelPosition: 'top',
-            barWidth: 5,
-            barRounded: false
-        });
-
-        // var chart5 = JSC.chart('CardDiv1', {
-        //     debug: true,
-        //     type: 'vertical column',
-        //     palette: 'fiveColor10',
-        //     yAxis: {
-        //         scale_type: 'stacked',
-        //         label_text: 'Teachers'
-        //     },
-        //     defaultPoint_outline_color: 'darkenMore',
-        //     title_label: {
-        //         // text: 'Average Teacher Salary',
-        //         style: {
-        //             fontFamily: 'Verdana',
-        //             color: 'black',
-        //             fontWeight: 200,
-        //             fontSize: 20
-        //         }
-        //     },
-        //     xAxis: {
-        //         label_text: 'Department',
-        //         categories: ['IPA', 'IPS', 'BAHASA', 'MANDATORY']
-        //     },
-        //     series: [{
-        //             name: 'S1',
-        //             id: 's1',
-        //             points: <?php echo 'new Array(' . implode(',', $teacher1) . ')'; ?>
-        //         },
-        //         {
-        //             name: 'S2',
-        //             points: <?php echo 'new Array(' . implode(',', $teacher2) . ')'; ?>
-        //         },
-        //         {
-        //             name: 'S3',
-        //             points: <?php echo 'new Array(' . implode(',', $teacher3) . ')'; ?>
-        //         },
-        //     ]
-        // });
+                title: 'Average Teachers Rating',
+                label: 'Rating',
+                icon: 'linearicons/smile',
+                value: 0,
+                max: 5,
+                color: '#673AB7',
+                valueText: '%value<span style="font-size:9.5px;">/{%max}</span>',
+                labelPosition: 'inside',
+                barWidth: 5,
+                barRounded: false
+            },
+            function(widget) {
+                // Update the chart when the rendering thread is free.
+                setTimeout(function() {
+                    widget.options({
+                        value: <?php echo number_format((float) $averageRating, 2); ?>
+                    }, {
+                        animation: {
+                            duration: 2000
+                        }
+                    });
+                }, 1);
+            });
     </script>
-
-    <!-- Link to Bootstrap JS -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
 </body>
 
 
