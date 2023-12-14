@@ -175,6 +175,63 @@ foreach ($subjectsArray as $subject) {
     array_push($avgArray, (array_sum($arr_nilai[$subject]) / 8));
 }
 
+function getTeacherNameBySubject($subjectName, $studentID, $dept_data, $conn)
+{
+    $get_teacher = [
+        [
+            '$match' => [
+                'subjects.subject_name' => $subjectName,
+                'subjects.teachers_list.students_taught.student_id' => intval($studentID),
+            ],
+        ],
+        [
+            '$unwind' => '$subjects',
+        ],
+        [
+            '$match' => [
+                'subjects.subject_name' => $subjectName,
+                'subjects.teachers_list.students_taught.student_id' => intval($studentID),
+            ],
+        ],
+        [
+            '$unwind' => '$subjects.teachers_list',
+        ],
+        [
+            '$unwind' => '$subjects.teachers_list.students_taught',
+        ],
+        [
+            '$match' => [
+                'subjects.teachers_list.students_taught.student_id' => intval($studentID),
+            ],
+        ],
+        [
+            '$project' => [
+                '_id' => 0,
+                'teacher_id' => '$subjects.teachers_list.teacher_id',
+            ],
+        ],
+    ];
+
+    $teacher = $dept_data->aggregate($get_teacher);
+    $teacher = iterator_to_array($teacher);
+
+    if (isset($teacher[0]['teacher_id'])) {
+        $sql = "SELECT full_name FROM teacher WHERE teacher_id = " . $teacher[0]['teacher_id'];
+        $teacherResult = $conn->query($sql);
+
+        while ($row = $teacherResult->fetch_assoc()) {
+            $teacher_name = $row['full_name'];
+            return $teacher_name;
+        }
+    }
+    return null;
+}
+$overall_lowest = $subjectsArray[array_search(min($avgArray), $avgArray)];
+$first_lowest = $subjectsArray[array_search(min($avgPerSem['1st_semester']), $avgPerSem['1st_semester'])];
+$second_lowest = $subjectsArray[array_search(min($avgPerSem['2nd_semester']), $avgPerSem['2nd_semester'])];
+$overall_lowest_teach = getTeacherNameBySubject($overall_lowest, $studentID, $dept_data, $conn);
+$first_lowest_teach = getTeacherNameBySubject($first_lowest, $studentID, $dept_data, $conn);
+$second_lowest_teach = getTeacherNameBySubject($second_lowest, $studentID, $dept_data, $conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -188,29 +245,39 @@ foreach ($subjectsArray as $subject) {
     <script src="https://kit.fontawesome.com/421f6f321f.js" crossorigin="anonymous"></script>
     <script src="https://code.jscharting.com/latest/jscharting.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <style>
-        .card {
-            width: 454px;
-            height: 154px;
-            margin-inline-end: auto;
-            background-color: #F8FBFE;
+        .chartDiv {
+            max-width: calc(50% - 10px);
+            width: 34vw;
+            height: 20vh;
+            background-color: white;
             border-radius: 8px;
-            z-index: 1;
-            box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        .tools {
+        .chartDiv h3,
+        .chartDiv h6,
+        .chartDiv p {
+            text-align: center;
+        }
+
+        .carousel-container {
+            position: relative;
             display: flex;
             align-items: center;
-            padding: 9px;
         }
-        .box {
-            display: inline-block;
-            align-items: center;
-            width: 10px;
-            height: 10px;
-            padding: 1px;
-            border-radius: 50%;
+
+        .carousel-button {
+            color: black;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -256,21 +323,35 @@ foreach ($subjectsArray as $subject) {
             </div>
         </div>
 
-        <div class="card">
-            <div class="tools">
-                
+        <div class="carousel-container">
+            <button class="carousel-button" onclick="plusDivs(-1)">&#10094;</button>
+
+            <div id="chartDiv1" class="chartDiv" data-index="3">
+                <h3 style="margin-top: 29px;" id="subjectTitle">
+                    <?php echo $overall_lowest ?>
+                </h3>
+                <h6><?php echo $overall_lowest_teach ?></h6>
+                <p class="widget-value" style="color:orangered; font-weight: bold;">Overall Lowest Score Subject</p>
             </div>
-            <div class="card__content">
+
+            <div id="chartDiv2" class="chartDiv" data-index="2">
+                <h3 style="margin-top: 29px;" id="subjectTitle">
+                    <?php echo $first_lowest ?>
+                </h3>
+                <h6><?php echo $first_lowest_teach ?></h6>
+                <p class="widget-value" style="color:orangered; font-weight: bold;">1st Semester Lowest Score Subject</p>
             </div>
+
+            <div id="chartDiv3" class="chartDiv" data-index="3">
+                <h3 style="margin-top: 29px;" id="subjectTitle">
+                    <?php echo $second_lowest ?>
+                </h3>
+                <h6><?php echo $second_lowest_teach ?></h6>
+                <p class="widget-value" style="color:orangered; font-weight: bold;">2nd Semester Lowest Score Subject</p>
+            </div>
+
+            <button class="carousel-button" onclick="plusDivs(1)">&#10095;</button>
         </div>
-        <!-- <div class="w-25" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); padding-left: 1.9rem!important; margin-right:5vw">
-            <h5>1st Semester</h5>
-            <h7>Physics</h7>
-        </div>
-        <div class="w-25" style="box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); padding-left: 1.9rem!important; margin-right:5vw">
-            <h5>2nd Semester</h5>
-            <h7>Physics</h7>
-        </div> -->
 
         <div class="d-flex align-items-center ms-auto p-1 mt-3 mr-4" style="margin-right: 10%;">
             <div class="d-flex flex-column align-items-center mr-4">
@@ -287,7 +368,7 @@ foreach ($subjectsArray as $subject) {
         <div class="w-50" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
             <div class="w-25 ms-4 me-4">
                 <label for="exampleDataList" class="form-label">Semester</label>
-                <select class="form-select" aria-label="Default select example" name="SemesterInput" onchange="updatePie(this)">
+                <select class="form-select" aria-label="Default select example" name="SemesterInput" onchange="updatePie(this); updateContent(this);">
                     <option selected value="3">All</option>
                     <option value="1">1st Semester</option>
                     <option value="2">2nd Semester</option>
@@ -296,8 +377,36 @@ foreach ($subjectsArray as $subject) {
             <canvas class="ms-4 me-4" id="myChart"></canvas>
         </div>
     </div>
+    <script>
+        let currentDiv = 1;
 
+        function showDiv(n) {
+            const divs = document.getElementsByClassName("chartDiv");
+            currentDiv += n;
 
+            if (currentDiv > divs.length) {
+                currentDiv = 1;
+            }
+
+            if (currentDiv < 1) {
+                currentDiv = divs.length;
+            }
+
+            for (let i = 0; i < divs.length; i++) {
+                divs[i].style.display = "none";
+            }
+
+            const currentIndex = currentDiv - 1;
+            divs[currentIndex].style.display = "block";
+        }
+
+        function plusDivs(n) {
+            showDiv(n);
+        }
+
+        // Show the initial div
+        showDiv(0);
+    </script>
     <script>
         const exam_label = ["Test1.1", "Test1.2", "Mid Exam1", "Final Exam1", "Test2.1", "Test2.2", "Mid Exam2", "Final Exam2"];
         const colors = [
@@ -361,6 +470,7 @@ foreach ($subjectsArray as $subject) {
         );
 
         var ctx = document.getElementById("myChart");
+        var average_overall = <?php echo round($result[0]['averageSumScore'], 2); ?>;
 
         const stackedText = {
             id: 'stackedText',
@@ -382,7 +492,7 @@ foreach ($subjectsArray as $subject) {
                 ctx.font = `bolder ${fontHeight}px Arial`;
                 ctx.fillStyle = 'rgba(255,26,104,1)';
                 ctx.textAlign = 'center';
-                ctx.fillText(<?php echo round($result[0]['averageSumScore'], 2); ?>, width / 2, height / 11 + top);
+                ctx.fillText(average_overall, width / 2, height / 11 + top);
                 ctx.restore();
 
                 ctx.font = 'bold 13px Arial';
@@ -419,18 +529,23 @@ foreach ($subjectsArray as $subject) {
         });
 
         function updatePie(option) {
-            if (option.value == 1) {
+            const selectedSemester = option.value;
+
+            if (selectedSemester == 1) {
                 myChart.data.datasets.forEach(dataset => {
                     dataset.data = <?php echo json_encode($avgPerSem['1st_semester']); ?>;
                 });
-            } else if (option.value == 2) {
+                average_overall = <?php echo round((array_sum($avgPerSem['1st_semester']) / 8), 2) ?>;
+            } else if (selectedSemester == 2) {
                 myChart.data.datasets.forEach(dataset => {
                     dataset.data = <?php echo json_encode($avgPerSem['2nd_semester']); ?>;
                 });
-            } else if (option.value == 3) {
+                average_overall = <?php echo round((array_sum($avgPerSem['2nd_semester']) / 8), 2) ?>;
+            } else if (selectedSemester == 3) {
                 myChart.data.datasets.forEach(dataset => {
                     dataset.data = <?php echo json_encode($avgArray); ?>;
                 });
+                average_overall = <?php echo round($result[0]['averageSumScore'], 2); ?>;
             }
             myChart.update();
         }
