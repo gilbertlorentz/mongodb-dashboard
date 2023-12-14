@@ -84,9 +84,45 @@ $pipeline2 = [
     ],
 ];
 
+$pipeline3 = [
+    [
+        '$unwind' => '$subjects',
+    ],
+    [
+        '$unwind' => '$subjects.teachers_list',
+    ],
+    [
+        '$unwind' => '$subjects.teachers_list.students_taught',
+    ],
+    [
+        '$project' => [
+            'teacher_id' => '$subjects.teachers_list.teacher_id',
+            'scores' => '$subjects.teachers_list.students_taught.angket_score',
+        ],
+    ],
+    [
+        '$unwind' => '$scores',
+    ],
+    [
+        '$group' => [
+            '_id' => '$teacher_id',
+            'averageRating' => ['$avg' => '$scores'],
+        ],
+    ],
+    [
+        '$project' => [
+            '_id' => 1,
+            'averageRating' => 1,
+        ],
+    ],
+];
+
+
 
 $result = $departments->aggregate($pipeline);
 $result2 = $departments->aggregate($pipeline2);
+$result3 = $departments->aggregate($pipeline3);
+
 
 
 ?>
@@ -300,6 +336,8 @@ $result2 = $departments->aggregate($pipeline2);
                                                     <th scope="col">Email</th>
                                                     <th scope="col">Department</th>
                                                     <th scope="col">Salary (month)</th>
+                                                    <th scope="col">Rating</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -349,8 +387,10 @@ $result2 = $departments->aggregate($pipeline2);
                                                 $result = $stmt->get_result();
                                                 $stmt->close();
 
-                                                $rowCount = 0;
+                                                $rowCount = 1;
+                                                $result3Array = iterator_to_array($result3);
 
+                                                // Assuming $result is the result from the SQL query and $result3Array is the MongoDB ratings result
                                                 while ($row = $result->fetch_assoc()) {
                                                     $rowCount++;
                                                 ?>
@@ -375,10 +415,28 @@ $result2 = $departments->aggregate($pipeline2);
                                                             ?>
                                                         </td>
                                                         <td><?= $row['salary_per_mon'] ?></td>
+                                                        <td>
+                                                            <?php
+                                                            // Assuming $row['_id'] corresponds to teacher_id and $row3['averageRating'] to the rating
+                                                            $mongoTeacherRating = findMongoRatingById($result3Array, $row['teacher_id']);
+                                                            echo isset($mongoTeacherRating['averageRating']) ? $mongoTeacherRating['averageRating'] : 'N/A';
+                                                            ?>
+                                                        </td>
                                                     </tr>
                                                 <?php
                                                 }
+
+                                                function findMongoRatingById($result3Array, $teacherId)
+                                                {
+                                                    foreach ($result3Array as $row3) {
+                                                        if ($row3['_id'] == $teacherId) {
+                                                            return $row3;
+                                                        }
+                                                    }
+                                                    return null;
+                                                }
                                                 ?>
+
                                             </tbody>
                                         </table>
                                     </div>

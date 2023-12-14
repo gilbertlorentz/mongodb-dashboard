@@ -143,144 +143,144 @@ $cursorchem1Sem2 = $exams->find($conditionschem1Sem2, ['projection' => $projecti
 
 $conditionsphys2 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 2, // Change GRADE to 2
+    "GRADE" => 2,
     "SUBJECT" => "Physics",
-    "EXAM_TYPE" => ['$in' => ["Test2.1", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 2
+    "EXAM_TYPE" => ['$in' => ["Test2.1", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
 $cursorphys2 = $exams->find($conditionsphys2, ['projection' => $projection]);
 
 $conditionsphys2Sem2 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 2, // Change GRADE to 2
+    "GRADE" => 2,
     "SUBJECT" => "Physics",
-    "EXAM_TYPE" => ['$in' => ["Test2.2", "Test2.3", "Mid Exam3", "Final Exam3"]], // Change Exam Type to 2
+    "EXAM_TYPE" => ['$in' => ["Test2.2", "Test2.3", "Mid Exam3", "Final Exam3"]],
 ];
 
 $cursorphys2Sem2 = $exams->find($conditionsphys2Sem2, ['projection' => $projection]);
 
 $conditionsbio2 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 2, // Change GRADE to 2
+    "GRADE" => 2,
     "SUBJECT" => "Biology",
-    "EXAM_TYPE" => ['$in' => ["Test2.1", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 2
+    "EXAM_TYPE" => ['$in' => ["Test2.1", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
 $cursorbio2 = $exams->find($conditionsbio2, ['projection' => $projection]);
 
 $conditionsbio2Sem2 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 2, // Change GRADE to 2
+    "GRADE" => 2,
     "SUBJECT" => "Biology",
-    "EXAM_TYPE" => ['$in' => ["Test2.2", "Test2.3", "Mid Exam3", "Final Exam3"]], // Change Exam Type to 2
+    "EXAM_TYPE" => ['$in' => ["Test2.2", "Test2.3", "Mid Exam3", "Final Exam3"]],
 ];
 
 $cursorbio2Sem2 = $exams->find($conditionsbio2Sem2, ['projection' => $projection]);
 
 $conditionsmath2 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 2, // Change GRADE to 2
+    "GRADE" => 2,
     "SUBJECT" => "Mathematics",
-    "EXAM_TYPE" => ['$in' => ["Test2.1", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 2
+    "EXAM_TYPE" => ['$in' => ["Test2.1", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
 $cursormath2 = $exams->find($conditionsmath2, ['projection' => $projection]);
 
 $conditionsmath2Sem2 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 2, // Change GRADE to 2
+    "GRADE" => 2,
     "SUBJECT" => "Mathematics",
-    "EXAM_TYPE" => ['$in' => ["Test2.2", "Test2.3", "Mid Exam3", "Final Exam3"]], // Change Exam Type to 2
+    "EXAM_TYPE" => ['$in' => ["Test2.2", "Test2.3", "Mid Exam3", "Final Exam3"]],
 ];
 
 $cursormath2Sem2 = $exams->find($conditionsmath2Sem2, ['projection' => $projection]);
 
 $conditionschem2 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 2, // Change GRADE to 2
+    "GRADE" => 2,
     "SUBJECT" => "Chemistry",
-    "EXAM_TYPE" => ['$in' => ["Test2.1", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 2
+    "EXAM_TYPE" => ['$in' => ["Test2.1", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
 $cursorchem2 = $exams->find($conditionschem2, ['projection' => $projection]);
 
 $conditionschem2Sem2 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 2, // Change GRADE to 2
+    "GRADE" => 2,
     "SUBJECT" => "Chemistry",
-    "EXAM_TYPE" => ['$in' => ["Test2.2", "Test2.3", "Mid Exam3", "Final Exam3"]], // Change Exam Type to 2
+    "EXAM_TYPE" => ['$in' => ["Test2.2", "Test2.3", "Mid Exam3", "Final Exam3"]],
 ];
 
 $cursorchem2Sem2 = $exams->find($conditionschem2Sem2, ['projection' => $projection]);
 
 $conditionsphys3 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 3, // Change GRADE to 3
+    "GRADE" => 3,
     "SUBJECT" => "Physics",
-    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]], // Change Exam Type to 3
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 $cursorphys3 = $exams->find($conditionsphys3, ['projection' => $projection]);
 
 $conditionsphys3Sem2 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 3, // Change GRADE to 3
+    "GRADE" => 3,
     "SUBJECT" => "Physics",
-    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 3
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
 $cursorphys3Sem2 = $exams->find($conditionsphys3Sem2, ['projection' => $projection]);
 
 $conditionsbio3 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 3, // Change GRADE to 3
+    "GRADE" => 3,
     "SUBJECT" => "Biology",
-    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]], // Change Exam Type to 3
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 $cursorbio3 = $exams->find($conditionsbio3, ['projection' => $projection]);
 
 $conditionsbio3Sem2 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 3, // Change GRADE to 3
+    "GRADE" => 3,
     "SUBJECT" => "Biology",
-    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 3
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
 $cursorbio3Sem2 = $exams->find($conditionsbio3Sem2, ['projection' => $projection]);
 
 $conditionsmath3 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 3, // Change GRADE to 3
+    "GRADE" => 3,
     "SUBJECT" => "Mathematics",
-    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]], // Change Exam Type to 3
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 $cursormath3 = $exams->find($conditionsmath3, ['projection' => $projection]);
 
 $conditionsmath3Sem2 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 3, // Change GRADE to 3
+    "GRADE" => 3,
     "SUBJECT" => "Mathematics",
-    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 3
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
 $cursormath3Sem2 = $exams->find($conditionsmath3Sem2, ['projection' => $projection]);
 
 $conditionschem3 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 3, // Change GRADE to 3
+    "GRADE" => 3,
     "SUBJECT" => "Chemistry",
-    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]], // Change Exam Type to 3
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 $cursorchem3 = $exams->find($conditionschem3, ['projection' => $projection]);
 
 $conditionschem3Sem2 = [
     "DEPARTMENT" => "Science",
-    "GRADE" => 3, // Change GRADE to 3
+    "GRADE" => 3,
     "SUBJECT" => "Chemistry",
-    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 3
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
 $cursorchem3Sem2 = $exams->find($conditionschem3Sem2, ['projection' => $projection]);
@@ -288,7 +288,7 @@ $cursorchem3Sem2 = $exams->find($conditionschem3Sem2, ['projection' => $projecti
 $conditionseco1 = [
     "DEPARTMENT" => "Social",
     "GRADE" => 1,
-    "SUBJECT" => "Economics", // Change SUBJECT to "Economics"
+    "SUBJECT" => "Economics",
     "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
@@ -297,7 +297,7 @@ $cursoreco1 = $exams->find($conditionseco1, ['projection' => $projection]);
 $conditionseco1Sem2 = [
     "DEPARTMENT" => "Social",
     "GRADE" => 1,
-    "SUBJECT" => "Economics", // Change SUBJECT to "Economics"
+    "SUBJECT" => "Economics",
     "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
@@ -305,18 +305,18 @@ $cursoreco1Sem2 = $exams->find($conditionseco1Sem2, ['projection' => $projection
 
 
 $conditionsacc1 = [
-    "DEPARTMENT" => "Social", // Change DEPARTMENT to "Social"
+    "DEPARTMENT" => "Social",
     "GRADE" => 1,
-    "SUBJECT" => "Accounting", // Change SUBJECT to "Accounting"
+    "SUBJECT" => "Accounting",
     "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 $cursoracc1 = $exams->find($conditionsacc1, ['projection' => $projection]);
 
 $conditionsacc1Sem2 = [
-    "DEPARTMENT" => "Social", // Change DEPARTMENT to "Social"
+    "DEPARTMENT" => "Social",
     "GRADE" => 1,
-    "SUBJECT" => "Accounting", // Change SUBJECT to "Accounting"
+    "SUBJECT" => "Accounting",
     "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
@@ -418,7 +418,6 @@ $conditionsoc2Sem2 = [
 $cursorsoc2Sem2 = $exams->find($conditionsoc2Sem2, ['projection' => $projection]);
 
 
-// Grade 2 - Geography
 $conditiongeo2 = [
     "DEPARTMENT" => "Social",
     "GRADE" => 2,
@@ -437,7 +436,6 @@ $conditiongeo2Sem2 = [
 
 $cursorgeo2Sem2 = $exams->find($conditiongeo2Sem2, ['projection' => $projection]);
 
-// Grade 3 - Economics
 $conditionseco3 = [
     "DEPARTMENT" => "Social",
     "GRADE" => 3,
@@ -457,7 +455,6 @@ $conditionseco3Sem2 = [
 $cursoreco3Sem2 = $exams->find($conditionseco3Sem2, ['projection' => $projection]);
 
 
-// Grade 3 - Accounting
 $conditionsacc3 = [
     "DEPARTMENT" => "Social",
     "GRADE" => 3,
@@ -517,7 +514,7 @@ $conditiongeo3Sem2 = [
 $cursorgeo3Sem2 = $exams->find($conditiongeo3Sem2, ['projection' => $projection]);
 
 $conditionskor1 = [
-    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "DEPARTMENT" => "Language",
     "GRADE" => 1,
     "SUBJECT" => "Korean", // Change SUBJECT to "Korean"
     "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
@@ -526,7 +523,7 @@ $conditionskor1 = [
 $cursorkor1 = $exams->find($conditionskor1, ['projection' => $projection]);
 
 $conditionskor1Sem2 = [
-    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "DEPARTMENT" => "Language",
     "GRADE" => 1,
     "SUBJECT" => "Korean", // Change SUBJECT to "Korean"
     "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
@@ -535,68 +532,66 @@ $conditionskor1Sem2 = [
 $cursorkor1Sem2 = $exams->find($conditionskor1Sem2, ['projection' => $projection]);
 
 
-// Grade 1 - Mandarin (formerly Accounting)
 $conditionsman1 = [
-    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "DEPARTMENT" => "Language",
     "GRADE" => 1,
-    "SUBJECT" => "Mandarin", // Change SUBJECT to "Mandarin"
+    "SUBJECT" => "Mandarin",
     "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 $cursorman1 = $exams->find($conditionsman1, ['projection' => $projection]);
 
 $conditionsman1Sem2 = [
-    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "DEPARTMENT" => "Language",
     "GRADE" => 1,
-    "SUBJECT" => "Mandarin", // Change SUBJECT to "Mandarin"
+    "SUBJECT" => "Mandarin",
     "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
 $cursorman1Sem2 = $exams->find($conditionsman1Sem2, ['projection' => $projection]);
 
 
-// Grade 1 - French (formerly Sociology)
 $conditionsfre1 = [
-    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "DEPARTMENT" => "Language",
     "GRADE" => 1,
-    "SUBJECT" => "French", // Change SUBJECT to "French"
+    "SUBJECT" => "French",
     "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 $cursorfre1 = $exams->find($conditionsfre1, ['projection' => $projection]);
 
 $conditionsfre1Sem2 = [
-    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "DEPARTMENT" => "Language",
     "GRADE" => 1,
-    "SUBJECT" => "French", // Change SUBJECT to "French"
+    "SUBJECT" => "French",
     "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
 $cursorfre1Sem2 = $exams->find($conditionsfre1Sem2, ['projection' => $projection]);
 
 
-// Grade 1 - German (formerly Geography)
+
 $conditionsger1 = [
-    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "DEPARTMENT" => "Language",
     "GRADE" => 1,
-    "SUBJECT" => "German", // Change SUBJECT to "German"
+    "SUBJECT" => "German",
     "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 $cursorger1 = $exams->find($conditionsger1, ['projection' => $projection]);
 
 $conditionsger1Sem2 = [
-    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "DEPARTMENT" => "Language",
     "GRADE" => 1,
-    "SUBJECT" => "German", // Change SUBJECT to "German"
+    "SUBJECT" => "German",
     "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
 $cursorger1Sem2 = $exams->find($conditionsger1Sem2, ['projection' => $projection]);
 
 $conditionskor2 = [
-    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
-    "GRADE" => 2, // Change GRADE to 2
+    "DEPARTMENT" => "Language",
+    "GRADE" => 2,
     "SUBJECT" => "Korean", // Change SUBJECT to "Korean"
     "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
@@ -604,8 +599,8 @@ $conditionskor2 = [
 $cursorkor2 = $exams->find($conditionskor2, ['projection' => $projection]);
 
 $conditionskor2Sem2 = [
-    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
-    "GRADE" => 2, // Change GRADE to 2
+    "DEPARTMENT" => "Language",
+    "GRADE" => 2,
     "SUBJECT" => "Korean", // Change SUBJECT to "Korean"
     "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
@@ -615,17 +610,17 @@ $cursorkor2Sem2 = $exams->find($conditionskor2Sem2, ['projection' => $projection
 
 // Grade 2 - Mandarin (formerly Accounting)
 $conditionsman2 = [
-    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
-    "GRADE" => 2, // Change GRADE to 2
-    "SUBJECT" => "Mandarin", // Change SUBJECT to "Mandarin"
+    "DEPARTMENT" => "Language",
+    "GRADE" => 2,
+    "SUBJECT" => "Mandarin",
     "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 $cursorman2 = $exams->find($conditionsman2, ['projection' => $projection]);
 
 $conditionsman2Sem2 = [
-    "DEPARTMENT" => "Language", 
-    "GRADE" => 2, 
+    "DEPARTMENT" => "Language",
+    "GRADE" => 2,
     "SUBJECT" => "Mandarin",
     "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
@@ -634,18 +629,18 @@ $cursorman2Sem2 = $exams->find($conditionsman2Sem2, ['projection' => $projection
 
 
 $conditionsfre2 = [
-    "DEPARTMENT" => "Language", 
-    "GRADE" => 2, 
-    "SUBJECT" => "French", 
+    "DEPARTMENT" => "Language",
+    "GRADE" => 2,
+    "SUBJECT" => "French",
     "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 $cursorfre2 = $exams->find($conditionsfre2, ['projection' => $projection]);
 
 $conditionsfre2Sem2 = [
-    "DEPARTMENT" => "Language", 
-    "GRADE" => 2, 
-    "SUBJECT" => "French", 
+    "DEPARTMENT" => "Language",
+    "GRADE" => 2,
+    "SUBJECT" => "French",
     "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
@@ -653,18 +648,18 @@ $cursorfre2Sem2 = $exams->find($conditionsfre2Sem2, ['projection' => $projection
 
 
 $conditionsger2 = [
-    "DEPARTMENT" => "Language", 
-    "GRADE" => 2, 
-    "SUBJECT" => "German", 
+    "DEPARTMENT" => "Language",
+    "GRADE" => 2,
+    "SUBJECT" => "German",
     "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 $cursorger2 = $exams->find($conditionsger2, ['projection' => $projection]);
 
 $conditionsger2Sem2 = [
-    "DEPARTMENT" => "Language", 
-    "GRADE" => 2, 
-    "SUBJECT" => "German", 
+    "DEPARTMENT" => "Language",
+    "GRADE" => 2,
+    "SUBJECT" => "German",
     "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
@@ -673,8 +668,8 @@ $cursorger2Sem2 = $exams->find($conditionsger2Sem2, ['projection' => $projection
 // Grade 3 - Korean (formerly Economics)
 $conditionskor3 = [
     "DEPARTMENT" => "Language",
-    "GRADE" => 3, 
-    "SUBJECT" => "Korean", 
+    "GRADE" => 3,
+    "SUBJECT" => "Korean",
     "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
@@ -683,7 +678,7 @@ $cursorkor3 = $exams->find($conditionskor3, ['projection' => $projection]);
 $conditionskor3Sem2 = [
     "DEPARTMENT" => "Language",
     "GRADE" => 3,
-    "SUBJECT" => "Korean", 
+    "SUBJECT" => "Korean",
     "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
@@ -692,17 +687,17 @@ $cursorkor3Sem2 = $exams->find($conditionskor3Sem2, ['projection' => $projection
 
 $conditionsman3 = [
     "DEPARTMENT" => "Language",
-    "GRADE" => 3, 
-    "SUBJECT" => "Mandarin", 
+    "GRADE" => 3,
+    "SUBJECT" => "Mandarin",
     "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 $cursorman3 = $exams->find($conditionsman3, ['projection' => $projection]);
 
 $conditionsman3Sem2 = [
-    "DEPARTMENT" => "Language", 
-    "GRADE" => 3, 
-    "SUBJECT" => "Mandarin", 
+    "DEPARTMENT" => "Language",
+    "GRADE" => 3,
+    "SUBJECT" => "Mandarin",
     "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
@@ -710,18 +705,18 @@ $cursorman3Sem2 = $exams->find($conditionsman3Sem2, ['projection' => $projection
 
 
 $conditionsfre3 = [
-    "DEPARTMENT" => "Language", 
-    "GRADE" => 3, 
-    "SUBJECT" => "French", 
+    "DEPARTMENT" => "Language",
+    "GRADE" => 3,
+    "SUBJECT" => "French",
     "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 $cursorfre3 = $exams->find($conditionsfre3, ['projection' => $projection]);
 
 $conditionsfre3Sem2 = [
-    "DEPARTMENT" => "Language", 
-    "GRADE" => 3, 
-    "SUBJECT" => "French", 
+    "DEPARTMENT" => "Language",
+    "GRADE" => 3,
+    "SUBJECT" => "French",
     "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
@@ -729,22 +724,251 @@ $cursorfre3Sem2 = $exams->find($conditionsfre3Sem2, ['projection' => $projection
 
 
 $conditionsger3 = [
-    "DEPARTMENT" => "Language", 
-    "GRADE" => 3, 
-    "SUBJECT" => "German", 
+    "DEPARTMENT" => "Language",
+    "GRADE" => 3,
+    "SUBJECT" => "German",
     "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 $cursorger3 = $exams->find($conditionsger3, ['projection' => $projection]);
 
 $conditionsger3Sem2 = [
-    "DEPARTMENT" => "Language", 
-    "GRADE" => 3, 
-    "SUBJECT" => "German", 
+    "DEPARTMENT" => "Language",
+    "GRADE" => 3,
+    "SUBJECT" => "German",
     "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
 $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection]);
+
+$conditionsart1 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 1,
+    "SUBJECT" => "Art",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorart1 = $exams->find($conditionsart1, ['projection' => $projection]);
+
+$conditionsart1Sem2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 1,
+    "SUBJECT" => "Art",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorart1Sem2 = $exams->find($conditionsart1Sem2, ['projection' => $projection]);
+
+
+$conditionsind1 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 1,
+    "SUBJECT" => "Indonesian",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorind1 = $exams->find($conditionsind1, ['projection' => $projection]);
+
+$conditionsind1Sem2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 1,
+    "SUBJECT" => "Indonesian",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorind1Sem2 = $exams->find($conditionsind1Sem2, ['projection' => $projection]);
+
+
+$conditionshist1 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 1,
+    "SUBJECT" => "History",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorhist1 = $exams->find($conditionshist1, ['projection' => $projection]);
+
+$conditionshist1Sem2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 1,
+    "SUBJECT" => "History",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorhist1Sem2 = $exams->find($conditionshist1Sem2, ['projection' => $projection]);
+
+
+$conditionsciv1 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 1,
+    "SUBJECT" => "Civic",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorciv1 = $exams->find($conditionsciv1, ['projection' => $projection]);
+
+$conditionsciv1Sem2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 1,
+    "SUBJECT" => "Civic",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorciv1Sem2 = $exams->find($conditionsciv1Sem2, ['projection' => $projection]);
+
+
+$conditionsart2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 2,
+    "SUBJECT" => "Art",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorart2 = $exams->find($conditionsart2, ['projection' => $projection]);
+
+$conditionsart2Sem2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 2,
+    "SUBJECT" => "Art",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorart2Sem2 = $exams->find($conditionsart2Sem2, ['projection' => $projection]);
+
+
+
+$conditionsind2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 2,
+    "SUBJECT" => "Indonesian",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorind2 = $exams->find($conditionsind2, ['projection' => $projection]);
+
+$conditionsind2Sem2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 2,
+    "SUBJECT" => "Indonesian",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorind2Sem2 = $exams->find($conditionsind2Sem2, ['projection' => $projection]);
+
+
+$conditionshist2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 2,
+    "SUBJECT" => "History",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorhist2 = $exams->find($conditionshist2, ['projection' => $projection]);
+
+$conditionshist2Sem2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 2,
+    "SUBJECT" => "History",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorhist2Sem2 = $exams->find($conditionshist2Sem2, ['projection' => $projection]);
+
+
+$conditionsciv2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 2,
+    "SUBJECT" => "Civic",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorciv2 = $exams->find($conditionsciv2, ['projection' => $projection]);
+
+$conditionsciv2Sem2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 2,
+    "SUBJECT" => "Civic",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorciv2Sem2 = $exams->find($conditionsciv2Sem2, ['projection' => $projection]);
+
+$conditionsart3 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 3,
+    "SUBJECT" => "Art",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorart3 = $exams->find($conditionsart3, ['projection' => $projection]);
+
+$conditionsart3Sem2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 3,
+    "SUBJECT" => "Art",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorart3Sem2 = $exams->find($conditionsart3Sem2, ['projection' => $projection]);
+
+
+$conditionsind3 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 3,
+    "SUBJECT" => "Indonesian",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorind3 = $exams->find($conditionsind3, ['projection' => $projection]);
+
+$conditionsind3Sem2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 3,
+    "SUBJECT" => "Indonesian",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorind3Sem2 = $exams->find($conditionsind3Sem2, ['projection' => $projection]);
+
+
+$conditionshist3 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 3,
+    "SUBJECT" => "History",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorhist3 = $exams->find($conditionshist3, ['projection' => $projection]);
+
+$conditionshist3Sem2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 3,
+    "SUBJECT" => "History",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorhist3Sem2 = $exams->find($conditionshist3Sem2, ['projection' => $projection]);
+
+
+$conditionsciv3 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 3,
+    "SUBJECT" => "Civic",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorciv3 = $exams->find($conditionsciv3, ['projection' => $projection]);
+
+$conditionsciv3Sem2 = [
+    "DEPARTMENT" => "Mandatory",
+    "GRADE" => 3,
+    "SUBJECT" => "Civic",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorciv3Sem2 = $exams->find($conditionsciv3Sem2, ['projection' => $projection]);
+
+
 
 
 ?>
@@ -2142,40 +2366,41 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                     </h2>
                                                                     <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
                                                                         <div class="accordion-body">
-                                                                        <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursormath3 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                            <section class="intro">
+                                                                                <div class="bg-image h-100">
+                                                                                    <div class="mask d-flex align-items-center h-100">
+                                                                                        <div class="container">
+                                                                                            <div class="row justify-content-center">
+                                                                                                <div class="col-12">
+                                                                                                    <div class="card" id="card2">
+                                                                                                        <div class="card-body p-0">
+                                                                                                            <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                                <table class="table table-striped mb-0">
+                                                                                                                    <thead style="background-color: #fff;">
+                                                                                                                        <th scope="col">Student ID</th>
+                                                                                                                        <th scope="col">Full Name</th>
+                                                                                                                        <th scope="col">Score</th>
+                                                                                                                        <th scope="col">Exam</th>
+                                                                                                                    </thead>
+                                                                                                                    <tbody>
+                                                                                                                        <?php
+                                                                                                                        foreach ($cursormath3 as $exam) {
+                                                                                                                            foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                                $studentId = $scoreData['student_id'];
+                                                                                                                                $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                                $result = mysqli_query($conn, $sql);
+                                                                                                                                $row = mysqli_fetch_assoc($result);
+                                                                                                                                $fullName = $row['full_name'];
+                                                                                                                                $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                                $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                                echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                            }
                                                                                                                         }
-                                                                                                                    }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
+                                                                                                                        ?>
+                                                                                                                    </tbody>
+                                                                                                                </table>
+                                                                                                            </div>
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
@@ -2183,8 +2408,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </section>
+                                                                            </section>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -2202,40 +2426,41 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                     </h2>
                                                                     <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
                                                                         <div class="accordion-body">
-                                                                        <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursormath3Sem2 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                            <section class="intro">
+                                                                                <div class="bg-image h-100">
+                                                                                    <div class="mask d-flex align-items-center h-100">
+                                                                                        <div class="container">
+                                                                                            <div class="row justify-content-center">
+                                                                                                <div class="col-12">
+                                                                                                    <div class="card" id="card2">
+                                                                                                        <div class="card-body p-0">
+                                                                                                            <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                                <table class="table table-striped mb-0">
+                                                                                                                    <thead style="background-color: #fff;">
+                                                                                                                        <th scope="col">Student ID</th>
+                                                                                                                        <th scope="col">Full Name</th>
+                                                                                                                        <th scope="col">Score</th>
+                                                                                                                        <th scope="col">Exam</th>
+                                                                                                                    </thead>
+                                                                                                                    <tbody>
+                                                                                                                        <?php
+                                                                                                                        foreach ($cursormath3Sem2 as $exam) {
+                                                                                                                            foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                                $studentId = $scoreData['student_id'];
+                                                                                                                                $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                                $result = mysqli_query($conn, $sql);
+                                                                                                                                $row = mysqli_fetch_assoc($result);
+                                                                                                                                $fullName = $row['full_name'];
+                                                                                                                                $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                                $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                                echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                            }
                                                                                                                         }
-                                                                                                                    }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
+                                                                                                                        ?>
+                                                                                                                    </tbody>
+                                                                                                                </table>
+                                                                                                            </div>
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
@@ -2243,8 +2468,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </section>
+                                                                            </section>
 
                                                                         </div>
                                                                     </div>
@@ -2273,7 +2497,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                 </h2>
                                                                 <div id="nested-sub-nested-collapse1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading1" data-bs-parent="#nested-sub-nested-accordion1">
                                                                     <div class="accordion-body">
-                                                                    <section class="intro">
+                                                                        <section class="intro">
                                                                             <div class="bg-image h-100">
                                                                                 <div class="mask d-flex align-items-center h-100">
                                                                                     <div class="container">
@@ -2331,7 +2555,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                 </h2>
                                                                 <div id="nested-sub-nested-collapse2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading2" data-bs-parent="#nested-sub-nested-accordion2">
                                                                     <div class="accordion-body">
-                                                                    <section class="intro">
+                                                                        <section class="intro">
                                                                             <div class="bg-image h-100">
                                                                                 <div class="mask d-flex align-items-center h-100">
                                                                                     <div class="container">
@@ -2432,41 +2656,40 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                             </h2>
                                                             <div id="nested-sub-nested-nested-collapse1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading1" data-bs-parent="#nested-sub-nested-nested-accordion1">
                                                                 <div class="accordion-body">
-                                                                <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursoreco1 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursoreco1 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
                                                                                                                     }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -2474,7 +2697,9 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>                                                                </div>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2489,41 +2714,40 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                             </h2>
                                                             <div id="nested-sub-nested-nested-collapse2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading2" data-bs-parent="#nested-sub-nested-nested-accordion2">
                                                                 <div class="accordion-body">
-                                                                <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursoreco1Sem2 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursoreco1Sem2 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
                                                                                                                     }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -2531,7 +2755,8 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>
+                                                                        </div>
+                                                                    </section>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2563,41 +2788,40 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                             </h2>
                                                             <div id="nested-sub-nested-nested-collapse2-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading2-1" data-bs-parent="#nested-sub-nested-nested-accordion2-1">
                                                                 <div class="accordion-body">
-                                                                <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursoracc1 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursoracc1 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
                                                                                                                     }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -2605,7 +2829,9 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>                                                                </div>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2620,41 +2846,40 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                             </h2>
                                                             <div id="nested-sub-nested-nested-collapse2-2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading2-2" data-bs-parent="#nested-sub-nested-nested-accordion2-2">
                                                                 <div class="accordion-body">
-                                                                <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursoracc1Sem2 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursoracc1Sem2 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
                                                                                                                     }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -2662,7 +2887,9 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>                                                                </div>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2693,41 +2920,40 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                             </h2>
                                                             <div id="nested-sub-nested-nested-collapse3-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading3-1" data-bs-parent="#nested-sub-nested-nested-accordion3-1">
                                                                 <div class="accordion-body">
-                                                                <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursorsoc1 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursorsoc1 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
                                                                                                                     }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -2735,7 +2961,9 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>                                                                </div>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2750,41 +2978,40 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                             </h2>
                                                             <div id="nested-sub-nested-nested-collapse3-2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading3-2" data-bs-parent="#nested-sub-nested-nested-accordion3-2">
                                                                 <div class="accordion-body">
-                                                                <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursorsoc1Sem2 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursorsoc1Sem2 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
                                                                                                                     }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -2792,7 +3019,9 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>                                                                </div>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2822,41 +3051,40 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                             </h2>
                                                             <div id="nested-sub-nested-nested-collapse4-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading4-1" data-bs-parent="#nested-sub-nested-nested-accordion4-1">
                                                                 <div class="accordion-body">
-                                                                <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursorgeo1 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursorgeo1 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
                                                                                                                     }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -2864,7 +3092,8 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>
+                                                                        </div>
+                                                                    </section>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2880,41 +3109,40 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                             </h2>
                                                             <div id="nested-sub-nested-nested-collapse4-2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading4-2" data-bs-parent="#nested-sub-nested-nested-accordion4-2">
                                                                 <div class="accordion-body">
-                                                                <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursorgeo1Sem2 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursorgeo1Sem2 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
                                                                                                                     }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -2922,7 +3150,8 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>
+                                                                        </div>
+                                                                    </section>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2969,41 +3198,40 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                             </h2>
                                                             <div id="nested-collapse-level-1-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-1-1" data-bs-parent="#nested-accordion-level-1">
                                                                 <div class="accordion-body">
-                                                                <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursoreco2 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursoreco2 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
                                                                                                                     }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -3011,7 +3239,9 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>                                                                </div>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
                                                             </div>
                                                         </div>
 
@@ -3024,41 +3254,40 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                             </h2>
                                                             <div id="nested-collapse-level-1-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-1-2" data-bs-parent="#nested-accordion-level-1">
                                                                 <div class="accordion-body">
-                                                                <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursoreco2Sem2 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursoreco2Sem2 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
                                                                                                                     }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -3066,7 +3295,8 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>
+                                                                        </div>
+                                                                    </section>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -3097,7 +3327,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                 </h2>
                                                                 <div id="nested-collapse-level-3-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-3-1" data-bs-parent="#nested-accordion-level-3-1">
                                                                     <div class="accordion-body">
-                                                                    <section class="intro">
+                                                                        <section class="intro">
                                                                             <div class="bg-image h-100">
                                                                                 <div class="mask d-flex align-items-center h-100">
                                                                                     <div class="container">
@@ -3139,7 +3369,8 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>                                                                    </div>
+                                                                        </section>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -3153,7 +3384,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                 </h2>
                                                                 <div id="nested-collapse-level-3-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-3-2" data-bs-parent="#nested-accordion-level-3-2">
                                                                     <div class="accordion-body">
-                                                                    <section class="intro">
+                                                                        <section class="intro">
                                                                             <div class="bg-image h-100">
                                                                                 <div class="mask d-flex align-items-center h-100">
                                                                                     <div class="container">
@@ -3226,7 +3457,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                 </h2>
                                                                 <div id="nested-collapse-level-4-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-1" data-bs-parent="#nested-accordion-level-4-1">
                                                                     <div class="accordion-body">
-                                                                       <section class="intro">
+                                                                        <section class="intro">
                                                                             <div class="bg-image h-100">
                                                                                 <div class="mask d-flex align-items-center h-100">
                                                                                     <div class="container">
@@ -3243,7 +3474,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                                                     <th scope="col">Exam</th>
                                                                                                                 </thead>
                                                                                                                 <tbody>
-                                                                                                                <?php
+                                                                                                                    <?php
                                                                                                                     foreach ($cursorsoc2 as $exam) {
                                                                                                                         foreach ($exam['SCORE_DATA'] as $scoreData) {
                                                                                                                             $studentId = $scoreData['student_id'];
@@ -3283,7 +3514,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                 </h2>
                                                                 <div id="nested-collapse-level-4-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-2" data-bs-parent="#nested-accordion-level-4-2">
                                                                     <div class="accordion-body">
-                                                                    <section class="intro">
+                                                                        <section class="intro">
                                                                             <div class="bg-image h-100">
                                                                                 <div class="mask d-flex align-items-center h-100">
                                                                                     <div class="container">
@@ -3356,7 +3587,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                 </h2>
                                                                 <div id="nested-collapse-level-4-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-1" data-bs-parent="#nested-accordion-level-4-1">
                                                                     <div class="accordion-body">
-                                                                    <section class="intro">
+                                                                        <section class="intro">
                                                                             <div class="bg-image h-100">
                                                                                 <div class="mask d-flex align-items-center h-100">
                                                                                     <div class="container">
@@ -3413,7 +3644,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                 </h2>
                                                                 <div id="nested-collapse-level-4-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-2" data-bs-parent="#nested-accordion-level-4-2">
                                                                     <div class="accordion-body">
-                                                                    <section class="intro">
+                                                                        <section class="intro">
                                                                             <div class="bg-image h-100">
                                                                                 <div class="mask d-flex align-items-center h-100">
                                                                                     <div class="container">
@@ -3502,40 +3733,41 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                     </h2>
                                                                     <div id="nested-collapse-eco1" class="accordion-collapse collapse" aria-labelledby="nested-heading-eco1" data-bs-parent="#nested-accordion-eco1">
                                                                         <div class="accordion-body">
-                                                                        <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursoreco3 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                            <section class="intro">
+                                                                                <div class="bg-image h-100">
+                                                                                    <div class="mask d-flex align-items-center h-100">
+                                                                                        <div class="container">
+                                                                                            <div class="row justify-content-center">
+                                                                                                <div class="col-12">
+                                                                                                    <div class="card" id="card2">
+                                                                                                        <div class="card-body p-0">
+                                                                                                            <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                                <table class="table table-striped mb-0">
+                                                                                                                    <thead style="background-color: #fff;">
+                                                                                                                        <th scope="col">Student ID</th>
+                                                                                                                        <th scope="col">Full Name</th>
+                                                                                                                        <th scope="col">Score</th>
+                                                                                                                        <th scope="col">Exam</th>
+                                                                                                                    </thead>
+                                                                                                                    <tbody>
+                                                                                                                        <?php
+                                                                                                                        foreach ($cursoreco3 as $exam) {
+                                                                                                                            foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                                $studentId = $scoreData['student_id'];
+                                                                                                                                $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                                $result = mysqli_query($conn, $sql);
+                                                                                                                                $row = mysqli_fetch_assoc($result);
+                                                                                                                                $fullName = $row['full_name'];
+                                                                                                                                $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                                $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                                echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                            }
                                                                                                                         }
-                                                                                                                    }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
+                                                                                                                        ?>
+                                                                                                                    </tbody>
+                                                                                                                </table>
+                                                                                                            </div>
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
@@ -3543,8 +3775,8 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </section>                                                                        </div>
+                                                                            </section>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3558,40 +3790,41 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                     </h2>
                                                                     <div id="nested-collapse-eco2" class="accordion-collapse collapse" aria-labelledby="nested-heading-eco2" data-bs-parent="#nested-accordion-eco2">
                                                                         <div class="accordion-body">
-                                                                        <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursoreco3Sem2 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                            <section class="intro">
+                                                                                <div class="bg-image h-100">
+                                                                                    <div class="mask d-flex align-items-center h-100">
+                                                                                        <div class="container">
+                                                                                            <div class="row justify-content-center">
+                                                                                                <div class="col-12">
+                                                                                                    <div class="card" id="card2">
+                                                                                                        <div class="card-body p-0">
+                                                                                                            <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                                <table class="table table-striped mb-0">
+                                                                                                                    <thead style="background-color: #fff;">
+                                                                                                                        <th scope="col">Student ID</th>
+                                                                                                                        <th scope="col">Full Name</th>
+                                                                                                                        <th scope="col">Score</th>
+                                                                                                                        <th scope="col">Exam</th>
+                                                                                                                    </thead>
+                                                                                                                    <tbody>
+                                                                                                                        <?php
+                                                                                                                        foreach ($cursoreco3Sem2 as $exam) {
+                                                                                                                            foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                                $studentId = $scoreData['student_id'];
+                                                                                                                                $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                                $result = mysqli_query($conn, $sql);
+                                                                                                                                $row = mysqli_fetch_assoc($result);
+                                                                                                                                $fullName = $row['full_name'];
+                                                                                                                                $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                                $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                                echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                            }
                                                                                                                         }
-                                                                                                                    }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
+                                                                                                                        ?>
+                                                                                                                    </tbody>
+                                                                                                                </table>
+                                                                                                            </div>
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
@@ -3599,8 +3832,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </section>
+                                                                            </section>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -3630,40 +3862,41 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                     </h2>
                                                                     <div id="nested-collapse-acc1" class="accordion-collapse collapse" aria-labelledby="nested-heading-acc1" data-bs-parent="#nested-accordion-acc1">
                                                                         <div class="accordion-body">
-                                                                        <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursoracc3 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                            <section class="intro">
+                                                                                <div class="bg-image h-100">
+                                                                                    <div class="mask d-flex align-items-center h-100">
+                                                                                        <div class="container">
+                                                                                            <div class="row justify-content-center">
+                                                                                                <div class="col-12">
+                                                                                                    <div class="card" id="card2">
+                                                                                                        <div class="card-body p-0">
+                                                                                                            <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                                <table class="table table-striped mb-0">
+                                                                                                                    <thead style="background-color: #fff;">
+                                                                                                                        <th scope="col">Student ID</th>
+                                                                                                                        <th scope="col">Full Name</th>
+                                                                                                                        <th scope="col">Score</th>
+                                                                                                                        <th scope="col">Exam</th>
+                                                                                                                    </thead>
+                                                                                                                    <tbody>
+                                                                                                                        <?php
+                                                                                                                        foreach ($cursoracc3 as $exam) {
+                                                                                                                            foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                                $studentId = $scoreData['student_id'];
+                                                                                                                                $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                                $result = mysqli_query($conn, $sql);
+                                                                                                                                $row = mysqli_fetch_assoc($result);
+                                                                                                                                $fullName = $row['full_name'];
+                                                                                                                                $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                                $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                                echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                            }
                                                                                                                         }
-                                                                                                                    }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
+                                                                                                                        ?>
+                                                                                                                    </tbody>
+                                                                                                                </table>
+                                                                                                            </div>
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
@@ -3671,8 +3904,8 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </section>                                                                        </div>
+                                                                            </section>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3686,40 +3919,41 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                     </h2>
                                                                     <div id="nested-collapse-acc2" class="accordion-collapse collapse" aria-labelledby="nested-heading-acc2" data-bs-parent="#nested-accordion-acc2">
                                                                         <div class="accordion-body">
-                                                                        <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursoracc3Sem2 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                                            <section class="intro">
+                                                                                <div class="bg-image h-100">
+                                                                                    <div class="mask d-flex align-items-center h-100">
+                                                                                        <div class="container">
+                                                                                            <div class="row justify-content-center">
+                                                                                                <div class="col-12">
+                                                                                                    <div class="card" id="card2">
+                                                                                                        <div class="card-body p-0">
+                                                                                                            <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                                <table class="table table-striped mb-0">
+                                                                                                                    <thead style="background-color: #fff;">
+                                                                                                                        <th scope="col">Student ID</th>
+                                                                                                                        <th scope="col">Full Name</th>
+                                                                                                                        <th scope="col">Score</th>
+                                                                                                                        <th scope="col">Exam</th>
+                                                                                                                    </thead>
+                                                                                                                    <tbody>
+                                                                                                                        <?php
+                                                                                                                        foreach ($cursoracc3Sem2 as $exam) {
+                                                                                                                            foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                                $studentId = $scoreData['student_id'];
+                                                                                                                                $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                                $result = mysqli_query($conn, $sql);
+                                                                                                                                $row = mysqli_fetch_assoc($result);
+                                                                                                                                $fullName = $row['full_name'];
+                                                                                                                                $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                                $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                                echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                            }
                                                                                                                         }
-                                                                                                                    }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
+                                                                                                                        ?>
+                                                                                                                    </tbody>
+                                                                                                                </table>
+                                                                                                            </div>
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
@@ -3727,8 +3961,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
-                                                                        </section>
+                                                                            </section>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -3750,7 +3983,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                     <div class="accordion-body">
                                                         <!-- Content for Nested Accordion 3 -->
 
-                                                        <!-- First Nested Accordion -->
+
                                                         <div class="accordion" id="nested-sub-accordion-level-4-3-1">
                                                             <div class="accordion-item">
                                                                 <h2 class="accordion-header" id="nested-sub-heading-level-4-3-1">
@@ -3760,7 +3993,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                 </h2>
                                                                 <div id="nested-sub-collapse-level-4-3-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-heading-level-4-3-1" data-bs-parent="#nested-sub-accordion-level-4-3-1">
                                                                     <div class="accordion-body">
-                                                                    <section class="intro">
+                                                                        <section class="intro">
                                                                             <div class="bg-image h-100">
                                                                                 <div class="mask d-flex align-items-center h-100">
                                                                                     <div class="container">
@@ -3808,7 +4041,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                             </div>
                                                         </div>
 
-                                                        <!-- Second Nested Accordion -->
+
                                                         <div class="accordion" id="nested-sub-accordion-level-4-3-2">
                                                             <div class="accordion-item">
                                                                 <h2 class="accordion-header" id="nested-sub-heading-level-4-3-2">
@@ -3818,7 +4051,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                 </h2>
                                                                 <div id="nested-sub-collapse-level-4-3-2" class="accordion-collapse collapse" aria-labelledby="nested-sub-heading-level-4-3-2" data-bs-parent="#nested-sub-accordion-level-4-3-2">
                                                                     <div class="accordion-body">
-                                                                    <section class="intro">
+                                                                        <section class="intro">
                                                                             <div class="bg-image h-100">
                                                                                 <div class="mask d-flex align-items-center h-100">
                                                                                     <div class="container">
@@ -3889,7 +4122,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                 </h2>
                                                                 <div id="nested-collapse-geo-3-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-geo-3-1" data-bs-parent="#nested-accordion-geo-3-1">
                                                                     <div class="accordion-body">
-                                                                    <section class="intro">
+                                                                        <section class="intro">
                                                                             <div class="bg-image h-100">
                                                                                 <div class="mask d-flex align-items-center h-100">
                                                                                     <div class="container">
@@ -3931,7 +4164,8 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>                                                                    </div>
+                                                                        </section>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -3945,7 +4179,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                                 </h2>
                                                                 <div id="nested-collapse-geo-3-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-geo-3-2" data-bs-parent="#nested-accordion-geo-3-2">
                                                                     <div class="accordion-body">
-                                                                    <section class="intro">
+                                                                        <section class="intro">
                                                                             <div class="bg-image h-100">
                                                                                 <div class="mask d-flex align-items-center h-100">
                                                                                     <div class="container">
@@ -4021,7 +4255,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                         </h2>
                         <div id="collapselang-1-1" class="accordion-collapse collapse" aria-labelledby="headinglang-1-1" data-bs-parent="#collapselang-1-1">
                             <div class="accordion-body">
-                                <!-- First Nested Accordion -->
+
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading1-1">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-1" aria-expanded="false" aria-controls="collapse1-1">
@@ -4030,7 +4264,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapse1-1" class="accordion-collapse collapse" aria-labelledby="heading1-1" data-bs-parent="#collapselang-1-1">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading1-1-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-1-1" aria-expanded="false" aria-controls="collapse1-1-1">
@@ -4039,53 +4273,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse1-1-1" class="accordion-collapse collapse" aria-labelledby="heading1-1-1" data-bs-parent="#collapse1-1">
                                                     <div class="accordion-body">
-                                                    <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursorkor1 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorkor1 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>                                                    </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading1-1-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-1-2" aria-expanded="false" aria-controls="collapse1-1-2">
@@ -4094,49 +4329,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse1-1-2" class="accordion-collapse collapse" aria-labelledby="heading1-1-2" data-bs-parent="#collapse1-1">
                                                     <div class="accordion-body">
-                                                    <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursorkor1Sem2 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorkor1Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4145,7 +4380,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                 </div>
 
 
-                                <!-- Second Nested Accordion -->
+
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading1-2">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-2" aria-expanded="false" aria-controls="collapse1-2">
@@ -4154,7 +4389,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapse1-2" class="accordion-collapse collapse" aria-labelledby="heading1-2" data-bs-parent="#collapselang-1-1">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading1-2-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-2-1" aria-expanded="false" aria-controls="collapse1-2-1">
@@ -4163,53 +4398,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse1-2-1" class="accordion-collapse collapse" aria-labelledby="heading1-2-1" data-bs-parent="#collapse1-2">
                                                     <div class="accordion-body">
-                                                    <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursorman1 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorman1 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>                                                    </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading1-2-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-2-2" aria-expanded="false" aria-controls="collapse1-2-2">
@@ -4218,49 +4454,50 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse1-2-2" class="accordion-collapse collapse" aria-labelledby="heading1-2-2" data-bs-parent="#collapse1-2">
                                                     <div class="accordion-body">
-                                                    <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursorman1Sem2 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorman1Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>                                                    </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -4277,7 +4514,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapse1-3" class="accordion-collapse collapse" aria-labelledby="heading1-3" data-bs-parent="#collapselang-1-1">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading1-3-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-3-1" aria-expanded="false" aria-controls="collapse1-3-1">
@@ -4286,53 +4523,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse1-3-1" class="accordion-collapse collapse" aria-labelledby="heading1-3-1" data-bs-parent="#collapse1-3">
                                                     <div class="accordion-body">
-                                                    <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursorfre1 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorfre1 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>                                                    </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading1-3-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-3-2" aria-expanded="false" aria-controls="collapse1-3-2">
@@ -4341,49 +4579,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse1-3-2" class="accordion-collapse collapse" aria-labelledby="heading1-3-2" data-bs-parent="#collapse1-3">
                                                     <div class="accordion-body">
-                                                    <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursorfre1Sem2 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorfre1Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4401,7 +4639,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapse1-4" class="accordion-collapse collapse" aria-labelledby="heading1-4" data-bs-parent="#collapselang-1-1">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading1-4-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-4-1" aria-expanded="false" aria-controls="collapse1-4-1">
@@ -4410,53 +4648,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse1-4-1" class="accordion-collapse collapse" aria-labelledby="heading1-4-1" data-bs-parent="#collapse1-4">
                                                     <div class="accordion-body">
-                                                    <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursorger1 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorger1 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>                                                    </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading1-4-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-4-2" aria-expanded="false" aria-controls="collapse1-4-2">
@@ -4465,49 +4704,50 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse1-4-2" class="accordion-collapse collapse" aria-labelledby="heading1-4-2" data-bs-parent="#collapse1-4">
                                                     <div class="accordion-body">
-                                                    <section class="intro">
-                                                                            <div class="bg-image h-100">
-                                                                                <div class="mask d-flex align-items-center h-100">
-                                                                                    <div class="container">
-                                                                                        <div class="row justify-content-center">
-                                                                                            <div class="col-12">
-                                                                                                <div class="card" id="card2">
-                                                                                                    <div class="card-body p-0">
-                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                                                            <table class="table table-striped mb-0">
-                                                                                                                <thead style="background-color: #fff;">
-                                                                                                                    <th scope="col">Student ID</th>
-                                                                                                                    <th scope="col">Full Name</th>
-                                                                                                                    <th scope="col">Score</th>
-                                                                                                                    <th scope="col">Exam</th>
-                                                                                                                </thead>
-                                                                                                                <tbody>
-                                                                                                                    <?php
-                                                                                                                    foreach ($cursorger1Sem2 as $exam) {
-                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                                                            $studentId = $scoreData['student_id'];
-                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                                                            $result = mysqli_query($conn, $sql);
-                                                                                                                            $row = mysqli_fetch_assoc($result);
-                                                                                                                            $fullName = $row['full_name'];
-                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorger1Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
 
-                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
-                                                                                                                        }
-                                                                                                                    }
-                                                                                                                    ?>
-                                                                                                                </tbody>
-                                                                                                            </table>
-                                                                                                        </div>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </section>                                                    </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -4527,7 +4767,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                         </h2>
                         <div id="collapselang-1-2" class="accordion-collapse collapse" aria-labelledby="headinglang-1-2" data-bs-parent="#collapselang-1-2">
                             <div class="accordion-body">
-                                <!-- First Nested Accordion -->
+
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading2-1">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-1" aria-expanded="false" aria-controls="collapse2-1">
@@ -4536,7 +4776,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapse2-1" class="accordion-collapse collapse" aria-labelledby="heading2-1" data-bs-parent="#collapselang-1-2">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading2-1-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-1-1" aria-expanded="false" aria-controls="collapse2-1-1">
@@ -4545,12 +4785,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse2-1-1" class="accordion-collapse collapse" aria-labelledby="heading2-1-1" data-bs-parent="#collapse2-1">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorkor2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading2-1-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-1-2" aria-expanded="false" aria-controls="collapse2-1-2">
@@ -4559,7 +4841,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse2-1-2" class="accordion-collapse collapse" aria-labelledby="heading2-1-2" data-bs-parent="#collapse2-1">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorkor2Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4568,7 +4892,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                 </div>
 
 
-                                <!-- Second Nested Accordion -->
+
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="heading2-2">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-2" aria-expanded="false" aria-controls="collapse2-2">
@@ -4577,7 +4901,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapse2-2" class="accordion-collapse collapse" aria-labelledby="heading2-2" data-bs-parent="#collapselang-1-2">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading2-2-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-2-1" aria-expanded="false" aria-controls="collapse2-2-1">
@@ -4586,12 +4910,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse2-2-1" class="accordion-collapse collapse" aria-labelledby="heading2-2-1" data-bs-parent="#collapse2-2">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorman2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading2-2-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-2-2" aria-expanded="false" aria-controls="collapse2-2-2">
@@ -4600,7 +4966,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse2-2-2" class="accordion-collapse collapse" aria-labelledby="heading2-2-2" data-bs-parent="#collapse2-2">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorman2Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4618,7 +5026,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapse2-3" class="accordion-collapse collapse" aria-labelledby="heading2-3" data-bs-parent="#collapselang-1-2">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading2-3-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-3-1" aria-expanded="false" aria-controls="collapse2-3-1">
@@ -4627,12 +5035,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse2-3-1" class="accordion-collapse collapse" aria-labelledby="heading2-3-1" data-bs-parent="#collapse2-3">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorfre2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading2-3-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-3-2" aria-expanded="false" aria-controls="collapse2-3-2">
@@ -4641,7 +5091,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse2-3-2" class="accordion-collapse collapse" aria-labelledby="heading2-3-2" data-bs-parent="#collapse2-3">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorfre2Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4659,7 +5151,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapse2-4" class="accordion-collapse collapse" aria-labelledby="heading2-4" data-bs-parent="#collapselang-1-2">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading2-4-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-4-1" aria-expanded="false" aria-controls="collapse2-4-1">
@@ -4668,12 +5160,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse2-4-1" class="accordion-collapse collapse" aria-labelledby="heading2-4-1" data-bs-parent="#collapse2-4">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorger2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading2-4-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-4-2" aria-expanded="false" aria-controls="collapse2-4-2">
@@ -4682,7 +5216,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse2-4-2" class="accordion-collapse collapse" aria-labelledby="heading2-4-2" data-bs-parent="#collapse2-4">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorger2Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4711,7 +5287,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapse3-1" class="accordion-collapse collapse" aria-labelledby="heading3-1" data-bs-parent="#collapselang-1-3">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading3-1-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-1-1" aria-expanded="false" aria-controls="collapse3-1-1">
@@ -4720,12 +5296,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse3-1-1" class="accordion-collapse collapse" aria-labelledby="heading3-1-1" data-bs-parent="#collapse3-1">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorkor3 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading3-1-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-1-2" aria-expanded="false" aria-controls="collapse3-1-2">
@@ -4734,6 +5352,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse3-1-2" class="accordion-collapse collapse" aria-labelledby="heading3-1-2" data-bs-parent="#collapse3-1">
                                                     <div class="accordion-body">
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorkor3Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4749,7 +5410,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapse3-2" class="accordion-collapse collapse" aria-labelledby="heading3-2" data-bs-parent="#collapselang-1-3">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading3-2-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-2-1" aria-expanded="false" aria-controls="collapse3-2-1">
@@ -4758,12 +5419,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse3-2-1" class="accordion-collapse collapse" aria-labelledby="heading3-2-1" data-bs-parent="#collapse3-2">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorman3 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading3-2-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-2-2" aria-expanded="false" aria-controls="collapse3-2-2">
@@ -4772,7 +5475,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse3-2-2" class="accordion-collapse collapse" aria-labelledby="heading3-2-2" data-bs-parent="#collapse3-2">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorman3Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4789,7 +5534,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapse3-3" class="accordion-collapse collapse" aria-labelledby="heading3-3" data-bs-parent="#collapselang-1-3">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading3-3-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-3-1" aria-expanded="false" aria-controls="collapse3-3-1">
@@ -4798,12 +5543,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse3-3-1" class="accordion-collapse collapse" aria-labelledby="heading3-3-1" data-bs-parent="#collapse3-3">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorfre3 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading3-3-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-3-2" aria-expanded="false" aria-controls="collapse3-3-2">
@@ -4812,7 +5599,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse3-3-2" class="accordion-collapse collapse" aria-labelledby="heading3-3-2" data-bs-parent="#collapse3-3">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorfre3Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4829,7 +5658,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapse3-4" class="accordion-collapse collapse" aria-labelledby="heading3-4" data-bs-parent="#collapselang-1-3">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading3-4-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-4-1" aria-expanded="false" aria-controls="collapse3-4-1">
@@ -4838,12 +5667,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse3-4-1" class="accordion-collapse collapse" aria-labelledby="heading3-4-1" data-bs-parent="#collapse3-4">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorger3 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading3-4-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-4-2" aria-expanded="false" aria-controls="collapse3-4-2">
@@ -4852,7 +5723,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapse3-4-2" class="accordion-collapse collapse" aria-labelledby="heading3-4-2" data-bs-parent="#collapse3-4">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorger3Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4892,7 +5805,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapsemand-1-1" class="accordion-collapse collapse" aria-labelledby="headingmand-1-1" data-bs-parent="#collapsemand-1">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-1-1-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-1-1" aria-expanded="false" aria-controls="collapsemand-1-1-1">
@@ -4901,12 +5814,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-1-1-1" class="accordion-collapse collapse" aria-labelledby="headingmand-1-1-1" data-bs-parent="#collapsemand-1-1">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorart1 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-1-1-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-1-2" aria-expanded="false" aria-controls="collapsemand-1-1-2">
@@ -4915,7 +5870,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-1-1-2" class="accordion-collapse collapse" aria-labelledby="headingmand-1-1-2" data-bs-parent="#collapsemand-1-1">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorart1Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4932,7 +5929,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapsemand-1-2" class="accordion-collapse collapse" aria-labelledby="headingmand-1-2" data-bs-parent="#collapsemand-1">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-1-2-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-2-1" aria-expanded="false" aria-controls="collapsemand-1-2-1">
@@ -4941,12 +5938,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-1-2-1" class="accordion-collapse collapse" aria-labelledby="headingmand-1-2-1" data-bs-parent="#collapsemand-1-2">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorind1 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-1-2-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-2-2" aria-expanded="false" aria-controls="collapsemand-1-2-2">
@@ -4955,7 +5994,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-1-2-2" class="accordion-collapse collapse" aria-labelledby="headingmand-1-2-2" data-bs-parent="#collapsemand-1-2">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorind1Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4972,7 +6053,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapsemand-1-3" class="accordion-collapse collapse" aria-labelledby="headingmand-1-3" data-bs-parent="#collapsemand-1">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-1-3-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-3-1" aria-expanded="false" aria-controls="collapsemand-1-3-1">
@@ -4981,12 +6062,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-1-3-1" class="accordion-collapse collapse" aria-labelledby="headingmand-1-3-1" data-bs-parent="#collapsemand-1-3">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorhist1 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-1-3-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-3-2" aria-expanded="false" aria-controls="collapsemand-1-3-2">
@@ -4995,7 +6118,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-1-3-2" class="accordion-collapse collapse" aria-labelledby="headingmand-1-3-2" data-bs-parent="#collapsemand-1-3">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorhist1Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5012,7 +6177,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapsemand-1-4" class="accordion-collapse collapse" aria-labelledby="headingmand-1-4" data-bs-parent="#collapsemand-1">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-1-4-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-4-1" aria-expanded="false" aria-controls="collapsemand-1-4-1">
@@ -5021,12 +6186,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-1-4-1" class="accordion-collapse collapse" aria-labelledby="headingmand-1-4-1" data-bs-parent="#collapsemand-1-4">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorciv1 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-1-4-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-4-2" aria-expanded="false" aria-controls="collapsemand-1-4-2">
@@ -5035,7 +6242,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-1-4-2" class="accordion-collapse collapse" aria-labelledby="headingmand-1-4-2" data-bs-parent="#collapsemand-1-4">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorciv1Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5056,7 +6305,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                         </h2>
                         <div id="collapsemand-2" class="accordion-collapse collapse" aria-labelledby="headingmand-2" data-bs-parent="#collapsemand">
                             <div class="accordion-body">
-                                <!-- First Nested Accordion -->
+
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingmand-2-1">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-1" aria-expanded="false" aria-controls="collapsemand-2-1">
@@ -5073,7 +6322,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-2-1-1" class="accordion-collapse collapse" aria-labelledby="headingmand-2-1-1" data-bs-parent="#collapsemand-2-1">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorart2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5086,7 +6377,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-2-1-2" class="accordion-collapse collapse" aria-labelledby="headingmand-2-1-2" data-bs-parent="#collapsemand-2-1">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorart2Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5113,7 +6446,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-2-2-1" class="accordion-collapse collapse" aria-labelledby="headingmand-2-2-1" data-bs-parent="#collapsemand-2-2">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorind2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5126,7 +6501,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-2-2-2" class="accordion-collapse collapse" aria-labelledby="headingmand-2-2-2" data-bs-parent="#collapsemand-2-2">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorind2Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5143,7 +6560,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapsemand-2-3" class="accordion-collapse collapse" aria-labelledby="headingmand-2-3" data-bs-parent="#collapsemand-2">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-2-3-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-3-1" aria-expanded="false" aria-controls="collapsemand-2-3-1">
@@ -5152,12 +6569,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-2-3-1" class="accordion-collapse collapse" aria-labelledby="headingmand-2-3-1" data-bs-parent="#collapsemand-2-3">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorhist2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-2-3-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-3-2" aria-expanded="false" aria-controls="collapsemand-2-3-2">
@@ -5166,7 +6625,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-2-3-2" class="accordion-collapse collapse" aria-labelledby="headingmand-2-3-2" data-bs-parent="#collapsemand-2-3">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorhist2Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5190,7 +6691,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-2-4-1" class="accordion-collapse collapse" aria-labelledby="headingmand-2-4-1" data-bs-parent="#collapsemand-2-4">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorciv2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5203,7 +6746,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-2-4-2" class="accordion-collapse collapse" aria-labelledby="headingmand-2-4-2" data-bs-parent="#collapsemand-2-4">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorciv2Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5231,7 +6816,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapsemand-3-1" class="accordion-collapse collapse" aria-labelledby="headingmand-3-1" data-bs-parent="#collapsemand-3">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-3-1-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-1-1" aria-expanded="false" aria-controls="collapsemand-3-1-1">
@@ -5240,12 +6825,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-3-1-1" class="accordion-collapse collapse" aria-labelledby="headingmand-3-1-1" data-bs-parent="#collapsemand-3-1">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorart3 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-3-1-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-1-2" aria-expanded="false" aria-controls="collapsemand-3-1-2">
@@ -5254,7 +6881,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-3-1-2" class="accordion-collapse collapse" aria-labelledby="headingmand-3-1-2" data-bs-parent="#collapsemand-3-1">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorart3Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5279,7 +6948,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-3-2-1" class="accordion-collapse collapse" aria-labelledby="headingmand-3-2-1" data-bs-parent="#collapsemand-3-2">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorind3 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5292,7 +7003,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-3-2-2" class="accordion-collapse collapse" aria-labelledby="headingmand-3-2-2" data-bs-parent="#collapsemand-3-2">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorind3Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5317,12 +7070,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-3-3-1" class="accordion-collapse collapse" aria-labelledby="headingmand-3-3-1" data-bs-parent="#collapsemand-3-3">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorhist3 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-3-3-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-3-2" aria-expanded="false" aria-controls="collapsemand-3-3-2">
@@ -5331,7 +7126,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-3-3-2" class="accordion-collapse collapse" aria-labelledby="headingmand-3-3-2" data-bs-parent="#collapsemand-3-3">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorhist3Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5348,7 +7185,7 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                     </h2>
                                     <div id="collapsemand-3-4" class="accordion-collapse collapse" aria-labelledby="headingmand-3-4" data-bs-parent="#collapsemand-3">
                                         <div class="accordion-body">
-                                            <!-- First Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-3-4-1">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-4-1" aria-expanded="false" aria-controls="collapsemand-3-4-1">
@@ -5357,12 +7194,54 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-3-4-1" class="accordion-collapse collapse" aria-labelledby="headingmand-3-4-1" data-bs-parent="#collapsemand-3-4">
                                                     <div class="accordion-body">
-                                                        <!-- Content for First Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorciv3 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Second Nested Accordion -->
+
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="headingmand-3-4-2">
                                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-4-2" aria-expanded="false" aria-controls="collapsemand-3-4-2">
@@ -5371,7 +7250,49 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
                                                 </h2>
                                                 <div id="collapsemand-3-4-2" class="accordion-collapse collapse" aria-labelledby="headingmand-3-4-2" data-bs-parent="#collapsemand-3-4">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Second Test -->
+                                                        <section class="intro">
+                                                            <div class="bg-image h-100">
+                                                                <div class="mask d-flex align-items-center h-100">
+                                                                    <div class="container">
+                                                                        <div class="row justify-content-center">
+                                                                            <div class="col-12">
+                                                                                <div class="card" id="card2">
+                                                                                    <div class="card-body p-0">
+                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                            <table class="table table-striped mb-0">
+                                                                                                <thead style="background-color: #fff;">
+                                                                                                    <th scope="col">Student ID</th>
+                                                                                                    <th scope="col">Full Name</th>
+                                                                                                    <th scope="col">Score</th>
+                                                                                                    <th scope="col">Exam</th>
+                                                                                                </thead>
+                                                                                                <tbody>
+                                                                                                    <?php
+                                                                                                    foreach ($cursorciv3Sem2 as $exam) {
+                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                            $fullName = $row['full_name'];
+                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                        }
+                                                                                                    }
+                                                                                                    ?>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </section>
                                                     </div>
                                                 </div>
                                             </div>
@@ -5388,434 +7309,5 @@ $cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection
         </div>
 
     </div>
-
-    <!-- <div class="accordion" id="accordionPanelsStayOpenExample">
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                    Science Department
-            </button>
-            </h2>
-            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse hide" aria-labelledby="panelsStayOpen-headingOne">
-                <div class="accordion-body">
-                    <div class="accordion accordion-flush" id="accordionFlushExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    Science Department's Grade 1 students' First Physics Test Grade (First Semester)
-                                </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <section class="intro">
-                                        <div class="bg-image h-100">
-                                            <div class="mask d-flex align-items-center h-100">
-                                                <div class="container">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-12">
-                                                            <div class="card" id="card2">
-                                                                <div class="card-body p-0">
-                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                        <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #fff;">
-                                                                                <th scope="col">Student ID</th>
-                                                                                <th scope="col">Full Name</th>
-                                                                                <th scope="col">Score</th>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <?php
-                                                                                foreach ($cursor1 as $exam) {
-                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                        $studentId = $scoreData['student_id'];
-                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                        $result = mysqli_query($conn, $sql);
-                                                                                        $row = mysqli_fetch_assoc($result);
-                                                                                        $fullName = $row['full_name'];
-                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                        echo "<tr><td>"  . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td></tr>";
-                                                                                    }
-                                                                                }
-                                                                                ?>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                    Science Department's Grade 1 students' Second Physics Test Grade (First Semester)
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <section class="intro">
-                                        <div class="bg-image h-100">
-                                            <div class="mask d-flex align-items-center h-100">
-                                                <div class="container">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-12">
-                                                            <div class="card" id="card2">
-                                                                <div class="card-body p-0">
-                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                        <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #fff;">
-                                                                                <th scope="col">Student ID</th>
-                                                                                <th scope="col">Full Name</th>
-                                                                                <th scope="col">Score</th>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <?php
-                                                                                foreach ($cursor2 as $exam) {
-                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                        $studentId = $scoreData['student_id'];
-                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                        $result = mysqli_query($conn, $sql);
-                                                                                        $row = mysqli_fetch_assoc($result);
-                                                                                        $fullName = $row['full_name'];
-                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                        echo "<tr><td>"  . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td></tr>";
-                                                                                    }
-                                                                                }
-                                                                                ?>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                    Science Department's Grade 1 students' Physics Midterm Test Grade (First Semester)
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <section class="intro">
-                                        <div class="bg-image h-100">
-                                            <div class="mask d-flex align-items-center h-100">
-                                                <div class="container">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-12">
-                                                            <div class="card" id="card2">
-                                                                <div class="card-body p-0">
-                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                        <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #fff;">
-                                                                                <th scope="col">Student ID</th>
-                                                                                <th scope="col">Full Name</th>
-                                                                                <th scope="col">Score</th>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <?php
-                                                                                foreach ($cursor3 as $exam) {
-                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                        $studentId = $scoreData['student_id'];
-                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                        $result = mysqli_query($conn, $sql);
-                                                                                        $row = mysqli_fetch_assoc($result);
-                                                                                        $fullName = $row['full_name'];
-                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                        echo "<tr><td>"  . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td></tr>";
-                                                                                    }
-                                                                                }
-                                                                                ?>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                                    Science Department's Grade 1 students' Physics Final Test Grade (First Semester)
-                                </button>
-                            </h2>
-                            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <section class="intro">
-                                        <div class="bg-image h-100">
-                                            <div class="mask d-flex align-items-center h-100">
-                                                <div class="container">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-12">
-                                                            <div class="card" id="card2">
-                                                                <div class="card-body p-0">
-                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                        <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #fff;">
-                                                                                <th scope="col">Student ID</th>
-                                                                                <th scope="col">Full Name</th>
-                                                                                <th scope="col">Score</th>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <?php
-                                                                                foreach ($cursor4 as $exam) {
-                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                        $studentId = $scoreData['student_id'];
-                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                        $result = mysqli_query($conn, $sql);
-                                                                                        $row = mysqli_fetch_assoc($result);
-                                                                                        $fullName = $row['full_name'];
-                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                        echo "<tr><td>"  . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td></tr>";
-                                                                                    }
-                                                                                }
-                                                                                ?>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingFive">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                                    Science Department's Grade 1 students' First Physics Test Grade (Second Semester)
-                                </button>
-                            </h2>
-                            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <section class="intro">
-                                        <div class="bg-image h-100">
-                                            <div class="mask d-flex align-items-center h-100">
-                                                <div class="container">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-12">
-                                                            <div class="card" id="card2">
-                                                                <div class="card-body p-0">
-                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                        <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #fff;">
-                                                                                <th scope="col">Student ID</th>
-                                                                                <th scope="col">Full Name</th>
-                                                                                <th scope="col">Score</th>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <?php
-                                                                                foreach ($cursor5 as $exam) {
-                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                        $studentId = $scoreData['student_id'];
-                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                        $result = mysqli_query($conn, $sql);
-                                                                                        $row = mysqli_fetch_assoc($result);
-                                                                                        $fullName = $row['full_name'];
-                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                        echo "<tr><td>"  . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td></tr>";
-                                                                                    }
-                                                                                }
-                                                                                ?>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingSix">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
-                                    Science Department's Grade 1 students' Second Physics Test Grade (Second Semester)
-                                </button>
-                            </h2>
-                            <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <section class="intro">
-                                        <div class="bg-image h-100">
-                                            <div class="mask d-flex align-items-center h-100">
-                                                <div class="container">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-12">
-                                                            <div class="card" id="card2">
-                                                                <div class="card-body p-0">
-                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                        <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #fff;">
-                                                                                <th scope="col">Student ID</th>
-                                                                                <th scope="col">Full Name</th>
-                                                                                <th scope="col">Score</th>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <?php
-                                                                                foreach ($cursor6 as $exam) {
-                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                        $studentId = $scoreData['student_id'];
-                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                        $result = mysqli_query($conn, $sql);
-                                                                                        $row = mysqli_fetch_assoc($result);
-                                                                                        $fullName = $row['full_name'];
-                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                        echo "<tr><td>"  . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td></tr>";
-                                                                                    }
-                                                                                }
-                                                                                ?>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingSeven">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
-                                    Science Department's Grade 1 students' Physics Midterm Test Grade (Second Semester)
-                                </button>
-                            </h2>
-                            <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <section class="intro">
-                                        <div class="bg-image h-100">
-                                            <div class="mask d-flex align-items-center h-100">
-                                                <div class="container">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-12">
-                                                            <div class="card" id="card2">
-                                                                <div class="card-body p-0">
-                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                        <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #fff;">
-                                                                                <th scope="col">Student ID</th>
-                                                                                <th scope="col">Full Name</th>
-                                                                                <th scope="col">Score</th>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <?php
-                                                                                foreach ($cursor7 as $exam) {
-                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                        $studentId = $scoreData['student_id'];
-                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                        $result = mysqli_query($conn, $sql);
-                                                                                        $row = mysqli_fetch_assoc($result);
-                                                                                        $fullName = $row['full_name'];
-                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                        echo "<tr><td>"  . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td></tr>";
-                                                                                    }
-                                                                                }
-                                                                                ?>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingEight">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
-                                    Science Department's Grade 1 students' Physics Final Test Grade (Second Semester)
-                                </button>
-                            </h2>
-                            <div id="flush-collapseEight" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
-                                <div class="accordion-body">
-                                    <section class="intro">
-                                        <div class="bg-image h-100">
-                                            <div class="mask d-flex align-items-center h-100">
-                                                <div class="container">
-                                                    <div class="row justify-content-center">
-                                                        <div class="col-12">
-                                                            <div class="card" id="card2">
-                                                                <div class="card-body p-0">
-                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
-                                                                        <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #fff;">
-                                                                                <th scope="col">Student ID</th>
-                                                                                <th scope="col">Full Name</th>
-                                                                                <th scope="col">Score</th>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <?php
-                                                                                foreach ($cursor8 as $exam) {
-                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
-                                                                                        $studentId = $scoreData['student_id'];
-                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
-                                                                                        $result = mysqli_query($conn, $sql);
-                                                                                        $row = mysqli_fetch_assoc($result);
-                                                                                        $fullName = $row['full_name'];
-                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
-                                                                                        echo "<tr><td>"  . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td></tr>";
-                                                                                    }
-                                                                                }
-                                                                                ?>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </section>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 </body>
-
 </html>
