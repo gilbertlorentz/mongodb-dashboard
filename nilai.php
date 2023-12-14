@@ -57,11 +57,11 @@ $client = new MongoDB\Client();
 $departments = $client->academic_data->department;
 $exams = $client->academic_data->exam;
 
-$conditions1 = [
+$conditionsphys1 = [
     "DEPARTMENT" => "Science",
     "GRADE" => 1,
     "SUBJECT" => "Physics",
-    "EXAM_TYPE" => "Test1.1"
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
 // Projection
@@ -69,77 +69,683 @@ $projection = [
     "SCORE_DATA.student_id" => 1,
     "SCORE_DATA.scores.score1" => 1,
     "SCORE_DATA.scores.score2" => 1,
+    "EXAM_TYPE" => 1, // Include the "EXAM_TYPE" field
     "_id" => 0
 ];
 
-$cursor1 = $exams->find($conditions1, ['projection' => $projection]);
+$cursorphys1 = $exams->find($conditionsphys1, ['projection' => $projection]);
 
-$conditions2 = [
+$conditionsphys1Sem2 = [
     "DEPARTMENT" => "Science",
     "GRADE" => 1,
     "SUBJECT" => "Physics",
-    "EXAM_TYPE" => "Test2.1"
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+
 ];
 
-// Projection
-$cursor2 = $exams->find($conditions2, ['projection' => $projection]);
+$cursorphys1Sem2 = $exams->find($conditionsphys1Sem2, ['projection' => $projection]);
 
-$conditions3 = [
+$conditionsbio1 = [
     "DEPARTMENT" => "Science",
     "GRADE" => 1,
-    "SUBJECT" => "Physics",
-    "EXAM_TYPE" => "Mid Exam1"
+    "SUBJECT" => "Biology",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
-$cursor3 = $exams->find($conditions3, ['projection' => $projection]);
+$cursorbio1 = $exams->find($conditionsbio1, ['projection' => $projection]);
 
-$conditions4 = [
+$conditionsbio1Sem2 = [
     "DEPARTMENT" => "Science",
     "GRADE" => 1,
-    "SUBJECT" => "Physics",
-    "EXAM_TYPE" => "Final Exam1"
+    "SUBJECT" => "Biology",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+
 ];
 
-// Projection
-$cursor4 = $exams->find($conditions4, ['projection' => $projection]);
+$cursorbio1Sem2 = $exams->find($conditionsbio1Sem2, ['projection' => $projection]);
 
-$conditions5 = [
+$conditionsmath1 = [
     "DEPARTMENT" => "Science",
     "GRADE" => 1,
-    "SUBJECT" => "Physics",
-    "EXAM_TYPE" => "Test1.2"
+    "SUBJECT" => "Mathematics",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
-$cursor5 = $exams->find($conditions5, ['projection' => $projection]);
+$cursormath1 = $exams->find($conditionsmath1, ['projection' => $projection]);
 
-$conditions6 = [
+$conditionsmath1Sem2 = [
     "DEPARTMENT" => "Science",
     "GRADE" => 1,
-    "SUBJECT" => "Physics",
-    "EXAM_TYPE" => "Test2.2"
+    "SUBJECT" => "Mathematics",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
-$cursor6 = $exams->find($conditions6, ['projection' => $projection]);
+$cursormath1Sem2 = $exams->find($conditionsmath1Sem2, ['projection' => $projection]);
 
-
-$conditions7 = [
+$conditionschem1 = [
     "DEPARTMENT" => "Science",
     "GRADE" => 1,
-    "SUBJECT" => "Physics",
-    "EXAM_TYPE" => "Mid Exam2"
+    "SUBJECT" => "Chemistry",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
 ];
 
-$cursor7 = $exams->find($conditions7, ['projection' => $projection]);
+$cursorchem1 = $exams->find($conditionschem1, ['projection' => $projection]);
 
-
-$conditions8 = [
+$conditionschem1Sem2 = [
     "DEPARTMENT" => "Science",
     "GRADE" => 1,
-    "SUBJECT" => "Physics",
-    "EXAM_TYPE" => "Final Exam2"
+    "SUBJECT" => "Chemistry",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
 ];
 
-$cursor8 = $exams->find($conditions8, ['projection' => $projection]);
+$cursorchem1Sem2 = $exams->find($conditionschem1Sem2, ['projection' => $projection]);
+
+
+$conditionsphys2 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 2, // Change GRADE to 2
+    "SUBJECT" => "Physics",
+    "EXAM_TYPE" => ['$in' => ["Test2.1", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 2
+];
+
+$cursorphys2 = $exams->find($conditionsphys2, ['projection' => $projection]);
+
+$conditionsphys2Sem2 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 2, // Change GRADE to 2
+    "SUBJECT" => "Physics",
+    "EXAM_TYPE" => ['$in' => ["Test2.2", "Test2.3", "Mid Exam3", "Final Exam3"]], // Change Exam Type to 2
+];
+
+$cursorphys2Sem2 = $exams->find($conditionsphys2Sem2, ['projection' => $projection]);
+
+$conditionsbio2 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 2, // Change GRADE to 2
+    "SUBJECT" => "Biology",
+    "EXAM_TYPE" => ['$in' => ["Test2.1", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 2
+];
+
+$cursorbio2 = $exams->find($conditionsbio2, ['projection' => $projection]);
+
+$conditionsbio2Sem2 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 2, // Change GRADE to 2
+    "SUBJECT" => "Biology",
+    "EXAM_TYPE" => ['$in' => ["Test2.2", "Test2.3", "Mid Exam3", "Final Exam3"]], // Change Exam Type to 2
+];
+
+$cursorbio2Sem2 = $exams->find($conditionsbio2Sem2, ['projection' => $projection]);
+
+$conditionsmath2 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 2, // Change GRADE to 2
+    "SUBJECT" => "Mathematics",
+    "EXAM_TYPE" => ['$in' => ["Test2.1", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 2
+];
+
+$cursormath2 = $exams->find($conditionsmath2, ['projection' => $projection]);
+
+$conditionsmath2Sem2 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 2, // Change GRADE to 2
+    "SUBJECT" => "Mathematics",
+    "EXAM_TYPE" => ['$in' => ["Test2.2", "Test2.3", "Mid Exam3", "Final Exam3"]], // Change Exam Type to 2
+];
+
+$cursormath2Sem2 = $exams->find($conditionsmath2Sem2, ['projection' => $projection]);
+
+$conditionschem2 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 2, // Change GRADE to 2
+    "SUBJECT" => "Chemistry",
+    "EXAM_TYPE" => ['$in' => ["Test2.1", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 2
+];
+
+$cursorchem2 = $exams->find($conditionschem2, ['projection' => $projection]);
+
+$conditionschem2Sem2 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 2, // Change GRADE to 2
+    "SUBJECT" => "Chemistry",
+    "EXAM_TYPE" => ['$in' => ["Test2.2", "Test2.3", "Mid Exam3", "Final Exam3"]], // Change Exam Type to 2
+];
+
+$cursorchem2Sem2 = $exams->find($conditionschem2Sem2, ['projection' => $projection]);
+
+$conditionsphys3 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 3, // Change GRADE to 3
+    "SUBJECT" => "Physics",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]], // Change Exam Type to 3
+];
+
+$cursorphys3 = $exams->find($conditionsphys3, ['projection' => $projection]);
+
+$conditionsphys3Sem2 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 3, // Change GRADE to 3
+    "SUBJECT" => "Physics",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 3
+];
+
+$cursorphys3Sem2 = $exams->find($conditionsphys3Sem2, ['projection' => $projection]);
+
+$conditionsbio3 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 3, // Change GRADE to 3
+    "SUBJECT" => "Biology",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]], // Change Exam Type to 3
+];
+
+$cursorbio3 = $exams->find($conditionsbio3, ['projection' => $projection]);
+
+$conditionsbio3Sem2 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 3, // Change GRADE to 3
+    "SUBJECT" => "Biology",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 3
+];
+
+$cursorbio3Sem2 = $exams->find($conditionsbio3Sem2, ['projection' => $projection]);
+
+$conditionsmath3 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 3, // Change GRADE to 3
+    "SUBJECT" => "Mathematics",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]], // Change Exam Type to 3
+];
+
+$cursormath3 = $exams->find($conditionsmath3, ['projection' => $projection]);
+
+$conditionsmath3Sem2 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 3, // Change GRADE to 3
+    "SUBJECT" => "Mathematics",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 3
+];
+
+$cursormath3Sem2 = $exams->find($conditionsmath3Sem2, ['projection' => $projection]);
+
+$conditionschem3 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 3, // Change GRADE to 3
+    "SUBJECT" => "Chemistry",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]], // Change Exam Type to 3
+];
+
+$cursorchem3 = $exams->find($conditionschem3, ['projection' => $projection]);
+
+$conditionschem3Sem2 = [
+    "DEPARTMENT" => "Science",
+    "GRADE" => 3, // Change GRADE to 3
+    "SUBJECT" => "Chemistry",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]], // Change Exam Type to 3
+];
+
+$cursorchem3Sem2 = $exams->find($conditionschem3Sem2, ['projection' => $projection]);
+
+$conditionseco1 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 1,
+    "SUBJECT" => "Economics", // Change SUBJECT to "Economics"
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursoreco1 = $exams->find($conditionseco1, ['projection' => $projection]);
+
+$conditionseco1Sem2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 1,
+    "SUBJECT" => "Economics", // Change SUBJECT to "Economics"
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursoreco1Sem2 = $exams->find($conditionseco1Sem2, ['projection' => $projection]);
+
+
+$conditionsacc1 = [
+    "DEPARTMENT" => "Social", // Change DEPARTMENT to "Social"
+    "GRADE" => 1,
+    "SUBJECT" => "Accounting", // Change SUBJECT to "Accounting"
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursoracc1 = $exams->find($conditionsacc1, ['projection' => $projection]);
+
+$conditionsacc1Sem2 = [
+    "DEPARTMENT" => "Social", // Change DEPARTMENT to "Social"
+    "GRADE" => 1,
+    "SUBJECT" => "Accounting", // Change SUBJECT to "Accounting"
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursoracc1Sem2 = $exams->find($conditionsacc1Sem2, ['projection' => $projection]);
+
+$conditionsoc1 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 1,
+    "SUBJECT" => "Sociology", // Change SUBJECT to "Sociology"
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorsoc1 = $exams->find($conditionsoc1, ['projection' => $projection]);
+
+$conditionsoc1Sem2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 1,
+    "SUBJECT" => "Sociology", // Change SUBJECT to "Sociology"
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorsoc1Sem2 = $exams->find($conditionsoc1Sem2, ['projection' => $projection]);
+
+$conditiongeo1 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 1,
+    "SUBJECT" => "Geography", // Change SUBJECT to "Geography"
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorgeo1 = $exams->find($conditiongeo1, ['projection' => $projection]);
+
+$conditiongeo1Sem2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 1,
+    "SUBJECT" => "Geography", // Change SUBJECT to "Geography"
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorgeo1Sem2 = $exams->find($conditiongeo1Sem2, ['projection' => $projection]);
+
+// Grade 2 - Economics
+$conditionseco2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 2,
+    "SUBJECT" => "Economics",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursoreco2 = $exams->find($conditionseco2, ['projection' => $projection]);
+
+$conditionseco2Sem2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 2,
+    "SUBJECT" => "Economics",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursoreco2Sem2 = $exams->find($conditionseco2Sem2, ['projection' => $projection]);
+
+
+// Grade 2 - Accounting
+$conditionsacc2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 2,
+    "SUBJECT" => "Accounting",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursoracc2 = $exams->find($conditionsacc2, ['projection' => $projection]);
+
+$conditionsacc2Sem2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 2,
+    "SUBJECT" => "Accounting",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursoracc2Sem2 = $exams->find($conditionsacc2Sem2, ['projection' => $projection]);
+
+
+// Grade 2 - Sociology
+$conditionsoc2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 2,
+    "SUBJECT" => "Sociology",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorsoc2 = $exams->find($conditionsoc2, ['projection' => $projection]);
+
+$conditionsoc2Sem2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 2,
+    "SUBJECT" => "Sociology",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorsoc2Sem2 = $exams->find($conditionsoc2Sem2, ['projection' => $projection]);
+
+
+// Grade 2 - Geography
+$conditiongeo2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 2,
+    "SUBJECT" => "Geography",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorgeo2 = $exams->find($conditiongeo2, ['projection' => $projection]);
+
+$conditiongeo2Sem2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 2,
+    "SUBJECT" => "Geography",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorgeo2Sem2 = $exams->find($conditiongeo2Sem2, ['projection' => $projection]);
+
+// Grade 3 - Economics
+$conditionseco3 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 3,
+    "SUBJECT" => "Economics",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursoreco3 = $exams->find($conditionseco3, ['projection' => $projection]);
+
+$conditionseco3Sem2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 3,
+    "SUBJECT" => "Economics",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursoreco3Sem2 = $exams->find($conditionseco3Sem2, ['projection' => $projection]);
+
+
+// Grade 3 - Accounting
+$conditionsacc3 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 3,
+    "SUBJECT" => "Accounting",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursoracc3 = $exams->find($conditionsacc3, ['projection' => $projection]);
+
+$conditionsacc3Sem2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 3,
+    "SUBJECT" => "Accounting",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursoracc3Sem2 = $exams->find($conditionsacc3Sem2, ['projection' => $projection]);
+
+
+// Grade 3 - Sociology
+$conditionsoc3 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 3,
+    "SUBJECT" => "Sociology",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorsoc3 = $exams->find($conditionsoc3, ['projection' => $projection]);
+
+$conditionsoc3Sem2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 3,
+    "SUBJECT" => "Sociology",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorsoc3Sem2 = $exams->find($conditionsoc3Sem2, ['projection' => $projection]);
+
+
+// Grade 3 - Geography
+$conditiongeo3 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 3,
+    "SUBJECT" => "Geography",
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorgeo3 = $exams->find($conditiongeo3, ['projection' => $projection]);
+
+$conditiongeo3Sem2 = [
+    "DEPARTMENT" => "Social",
+    "GRADE" => 3,
+    "SUBJECT" => "Geography",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorgeo3Sem2 = $exams->find($conditiongeo3Sem2, ['projection' => $projection]);
+
+$conditionskor1 = [
+    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "GRADE" => 1,
+    "SUBJECT" => "Korean", // Change SUBJECT to "Korean"
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorkor1 = $exams->find($conditionskor1, ['projection' => $projection]);
+
+$conditionskor1Sem2 = [
+    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "GRADE" => 1,
+    "SUBJECT" => "Korean", // Change SUBJECT to "Korean"
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorkor1Sem2 = $exams->find($conditionskor1Sem2, ['projection' => $projection]);
+
+
+// Grade 1 - Mandarin (formerly Accounting)
+$conditionsman1 = [
+    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "GRADE" => 1,
+    "SUBJECT" => "Mandarin", // Change SUBJECT to "Mandarin"
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorman1 = $exams->find($conditionsman1, ['projection' => $projection]);
+
+$conditionsman1Sem2 = [
+    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "GRADE" => 1,
+    "SUBJECT" => "Mandarin", // Change SUBJECT to "Mandarin"
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorman1Sem2 = $exams->find($conditionsman1Sem2, ['projection' => $projection]);
+
+
+// Grade 1 - French (formerly Sociology)
+$conditionsfre1 = [
+    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "GRADE" => 1,
+    "SUBJECT" => "French", // Change SUBJECT to "French"
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorfre1 = $exams->find($conditionsfre1, ['projection' => $projection]);
+
+$conditionsfre1Sem2 = [
+    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "GRADE" => 1,
+    "SUBJECT" => "French", // Change SUBJECT to "French"
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorfre1Sem2 = $exams->find($conditionsfre1Sem2, ['projection' => $projection]);
+
+
+// Grade 1 - German (formerly Geography)
+$conditionsger1 = [
+    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "GRADE" => 1,
+    "SUBJECT" => "German", // Change SUBJECT to "German"
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorger1 = $exams->find($conditionsger1, ['projection' => $projection]);
+
+$conditionsger1Sem2 = [
+    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "GRADE" => 1,
+    "SUBJECT" => "German", // Change SUBJECT to "German"
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorger1Sem2 = $exams->find($conditionsger1Sem2, ['projection' => $projection]);
+
+$conditionskor2 = [
+    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "GRADE" => 2, // Change GRADE to 2
+    "SUBJECT" => "Korean", // Change SUBJECT to "Korean"
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorkor2 = $exams->find($conditionskor2, ['projection' => $projection]);
+
+$conditionskor2Sem2 = [
+    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "GRADE" => 2, // Change GRADE to 2
+    "SUBJECT" => "Korean", // Change SUBJECT to "Korean"
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorkor2Sem2 = $exams->find($conditionskor2Sem2, ['projection' => $projection]);
+
+
+// Grade 2 - Mandarin (formerly Accounting)
+$conditionsman2 = [
+    "DEPARTMENT" => "Language", // Change DEPARTMENT to "Language"
+    "GRADE" => 2, // Change GRADE to 2
+    "SUBJECT" => "Mandarin", // Change SUBJECT to "Mandarin"
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorman2 = $exams->find($conditionsman2, ['projection' => $projection]);
+
+$conditionsman2Sem2 = [
+    "DEPARTMENT" => "Language", 
+    "GRADE" => 2, 
+    "SUBJECT" => "Mandarin",
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorman2Sem2 = $exams->find($conditionsman2Sem2, ['projection' => $projection]);
+
+
+$conditionsfre2 = [
+    "DEPARTMENT" => "Language", 
+    "GRADE" => 2, 
+    "SUBJECT" => "French", 
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorfre2 = $exams->find($conditionsfre2, ['projection' => $projection]);
+
+$conditionsfre2Sem2 = [
+    "DEPARTMENT" => "Language", 
+    "GRADE" => 2, 
+    "SUBJECT" => "French", 
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorfre2Sem2 = $exams->find($conditionsfre2Sem2, ['projection' => $projection]);
+
+
+$conditionsger2 = [
+    "DEPARTMENT" => "Language", 
+    "GRADE" => 2, 
+    "SUBJECT" => "German", 
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorger2 = $exams->find($conditionsger2, ['projection' => $projection]);
+
+$conditionsger2Sem2 = [
+    "DEPARTMENT" => "Language", 
+    "GRADE" => 2, 
+    "SUBJECT" => "German", 
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorger2Sem2 = $exams->find($conditionsger2Sem2, ['projection' => $projection]);
+
+// Grade 3 - Korean (formerly Economics)
+$conditionskor3 = [
+    "DEPARTMENT" => "Language",
+    "GRADE" => 3, 
+    "SUBJECT" => "Korean", 
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorkor3 = $exams->find($conditionskor3, ['projection' => $projection]);
+
+$conditionskor3Sem2 = [
+    "DEPARTMENT" => "Language",
+    "GRADE" => 3,
+    "SUBJECT" => "Korean", 
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorkor3Sem2 = $exams->find($conditionskor3Sem2, ['projection' => $projection]);
+
+
+$conditionsman3 = [
+    "DEPARTMENT" => "Language",
+    "GRADE" => 3, 
+    "SUBJECT" => "Mandarin", 
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorman3 = $exams->find($conditionsman3, ['projection' => $projection]);
+
+$conditionsman3Sem2 = [
+    "DEPARTMENT" => "Language", 
+    "GRADE" => 3, 
+    "SUBJECT" => "Mandarin", 
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorman3Sem2 = $exams->find($conditionsman3Sem2, ['projection' => $projection]);
+
+
+$conditionsfre3 = [
+    "DEPARTMENT" => "Language", 
+    "GRADE" => 3, 
+    "SUBJECT" => "French", 
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorfre3 = $exams->find($conditionsfre3, ['projection' => $projection]);
+
+$conditionsfre3Sem2 = [
+    "DEPARTMENT" => "Language", 
+    "GRADE" => 3, 
+    "SUBJECT" => "French", 
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorfre3Sem2 = $exams->find($conditionsfre3Sem2, ['projection' => $projection]);
+
+
+$conditionsger3 = [
+    "DEPARTMENT" => "Language", 
+    "GRADE" => 3, 
+    "SUBJECT" => "German", 
+    "EXAM_TYPE" => ['$in' => ["Test1.1", "Test2.1", "Mid Exam1", "Final Exam1"]],
+];
+
+$cursorger3 = $exams->find($conditionsger3, ['projection' => $projection]);
+
+$conditionsger3Sem2 = [
+    "DEPARTMENT" => "Language", 
+    "GRADE" => 3, 
+    "SUBJECT" => "German", 
+    "EXAM_TYPE" => ['$in' => ["Test1.2", "Test2.2", "Mid Exam2", "Final Exam2"]],
+];
+
+$cursorger3Sem2 = $exams->find($conditionsger3Sem2, ['projection' => $projection]);
+
 
 ?>
 
@@ -165,330 +771,1077 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
 
     <div class="accordion" id="accordionExample">
         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <h2 class="accordion-header" id="headingsains">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsesains" aria-expanded="true" aria-controls="collapsesains">
                     Science
                 </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse hide" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div id="collapsesains" class="accordion-collapse collapse hide" aria-labelledby="headingsains" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
                     <div class="accordion" id="sub-accordionExample">
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="sub-headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseOne" aria-expanded="true" aria-controls="sub-collapseOne">
+                            <h2 class="accordion-header" id="sub-headingsains-1">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapsesains-1" aria-expanded="true" aria-controls="sub-collapsesains-1">
                                     Grade 1
                                 </button>
                             </h2>
-                            <div id="sub-collapseOne" class="accordion-collapse collapse hide" aria-labelledby="sub-headingOne" data-bs-parent="#sub-accordionExample">
+                            <div id="sub-collapsesains-1" class="accordion-collapse collapse hide" aria-labelledby="sub-headingsains-1" data-bs-parent="#sub-accordionExample">
                                 <div class="accordion-body">
                                     <div class="accordion" id="nested-sub-accordionExample">
                                         <!-- Nested Nested Accordion Item #1 -->
+                                        <div class="accordion science-phys-1">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="nested-sub-heading-phys-1">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapse-phys-1" aria-expanded="false" aria-controls="nested-sub-collapse-phys-1">
+                                                        Physics
+                                                    </button>
+                                                </h2>
+                                                <div id="nested-sub-collapse-phys-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-heading-phys-1" data-bs-parent="#nested-sub-accordionExample">
+                                                    <div class="accordion-body">
+                                                        <div class="accordion science-phys-1" id="nested-sub-nested-accordionExample1">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-sub-heading-phys-1">
+                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse-phys-1-1" aria-expanded="false" aria-controls="nested-sub-nested-collapse-phys-1-1">
+                                                                        First Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-sub-nested-collapse-phys-1-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading-phys-1-1" data-bs-parent="#nested-sub-accordion-phys-1-1">
+                                                                    <div class="accordion-body">
+                                                                        <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorphys1 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="accordion science-phys-1" id="nested-sub-nested-accordionExample2">
+                                                                <div class="accordion" id="nested-sub-nested-accordionExample3">
+                                                                    <div class="accordion-item">
+                                                                        <h2 class="accordion-header" id="nested-sub-nested-headingThree">
+                                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseThree" aria-expanded="false" aria-controls="nested-sub-nested-collapseThree">
+                                                                                Second Semester
+                                                                            </button>
+                                                                        </h2>
+                                                                        <div id="nested-sub-nested-collapseThree" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingThree" data-bs-parent="#nested-sub-nested-accordionExample3">
+                                                                            <div class="accordion-body">
+                                                                                <section class="intro">
+                                                                                    <div class="bg-image h-100">
+                                                                                        <div class="mask d-flex align-items-center h-100">
+                                                                                            <div class="container">
+                                                                                                <div class="row justify-content-center">
+                                                                                                    <div class="col-12">
+                                                                                                        <div class="card" id="card2">
+                                                                                                            <div class="card-body p-0">
+                                                                                                                <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                                    <table class="table table-striped mb-0">
+                                                                                                                        <thead style="background-color: #fff;">
+                                                                                                                            <th scope="col">Student ID</th>
+                                                                                                                            <th scope="col">Full Name</th>
+                                                                                                                            <th scope="col">Score</th>
+                                                                                                                            <th scope="col">Exam</th>
+                                                                                                                        </thead>
+                                                                                                                        <tbody>
+                                                                                                                            <?php
+                                                                                                                            foreach ($cursorphys1Sem2 as $exam) {
+                                                                                                                                foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                                    $studentId = $scoreData['student_id'];
+                                                                                                                                    $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                                    $result = mysqli_query($conn, $sql);
+                                                                                                                                    $row = mysqli_fetch_assoc($result);
+                                                                                                                                    $fullName = $row['full_name'];
+                                                                                                                                    $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                                    $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                                    echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                            ?>
+                                                                                                                        </tbody>
+                                                                                                                    </table>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </section>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <!-- Nested Nested Accordion Item #2 -->
+                                            <!-- Nested Accordion Item #2 -->
+                                            <div class="accordion" id="nested-sub-accordionExample2">
+                                                <div class="accordion science-bio-1">
+                                                    <div class="accordion-item">
+                                                        <h2 class="accordion-header" id="nested-sub-headingTwo">
+                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseTwo" aria-expanded="false" aria-controls="nested-sub-collapseTwo">
+                                                                Biology
+                                                            </button>
+                                                        </h2>
+                                                        <div id="nested-sub-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-headingTwo" data-bs-parent="#nested-sub-accordionExample">
+                                                            <div class="accordion-body">
+                                                                <!-- Nested Nested Accordion Item #1 -->
+                                                                <div class="accordion science-bio-1" id="nested-sub-nested-accordionExample1">
+                                                                    <div class="accordion-item">
+                                                                        <h2 class="accordion-header" id="nested-sub-nested-headingOne">
+                                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="false" aria-controls="nested-sub-nested-collapseOne">
+                                                                                First Semester
+                                                                            </button>
+                                                                        </h2>
+                                                                        <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
+                                                                            <div class="accordion-body">
+                                                                                <section class="intro">
+                                                                                    <div class="bg-image h-100">
+                                                                                        <div class="mask d-flex align-items-center h-100">
+                                                                                            <div class="container">
+                                                                                                <div class="row justify-content-center">
+                                                                                                    <div class="col-12">
+                                                                                                        <div class="card" id="card2">
+                                                                                                            <div class="card-body p-0">
+                                                                                                                <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                                    <table class="table table-striped mb-0">
+                                                                                                                        <thead style="background-color: #fff;">
+                                                                                                                            <th scope="col">Student ID</th>
+                                                                                                                            <th scope="col">Full Name</th>
+                                                                                                                            <th scope="col">Score</th>
+                                                                                                                            <th scope="col">Exam</th>
+                                                                                                                        </thead>
+                                                                                                                        <tbody>
+                                                                                                                            <?php
+                                                                                                                            foreach ($cursorbio1 as $exam) {
+                                                                                                                                foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                                    $studentId = $scoreData['student_id'];
+                                                                                                                                    $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                                    $result = mysqli_query($conn, $sql);
+                                                                                                                                    $row = mysqli_fetch_assoc($result);
+                                                                                                                                    $fullName = $row['full_name'];
+                                                                                                                                    $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                                    $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                                    echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                            ?>
+                                                                                                                        </tbody>
+                                                                                                                    </table>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </section>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+
+                                                                <!-- Nested Nested Accordion Item #2 -->
+                                                                <div class="accordion science-bio-1" id="nested-sub-nested-accordionExample2">
+                                                                    <div class="accordion-item">
+                                                                        <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
+                                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="false" aria-controls="nested-sub-nested-collapseTwo">
+                                                                                Second Semester
+                                                                            </button>
+                                                                        </h2>
+                                                                        <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
+                                                                            <div class="accordion-body">
+                                                                                <section class="intro">
+                                                                                    <div class="bg-image h-100">
+                                                                                        <div class="mask d-flex align-items-center h-100">
+                                                                                            <div class="container">
+                                                                                                <div class="row justify-content-center">
+                                                                                                    <div class="col-12">
+                                                                                                        <div class="card" id="card2">
+                                                                                                            <div class="card-body p-0">
+                                                                                                                <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                                    <table class="table table-striped mb-0">
+                                                                                                                        <thead style="background-color: #fff;">
+                                                                                                                            <th scope="col">Student ID</th>
+                                                                                                                            <th scope="col">Full Name</th>
+                                                                                                                            <th scope="col">Score</th>
+                                                                                                                            <th scope="col">Exam</th>
+                                                                                                                        </thead>
+                                                                                                                        <tbody>
+                                                                                                                            <?php
+                                                                                                                            foreach ($cursorbio1Sem2 as $exam) {
+                                                                                                                                foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                                    $studentId = $scoreData['student_id'];
+                                                                                                                                    $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                                    $result = mysqli_query($conn, $sql);
+                                                                                                                                    $row = mysqli_fetch_assoc($result);
+                                                                                                                                    $fullName = $row['full_name'];
+                                                                                                                                    $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                                    $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                                    echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                            ?>
+                                                                                                                        </tbody>
+                                                                                                                    </table>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </section>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <!-- Nested Accordion Item #3 -->
+                                            <div class="accordion" id="nested-sub-accordionExample3">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="nested-sub-headingThree">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseThree" aria-expanded="true" aria-controls="nested-sub-collapseThree">
+                                                            Mathematics
+                                                        </button>
+                                                    </h2>
+                                                    <div id="nested-sub-collapseThree" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-headingThree" data-bs-parent="#nested-sub-accordionExample">
+                                                        <div class="accordion-body">
+                                                            <!-- Nested Nested Accordion Item #1 -->
+                                                            <div class="accordion" id="nested-sub-nested-accordionExample1">
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="nested-sub-nested-headingOne">
+                                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="false" aria-controls="nested-sub-nested-collapseOne">
+                                                                            First Semester
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
+                                                                        <div class="accordion-body">
+                                                                            <section class="intro">
+                                                                                <div class="bg-image h-100">
+                                                                                    <div class="mask d-flex align-items-center h-100">
+                                                                                        <div class="container">
+                                                                                            <div class="row justify-content-center">
+                                                                                                <div class="col-12">
+                                                                                                    <div class="card" id="card2">
+                                                                                                        <div class="card-body p-0">
+                                                                                                            <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                                <table class="table table-striped mb-0">
+                                                                                                                    <thead style="background-color: #fff;">
+                                                                                                                        <th scope="col">Student ID</th>
+                                                                                                                        <th scope="col">Full Name</th>
+                                                                                                                        <th scope="col">Score</th>
+                                                                                                                        <th scope="col">Exam</th>
+                                                                                                                    </thead>
+                                                                                                                    <tbody>
+                                                                                                                        <?php
+                                                                                                                        foreach ($cursormath1 as $exam) {
+                                                                                                                            foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                                $studentId = $scoreData['student_id'];
+                                                                                                                                $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                                $result = mysqli_query($conn, $sql);
+                                                                                                                                $row = mysqli_fetch_assoc($result);
+                                                                                                                                $fullName = $row['full_name'];
+                                                                                                                                $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                                $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                                echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                        ?>
+                                                                                                                    </tbody>
+                                                                                                                </table>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </section>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Add more nested nested accordion items as needed -->
+                                                            </div>
+
+                                                            <!-- Nested Nested Accordion Item #2 -->
+                                                            <div class="accordion" id="nested-sub-nested-accordionExample2">
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
+                                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="false" aria-controls="nested-sub-nested-collapseTwo">
+                                                                            Second Semester
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
+                                                                        <div class="accordion-body">
+                                                                            <section class="intro">
+                                                                                <div class="bg-image h-100">
+                                                                                    <div class="mask d-flex align-items-center h-100">
+                                                                                        <div class="container">
+                                                                                            <div class="row justify-content-center">
+                                                                                                <div class="col-12">
+                                                                                                    <div class="card" id="card2">
+                                                                                                        <div class="card-body p-0">
+                                                                                                            <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                                <table class="table table-striped mb-0">
+                                                                                                                    <thead style="background-color: #fff;">
+                                                                                                                        <th scope="col">Student ID</th>
+                                                                                                                        <th scope="col">Full Name</th>
+                                                                                                                        <th scope="col">Score</th>
+                                                                                                                        <th scope="col">Exam</th>
+                                                                                                                    </thead>
+                                                                                                                    <tbody>
+                                                                                                                        <?php
+                                                                                                                        foreach ($cursormath1Sem2 as $exam) {
+                                                                                                                            foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                                $studentId = $scoreData['student_id'];
+                                                                                                                                $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                                $result = mysqli_query($conn, $sql);
+                                                                                                                                $row = mysqli_fetch_assoc($result);
+                                                                                                                                $fullName = $row['full_name'];
+                                                                                                                                $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                                $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                                echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                            }
+                                                                                                                        }
+                                                                                                                        ?>
+                                                                                                                    </tbody>
+                                                                                                                </table>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </section>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="nested-sub-headingFour">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseFour" aria-expanded="true" aria-controls="nested-sub-collapseFour">
+                                                        Chemistry
+                                                    </button>
+                                                </h2>
+                                                <div id="nested-sub-collapseFour" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-headingFour" data-bs-parent="#nested-sub-accordionExample">
+                                                    <div class="accordion-body">
+                                                        <!-- Nested Nested Accordion Item #1 -->
+                                                        <div class="accordion" id="nested-sub-nested-accordionExample1">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-sub-nested-headingOne">
+                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="true" aria-controls="nested-sub-nested-collapseOne">
+                                                                        First Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
+                                                                    <div class="accordion-body">
+                                                                        <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorchem1 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Add more content or nested nested accordion items as needed -->
+                                                        </div>
+
+                                                        <!-- Nested Nested Accordion Item #2 -->
+                                                        <div class="accordion" id="nested-sub-nested-accordionExample2">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
+                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="true" aria-controls="nested-sub-nested-collapseTwo">
+                                                                        Second Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
+                                                                    <div class="accordion-body">
+                                                                        <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorchem1Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="sub-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseTwo" aria-expanded="false" aria-controls="sub-collapseTwo">
+                                    Grade 2
+                                </button>
+                            </h2>
+                            <div id="sub-collapseTwo" class="accordion-collapse collapse" aria-labelledby="sub-headingTwo" data-bs-parent="#sub-accordionExample">
+                                <div class="accordion-body">
+                                    <div class="accordion" id="nested-sub-accordionExample1">
                                         <div class="accordion-item">
                                             <h2 class="accordion-header" id="nested-sub-headingOne">
                                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseOne" aria-expanded="true" aria-controls="nested-sub-collapseOne">
                                                     Physics
                                                 </button>
                                             </h2>
-                                            <div id="nested-sub-collapseOne" class="accordion-collapse collapse show" aria-labelledby="nested-sub-headingOne" data-bs-parent="#nested-sub-accordionExample">
+                                            <div id="nested-sub-collapseOne" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-headingOne" data-bs-parent="#nested-sub-accordionExample1">
                                                 <div class="accordion-body">
                                                     <div class="accordion" id="nested-sub-nested-accordionExample1">
                                                         <div class="accordion-item">
                                                             <h2 class="accordion-header" id="nested-sub-nested-headingOne">
-                                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="true" aria-controls="nested-sub-nested-collapseOne">
-                                                                    Nested Accordion Item #1
+                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="false" aria-controls="nested-sub-nested-collapseOne">
+                                                                    First Semester
                                                                 </button>
                                                             </h2>
-                                                            <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
+                                                            <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
                                                                 <div class="accordion-body">
-                                                                    <strong>This is the first nested accordion item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursorphys2 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                    }
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </section>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                     <div class="accordion" id="nested-sub-nested-accordionExample2">
-                                                        <div class="accordion" id="nested-sub-nested-accordionExample3">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-sub-nested-headingThree">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseThree" aria-expanded="true" aria-controls="nested-sub-nested-collapseThree">
-                                                                        Nested Accordion Item #3
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-sub-nested-collapseThree" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingThree" data-bs-parent="#nested-sub-nested-accordionExample3">
-                                                                    <div class="accordion-body">
-                                                                        <strong>This is the third nested accordion item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="accordion" id="nested-sub-nested-accordionExample3">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-sub-nested-headingThree">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseThree" aria-expanded="true" aria-controls="nested-sub-nested-collapseThree">
-                                                                        Nested Accordion Item #3
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-sub-nested-collapseThree" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingThree" data-bs-parent="#nested-sub-nested-accordionExample3">
-                                                                    <div class="accordion-body">
-                                                                        <strong>This is the third nested accordion item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
+                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="false" aria-controls="nested-sub-nested-collapseTwo">
+                                                                    Second Semester
+                                                                </button>
+                                                            </h2>
+                                                            <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
+                                                                <div class="accordion-body">
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursorphys2Sem2 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
 
-                                                        <div class="accordion" id="nested-sub-nested-accordionExample4">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-sub-nested-headingFour">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseFour" aria-expanded="true" aria-controls="nested-sub-nested-collapseFour">
-                                                                        Nested Accordion Item #4
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-sub-nested-collapseFour" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingFour" data-bs-parent="#nested-sub-nested-accordionExample4">
-                                                                    <div class="accordion-body">
-                                                                        <strong>This is the fourth nested accordion item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                    </div>
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                    }
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </section>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
 
-
-                                        <!-- Nested Nested Accordion Item #2 -->
-                                        <!-- Nested Accordion Item #2 -->
-                                        <div class="accordion" id="nested-sub-accordionExample2">
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="nested-sub-headingTwo">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseTwo" aria-expanded="true" aria-controls="nested-sub-collapseTwo">
-                                                        Biology
-                                                    </button>
-                                                </h2>
-                                                <div id="nested-sub-collapseTwo" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-headingTwo" data-bs-parent="#nested-sub-accordionExample">
-                                                    <div class="accordion-body">
-                                                        <!-- Nested Nested Accordion Item #1 -->
-                                                        <div class="accordion" id="nested-sub-nested-accordionExample1">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-sub-nested-headingOne">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="true" aria-controls="nested-sub-nested-collapseOne">
-                                                                        Nested Nested Accordion Item #1
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
-                                                                    <div class="accordion-body">
-                                                                        <strong>This is the first nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Add more nested nested accordion items as needed -->
-                                                        </div>
-
-                                                        <!-- Nested Nested Accordion Item #2 -->
-                                                        <div class="accordion" id="nested-sub-nested-accordionExample2">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="true" aria-controls="nested-sub-nested-collapseTwo">
-                                                                        Nested Nested Accordion Item #2
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
-                                                                    <div class="accordion-body">
-                                                                        <strong>This is the second nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Add more nested nested accordion items as needed -->
-                                                        </div>
-
-                                                        <!-- Nested Nested Accordion Item #3 -->
-                                                        <div class="accordion" id="nested-sub-nested-accordionExample3">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-sub-nested-headingThree">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseThree" aria-expanded="true" aria-controls="nested-sub-nested-collapseThree">
-                                                                        Nested Nested Accordion Item #3
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-sub-nested-collapseThree" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingThree" data-bs-parent="#nested-sub-nested-accordionExample3">
-                                                                    <div class="accordion-body">
-                                                                        <strong>This is the third nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Add more nested nested accordion items as needed -->
-                                                        </div>
-
-                                                        <!-- Nested Nested Accordion Item #4 -->
-                                                        <div class="accordion" id="nested-sub-nested-accordionExample4">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-sub-nested-headingFour">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseFour" aria-expanded="true" aria-controls="nested-sub-nested-collapseFour">
-                                                                        Nested Nested Accordion Item #4
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-sub-nested-collapseFour" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingFour" data-bs-parent="#nested-sub-nested-accordionExample4">
-                                                                    <div class="accordion-body">
-                                                                        <strong>This is the fourth nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Add more nested nested accordion items as needed -->
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Nested Accordion Item #3 -->
-                                        <div class="accordion" id="nested-sub-accordionExample3">
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="nested-sub-headingThree">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseThree" aria-expanded="true" aria-controls="nested-sub-collapseThree">
-                                                        Mathematics
-                                                    </button>
-                                                </h2>
-                                                <div id="nested-sub-collapseThree" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-headingThree" data-bs-parent="#nested-sub-accordionExample">
-                                                    <div class="accordion-body">
-                                                        <!-- Nested Nested Accordion Item #1 -->
-                                                        <div class="accordion" id="nested-sub-nested-accordionExample1">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-sub-nested-headingOne">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="true" aria-controls="nested-sub-nested-collapseOne">
-                                                                        Nested Nested Accordion Item #1
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
-                                                                    <div class="accordion-body">
-                                                                        <strong>This is the first nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Add more nested nested accordion items as needed -->
-                                                        </div>
-
-                                                        <!-- Nested Nested Accordion Item #2 -->
-                                                        <div class="accordion" id="nested-sub-nested-accordionExample2">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="true" aria-controls="nested-sub-nested-collapseTwo">
-                                                                        Nested Nested Accordion Item #2
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
-                                                                    <div class="accordion-body">
-                                                                        <strong>This is the second nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Add more nested nested accordion items as needed -->
-                                                        </div>
-
-                                                        <div class="accordion" id="nested-sub-nested-accordionExample3">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-sub-nested-headingThree">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseThree" aria-expanded="true" aria-controls="nested-sub-nested-collapseThree">
-                                                                        Nested Nested Accordion Item #3
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-sub-nested-collapseThree" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingThree" data-bs-parent="#nested-sub-nested-accordionExample3">
-                                                                    <div class="accordion-body">
-                                                                        <strong>This is the third nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Add more content or nested nested accordion items as needed -->
-                                                        </div>
-
-                                                        <!-- Nested Nested Accordion Item #4 -->
-                                                        <div class="accordion" id="nested-sub-nested-accordionExample4">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-sub-nested-headingFour">
-                                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseFour" aria-expanded="true" aria-controls="nested-sub-nested-collapseFour">
-                                                                        Nested Nested Accordion Item #4
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-sub-nested-collapseFour" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingFour" data-bs-parent="#nested-sub-nested-accordionExample4">
-                                                                    <div class="accordion-body">
-                                                                        <strong>This is the fourth nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Add more content or nested nested accordion items as needed -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
 
                                         <div class="accordion-item">
-                                            <h2 class="accordion-header" id="nested-sub-headingFour">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseFour" aria-expanded="true" aria-controls="nested-sub-collapseFour">
-                                                    Chemistry
+                                            <h2 class="accordion-header" id="nested-sub-headingTwo">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseTwo" aria-expanded="false" aria-controls="nested-sub-collapseTwo">
+                                                    Biology
                                                 </button>
                                             </h2>
-                                            <div id="nested-sub-collapseFour" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-headingFour" data-bs-parent="#nested-sub-accordionExample">
+                                            <div id="nested-sub-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-headingTwo" data-bs-parent="#nested-sub-accordionExample1">
                                                 <div class="accordion-body">
                                                     <!-- Nested Nested Accordion Item #1 -->
                                                     <div class="accordion" id="nested-sub-nested-accordionExample1">
                                                         <div class="accordion-item">
                                                             <h2 class="accordion-header" id="nested-sub-nested-headingOne">
-                                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="true" aria-controls="nested-sub-nested-collapseOne">
-                                                                    Nested Nested Accordion Item #1
+                                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="false" aria-controls="nested-sub-nested-collapseOne">
+                                                                    First Semester
                                                                 </button>
                                                             </h2>
-                                                            <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
-                                                                <div class="accordion-body">
-                                                                    <strong>This is the first nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                </div>
+                                                            <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
+                                                                <section class="intro">
+                                                                    <div class="bg-image h-100">
+                                                                        <div class="mask d-flex align-items-center h-100">
+                                                                            <div class="container">
+                                                                                <div class="row justify-content-center">
+                                                                                    <div class="col-12">
+                                                                                        <div class="card" id="card2">
+                                                                                            <div class="card-body p-0">
+                                                                                                <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                    <table class="table table-striped mb-0">
+                                                                                                        <thead style="background-color: #fff;">
+                                                                                                            <th scope="col">Student ID</th>
+                                                                                                            <th scope="col">Full Name</th>
+                                                                                                            <th scope="col">Score</th>
+                                                                                                            <th scope="col">Exam</th>
+                                                                                                        </thead>
+                                                                                                        <tbody>
+                                                                                                            <?php
+                                                                                                            foreach ($cursorbio2 as $exam) {
+                                                                                                                foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                    $studentId = $scoreData['student_id'];
+                                                                                                                    $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                    $result = mysqli_query($conn, $sql);
+                                                                                                                    $row = mysqli_fetch_assoc($result);
+                                                                                                                    $fullName = $row['full_name'];
+                                                                                                                    $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                    $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                    echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                }
+                                                                                                            }
+                                                                                                            ?>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </section>
                                                             </div>
                                                         </div>
-                                                        <!-- Add more content or nested nested accordion items as needed -->
                                                     </div>
 
                                                     <!-- Nested Nested Accordion Item #2 -->
                                                     <div class="accordion" id="nested-sub-nested-accordionExample2">
                                                         <div class="accordion-item">
                                                             <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
-                                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="true" aria-controls="nested-sub-nested-collapseTwo">
-                                                                    Nested Nested Accordion Item #2
+                                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="false" aria-controls="nested-sub-nested-collapseTwo">
+                                                                    Second Semester
                                                                 </button>
                                                             </h2>
-                                                            <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
+                                                            <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
                                                                 <div class="accordion-body">
-                                                                    <strong>This is the second nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursorbio2Sem2 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                    }
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </section>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!-- Add more content or nested nested accordion items as needed -->
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                                    <!-- Nested Nested Accordion Item #3 -->
-                                                    <div class="accordion" id="nested-sub-nested-accordionExample3">
+
+                                        <div class="accordion-item science-math-2">
+                                            <h2 class="accordion-header" id="nested-sub-headingThree">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseThree" aria-expanded="false" aria-controls="nested-sub-collapseThree">
+                                                    Mathematics
+                                                </button>
+                                            </h2>
+                                            <div id="nested-sub-collapseThree" class="accordion-collapse collapse" aria-labelledby="nested-sub-headingThree" data-bs-parent="#nested-sub-accordionExample1">
+                                                <div class="accordion-body">
+                                                    <!-- Nested Accordion Item #1 -->
+                                                    <div class="accordion science-math-2" id="nested-sub-nested-accordionExample1">
                                                         <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-headingThree">
-                                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseThree" aria-expanded="true" aria-controls="nested-sub-nested-collapseThree">
-                                                                    Nested Nested Accordion Item #3
+                                                            <h2 class="accordion-header" id="nested-sub-nested-headingOne">
+                                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="false" aria-controls="nested-sub-nested-collapseOne">
+                                                                    First Semester
                                                                 </button>
                                                             </h2>
-                                                            <div id="nested-sub-nested-collapseThree" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingThree" data-bs-parent="#nested-sub-nested-accordionExample3">
+                                                            <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
                                                                 <div class="accordion-body">
-                                                                    <strong>This is the third nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursormath2 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                    }
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Add more nested accordion items as needed -->
+                                                    </div>
+
+                                                    <!-- Nested Accordion Item #2 -->
+                                                    <div class="accordion science-math-2" id="nested-sub-nested-accordionExample2">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
+                                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="false" aria-controls="nested-sub-nested-collapseTwo">
+                                                                    Second Semester
+                                                                </button>
+                                                            </h2>
+                                                            <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
+                                                                <div class="accordion-body">
+                                                                    <section class="intro">
+                                                                        <div class="bg-image h-100">
+                                                                            <div class="mask d-flex align-items-center h-100">
+                                                                                <div class="container">
+                                                                                    <div class="row justify-content-center">
+                                                                                        <div class="col-12">
+                                                                                            <div class="card" id="card2">
+                                                                                                <div class="card-body p-0">
+                                                                                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                        <table class="table table-striped mb-0">
+                                                                                                            <thead style="background-color: #fff;">
+                                                                                                                <th scope="col">Student ID</th>
+                                                                                                                <th scope="col">Full Name</th>
+                                                                                                                <th scope="col">Score</th>
+                                                                                                                <th scope="col">Exam</th>
+                                                                                                            </thead>
+                                                                                                            <tbody>
+                                                                                                                <?php
+                                                                                                                foreach ($cursormath2Sem2 as $exam) {
+                                                                                                                    foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                        $studentId = $scoreData['student_id'];
+                                                                                                                        $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                        $result = mysqli_query($conn, $sql);
+                                                                                                                        $row = mysqli_fetch_assoc($result);
+                                                                                                                        $fullName = $row['full_name'];
+                                                                                                                        $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                        $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                        echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                    }
+                                                                                                                }
+                                                                                                                ?>
+                                                                                                            </tbody>
+                                                                                                        </table>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </section>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                            </div>
 
-                                                    <div class="accordion" id="nested-sub-nested-accordionExample4">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-headingFour">
-                                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseFour" aria-expanded="true" aria-controls="nested-sub-nested-collapseFour">
-                                                                    Nested Nested Accordion Item #4
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapseFour" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingFour" data-bs-parent="#nested-sub-nested-accordionExample4">
-                                                                <div class="accordion-body">
-                                                                    <strong>This is the fourth nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                            <div class="accordion-item science-math-2">
+                                                <div class="accordion science-math-2" id="nested-sub-accordionExample1">
+                                                    <div class="accordion-item">
+                                                        <!-- Chemistry Accordion Header -->
+                                                        <h2 class="accordion-header" id="nested-sub-headingFour">
+                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseFour" aria-expanded="false" aria-controls="nested-sub-collapseFour">
+                                                                Chemistry
+                                                            </button>
+                                                        </h2>
+
+                                                        <!-- Chemistry Accordion Collapse Content -->
+                                                        <div id="nested-sub-collapseFour" class="accordion-collapse collapse" aria-labelledby="nested-sub-headingFour" data-bs-parent="#nested-sub-accordionExample1">
+                                                            <div class="accordion-body">
+                                                                <!-- Nested Accordion #1 -->
+                                                                <div class="accordion science-math-2" id="nested-sub-nested-accordionExample1">
+                                                                    <div class="accordion-item">
+                                                                        <h2 class="accordion-header" id="nested-sub-nested-headingOne">
+                                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="false" aria-controls="nested-sub-nested-collapseOne">
+                                                                                First Semester
+                                                                            </button>
+                                                                        </h2>
+                                                                        <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
+                                                                            <div class="accordion-body">
+                                                                                <section class="intro">
+                                                                                    <div class="bg-image h-100">
+                                                                                        <div class="mask d-flex align-items-center h-100">
+                                                                                            <div class="container">
+                                                                                                <div class="row justify-content-center">
+                                                                                                    <div class="col-12">
+                                                                                                        <div class="card" id="card2">
+                                                                                                            <div class="card-body p-0">
+                                                                                                                <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                                    <table class="table table-striped mb-0">
+                                                                                                                        <thead style="background-color: #fff;">
+                                                                                                                            <th scope="col">Student ID</th>
+                                                                                                                            <th scope="col">Full Name</th>
+                                                                                                                            <th scope="col">Score</th>
+                                                                                                                            <th scope="col">Exam</th>
+                                                                                                                        </thead>
+                                                                                                                        <tbody>
+                                                                                                                            <?php
+                                                                                                                            foreach ($cursorchem2 as $exam) {
+                                                                                                                                foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                                    $studentId = $scoreData['student_id'];
+                                                                                                                                    $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                                    $result = mysqli_query($conn, $sql);
+                                                                                                                                    $row = mysqli_fetch_assoc($result);
+                                                                                                                                    $fullName = $row['full_name'];
+                                                                                                                                    $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                                    $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                                    echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                            ?>
+                                                                                                                        </tbody>
+                                                                                                                    </table>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </section>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!-- Add more nested accordion items as needed -->
+                                                                </div>
+
+                                                                <!-- Nested Accordion #2 -->
+                                                                <div class="accordion science-math-2" id="nested-sub-nested-accordionExample2">
+                                                                    <div class="accordion-item">
+                                                                        <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
+                                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="false" aria-controls="nested-sub-nested-collapseTwo">
+                                                                                Second Semester
+                                                                            </button>
+                                                                        </h2>
+                                                                        <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
+                                                                            <div class="accordion-body">
+                                                                                <section class="intro">
+                                                                                    <div class="bg-image h-100">
+                                                                                        <div class="mask d-flex align-items-center h-100">
+                                                                                            <div class="container">
+                                                                                                <div class="row justify-content-center">
+                                                                                                    <div class="col-12">
+                                                                                                        <div class="card" id="card2">
+                                                                                                            <div class="card-body p-0">
+                                                                                                                <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                                    <table class="table table-striped mb-0">
+                                                                                                                        <thead style="background-color: #fff;">
+                                                                                                                            <th scope="col">Student ID</th>
+                                                                                                                            <th scope="col">Full Name</th>
+                                                                                                                            <th scope="col">Score</th>
+                                                                                                                            <th scope="col">Exam</th>
+                                                                                                                        </thead>
+                                                                                                                        <tbody>
+                                                                                                                            <?php
+                                                                                                                            foreach ($cursorchem2Sem2 as $exam) {
+                                                                                                                                foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                                    $studentId = $scoreData['student_id'];
+                                                                                                                                    $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                                    $result = mysqli_query($conn, $sql);
+                                                                                                                                    $row = mysqli_fetch_assoc($result);
+                                                                                                                                    $fullName = $row['full_name'];
+                                                                                                                                    $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                                    $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                                    echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                                }
+                                                                                                                            }
+                                                                                                                            ?>
+                                                                                                                        </tbody>
+                                                                                                                    </table>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </section>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -501,653 +1854,536 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="sub-headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapseTwo" aria-expanded="false" aria-controls="sub-collapseTwo">
-                                Grade 2
-                            </button>
-                        </h2>
-                        <div id="sub-collapseTwo" class="accordion-collapse collapse" aria-labelledby="sub-headingTwo" data-bs-parent="#sub-accordionExample">
-                            <div class="accordion-body">
-                                <div class="accordion" id="nested-sub-accordionExample1">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="nested-sub-headingOne">
-                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseOne" aria-expanded="true" aria-controls="nested-sub-collapseOne">
-                                                Physics
-                                            </button>
-                                        </h2>
-                                        <div id="nested-sub-collapseOne" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-headingOne" data-bs-parent="#nested-sub-accordionExample1">
-                                            <div class="accordion-body">
-                                                <div class="accordion" id="nested-sub-nested-accordionExample1">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-headingOne">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="true" aria-controls="nested-sub-nested-collapseOne">
-                                                                Nested Nested Accordion Item #1
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
-                                                            <div class="accordion-body">
-                                                                <strong>This is the first nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="accordion" id="nested-sub-nested-accordionExample2">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="true" aria-controls="nested-sub-nested-collapseTwo">
-                                                                Nested Nested Accordion Item #2
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
-                                                            <div class="accordion-body">
-                                                                <strong>This is the second nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="accordion" id="nested-sub-nested-accordionExample3">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-headingThree">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseThree" aria-expanded="true" aria-controls="nested-sub-nested-collapseThree">
-                                                                Nested Nested Accordion Item #3
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-collapseThree" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingThree" data-bs-parent="#nested-sub-nested-accordionExample3">
-                                                            <div class="accordion-body">
-                                                                <strong>This is the third nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="accordion" id="nested-sub-nested-accordionExample4">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-headingFour">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseFour" aria-expanded="true" aria-controls="nested-sub-nested-collapseFour">
-                                                                Nested Nested Accordion Item #4
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-collapseFour" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingFour" data-bs-parent="#nested-sub-nested-accordionExample4">
-                                                            <div class="accordion-body">
-                                                                <strong>This is the fourth nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="nested-sub-headingTwo">
-                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseTwo" aria-expanded="true" aria-controls="nested-sub-collapseTwo">
-                                                Biology
-                                            </button>
-                                        </h2>
-                                        <div id="nested-sub-collapseTwo" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-headingTwo" data-bs-parent="#nested-sub-accordionExample1">
-                                            <div class="accordion-body">
-                                                <div class="accordion" id="nested-sub-nested-accordionExample1">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-headingOne">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="true" aria-controls="nested-sub-nested-collapseOne">
-                                                                Nested Nested Accordion Item #1
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
-                                                            <div class="accordion-body">
-                                                                <strong>This is the first nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="accordion" id="nested-sub-nested-accordionExample2">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="true" aria-controls="nested-sub-nested-collapseTwo">
-                                                                Nested Nested Accordion Item #2
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
-                                                            <div class="accordion-body">
-                                                                <strong>This is the second nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="accordion" id="nested-sub-nested-accordionExample3">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-headingThree">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseThree" aria-expanded="true" aria-controls="nested-sub-nested-collapseThree">
-                                                                Nested Nested Accordion Item #3
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-collapseThree" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingThree" data-bs-parent="#nested-sub-nested-accordionExample3">
-                                                            <div class="accordion-body">
-                                                                <strong>This is the third nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="accordion" id="nested-sub-nested-accordionExample4">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-headingFour">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseFour" aria-expanded="true" aria-controls="nested-sub-nested-collapseFour">
-                                                                Nested Nested Accordion Item #4
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-collapseFour" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingFour" data-bs-parent="#nested-sub-nested-accordionExample4">
-                                                            <div class="accordion-body">
-                                                                <strong>This is the fourth nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="nested-sub-headingThree">
-                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseThree" aria-expanded="true" aria-controls="nested-sub-collapseThree">
-                                                Mathematics
-                                            </button>
-                                        </h2>
-                                        <div id="nested-sub-collapseThree" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-headingThree" data-bs-parent="#nested-sub-accordionExample1">
-                                            <div class="accordion-body">
-                                                <div class="accordion" id="nested-sub-nested-accordionExample1">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-headingOne">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="true" aria-controls="nested-sub-nested-collapseOne">
-                                                                Nested Accordion Item #1
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
-                                                            <div class="accordion-body">
-                                                                <strong>This is the first nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Add more nested accordion items as needed -->
-                                                </div>
-
-                                                <!-- Nested Accordion Item #2 -->
-                                                <div class="accordion" id="nested-sub-nested-accordionExample2">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="true" aria-controls="nested-sub-nested-collapseTwo">
-                                                                Nested Accordion Item #2
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
-                                                            <div class="accordion-body">
-                                                                <strong>This is the second nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Add more nested accordion items as needed -->
-                                                </div>
-
-                                                <!-- Nested Accordion Item #3 -->
-                                                <div class="accordion" id="nested-sub-nested-accordionExample3">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-headingThree">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseThree" aria-expanded="true" aria-controls="nested-sub-nested-collapseThree">
-                                                                Nested Accordion Item #3
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-collapseThree" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingThree" data-bs-parent="#nested-sub-nested-accordionExample3">
-                                                            <div class="accordion-body">
-                                                                <strong>This is the third nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Add more nested accordion items as needed -->
-                                                </div>
-
-                                                <!-- Nested Accordion Item #4 -->
-                                                <div class="accordion" id="nested-sub-nested-accordionExample4">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-headingFour">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseFour" aria-expanded="true" aria-controls="nested-sub-nested-collapseFour">
-                                                                Nested Accordion Item #4
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-collapseFour" class="accordion-collapse collapse show" aria-labelledby="nested-sub-nested-headingFour" data-bs-parent="#nested-sub-nested-accordionExample4">
-                                                            <div class="accordion-body">
-                                                                <strong>This is the fourth nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Add more nested accordion items as needed -->
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="accordion-item">
-                                            <div class="accordion" id="nested-sub-accordionExample1">
-                                                <div class="accordion-item">
-                                                    <!-- Chemistry Accordion Header -->
-                                                    <h2 class="accordion-header" id="nested-sub-headingFour">
-                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseFour" aria-expanded="true" aria-controls="nested-sub-collapseFour">
-                                                            Chemistry
-                                                        </button>
-                                                    </h2>
-
-                                                    <!-- Chemistry Accordion Collapse Content -->
-                                                    <div id="nested-sub-collapseFour" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-headingFour" data-bs-parent="#nested-sub-accordionExample1">
-                                                        <div class="accordion-body">
-                                                            <!-- Nested Accordion #1 -->
-                                                            <div class="accordion" id="nested-sub-nested-accordionExample1">
-                                                                <div class="accordion-item">
-                                                                    <h2 class="accordion-header" id="nested-sub-nested-headingOne">
-                                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="true" aria-controls="nested-sub-nested-collapseOne">
-                                                                            Nested Nested Accordion Item #1
-                                                                        </button>
-                                                                    </h2>
-                                                                    <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
-                                                                        <div class="accordion-body">
-                                                                            <strong>This is the first nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <!-- Add more nested accordion items as needed -->
-                                                            </div>
-
-                                                            <!-- Nested Accordion #2 -->
-                                                            <div class="accordion" id="nested-sub-nested-accordionExample2">
-                                                                <div class="accordion-item">
-                                                                    <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
-                                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="true" aria-controls="nested-sub-nested-collapseTwo">
-                                                                            Nested Nested Accordion Item #2
-                                                                        </button>
-                                                                    </h2>
-                                                                    <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
-                                                                        <div class="accordion-body">
-                                                                            <strong>This is the second nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <!-- Add more nested accordion items as needed -->
-                                                            </div>
-
-                                                            <!-- Nested Accordion #3 -->
-                                                            <div class="accordion" id="nested-sub-nested-accordionExample3">
-                                                                <div class="accordion-item">
-                                                                    <h2 class="accordion-header" id="nested-sub-nested-headingThree">
-                                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseThree" aria-expanded="true" aria-controls="nested-sub-nested-collapseThree">
-                                                                            Nested Nested Accordion Item #3
-                                                                        </button>
-                                                                    </h2>
-                                                                    <div id="nested-sub-nested-collapseThree" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingThree" data-bs-parent="#nested-sub-nested-accordionExample3">
-                                                                        <div class="accordion-body">
-                                                                            <strong>This is the third nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="accordion-item">
-                                                                    <h2 class="accordion-header" id="nested-sub-nested-headingFour">
-                                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseFour" aria-expanded="true" aria-controls="nested-sub-nested-collapseFour">
-                                                                            Nested Nested Accordion Item #4
-                                                                        </button>
-                                                                    </h2>
-                                                                    <div id="nested-sub-nested-collapseFour" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-nested-headingFour" data-bs-parent="#nested-sub-nested-accordionExample3">
-                                                                        <div class="accordion-body">
-                                                                            <strong>This is the fourth nested nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the hiding and showing via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                    <!-- End Chemistry Accordion Collapse Content -->
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion" id="sub-accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="sub-headinggrade3">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapsegrade3" aria-expanded="true" aria-controls="sub-collapsegrade3">
-                                    Grade 3
-                                </button>
-                            </h2>
-                            <div id="sub-collapsegrade3" class="accordion-collapse collapse hide" aria-labelledby="sub-headinggrade3" data-bs-parent="#sub-accordionExample">
-                                <div class="accordion-body">
-                                    <div class="accordion" id="nested-sub-accordionExample">
-                                        <!-- Nested Nested Accordion Item #1 -->
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="nested-sub-headingOne">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseOne" aria-expanded="false" aria-controls="nested-sub-collapseOne">
-                                                    Physics
-                                                </button>
-                                            </h2>
-                                            <div id="nested-sub-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-headingOne" data-bs-parent="#nested-sub-accordionExample">
-                                                <div class="accordion-body">
-                                                    <!-- Nested Accordion Item #1 -->
-                                                    <div class="accordion" id="nested-sub-nested-accordionExample1">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-headingOne">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="false" aria-controls="nested-sub-nested-collapseOne">
-                                                                    Nested Accordion Item #1
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion Item #1 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Nested Accordion Item #2 -->
-                                                    <div class="accordion" id="nested-sub-nested-accordionExample2">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="false" aria-controls="nested-sub-nested-collapseTwo">
-                                                                    Nested Accordion Item #2
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion Item #2 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Nested Accordion Item #3 -->
-                                                    <div class="accordion" id="nested-sub-nested-accordionExample3">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-headingThree">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseThree" aria-expanded="false" aria-controls="nested-sub-nested-collapseThree">
-                                                                    Nested Accordion Item #3
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapseThree" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingThree" data-bs-parent="#nested-sub-nested-accordionExample3">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion Item #3 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Nested Accordion Item #4 -->
-                                                    <div class="accordion" id="nested-sub-nested-accordionExample4">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-headingFour">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseFour" aria-expanded="false" aria-controls="nested-sub-nested-collapseFour">
-                                                                    Nested Accordion Item #4
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapseFour" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingFour" data-bs-parent="#nested-sub-nested-accordionExample4">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion Item #4 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="nested-sub-headingbio3">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapsebio3" aria-expanded="false" aria-controls="nested-sub-collapsebio3">
-                                                    Biology
-                                                </button>
-                                            </h2>
-                                            <div id="nested-sub-collapsebio3" class="accordion-collapse collapse" aria-labelledby="nested-sub-headingbio3" data-bs-parent="#nested-sub-accordionExample">
-                                                <div class="accordion-body">
-                                                    <!-- Nested Accordion Item #1 -->
-                                                    <div class="accordion" id="nested-sub-nested-accordionExample1">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-headingOne">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="false" aria-controls="nested-sub-nested-collapseOne">
-                                                                    Nested Accordion Item #1
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
-                                                                <div class="accordion-body">
-                                                                    <strong>This is the first nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- Add more nested accordion items as needed -->
-                                                    </div>
-
-                                                    <!-- Nested Accordion Item #2 -->
-                                                    <div class="accordion" id="nested-sub-nested-accordionExample2">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="false" aria-controls="nested-sub-nested-collapseTwo">
-                                                                    Nested Accordion Item #2
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
-                                                                <div class="accordion-body">
-                                                                    <strong>This is the second nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- Add more nested accordion items as needed -->
-                                                    </div>
-
-                                                    <!-- Nested Accordion Item #3 -->
-                                                    <div class="accordion" id="nested-sub-nested-accordionExample3">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-headingThree">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseThree" aria-expanded="false" aria-controls="nested-sub-nested-collapseThree">
-                                                                    Nested Accordion Item #3
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapseThree" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingThree" data-bs-parent="#nested-sub-nested-accordionExample3">
-                                                                <div class="accordion-body">
-                                                                    <strong>This is the third nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- Add more nested accordion items as needed -->
-                                                    </div>
-
-                                                    <!-- Nested Accordion Item #4 -->
-                                                    <div class="accordion" id="nested-sub-nested-accordionExample4">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-headingFour">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseFour" aria-expanded="false" aria-controls="nested-sub-nested-collapseFour">
-                                                                    Nested Accordion Item #4
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapseFour" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingFour" data-bs-parent="#nested-sub-nested-accordionExample4">
-                                                                <div class="accordion-body">
-                                                                    <strong>This is the fourth nested item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- Add more nested accordion items as needed -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
+                        <div class="accordion" id="sub-accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="sub-headinggrade3">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sub-collapsegrade3" aria-expanded="true" aria-controls="sub-collapsegrade3">
+                                        Grade 3
+                                    </button>
+                                </h2>
+                                <div id="sub-collapsegrade3" class="accordion-collapse collapse hide" aria-labelledby="sub-headinggrade3" data-bs-parent="#sub-accordionExample">
+                                    <div class="accordion-body">
                                         <div class="accordion" id="nested-sub-accordionExample">
-                                            <!-- Mathematics Accordion Item -->
+                                            <!-- Nested Nested Accordion Item #1 -->
                                             <div class="accordion-item">
-                                                <h2 class="accordion-header" id="nested-sub-headingThree">
-                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseThree" aria-expanded="true" aria-controls="nested-sub-collapseThree">
-                                                        Mathematics
+                                                <h2 class="accordion-header" id="nested-sub-headingOne">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseOne" aria-expanded="false" aria-controls="nested-sub-collapseOne">
+                                                        Physics
                                                     </button>
                                                 </h2>
-                                                <div id="nested-sub-collapseThree" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-headingThree" data-bs-parent="#nested-sub-accordionExample">
+                                                <div id="nested-sub-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-headingOne" data-bs-parent="#nested-sub-accordionExample">
                                                     <div class="accordion-body">
-                                                    </div>
-
-                                                    <!-- Nested Accordions -->
-                                                    <div class="accordion" id="nested-sub-nested-accordionExample1">
                                                         <!-- Nested Accordion Item #1 -->
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-headingOne">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="false" aria-controls="nested-sub-nested-collapseOne">
-                                                                    Nested Accordion Item #1
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
-                                                                <div class="accordion-body">
+                                                        <div class="accordion" id="nested-sub-nested-accordionExample1">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-sub-nested-headingOne">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="false" aria-controls="nested-sub-nested-collapseOne">
+                                                                        First Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
+                                                                    <div class="accordion-body">
+                                                                        <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorphys3 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
 
-                                                        <!-- Add more nested accordion items as needed -->
-                                                    </div>
-
-                                                    <div class="accordion" id="nested-sub-nested-accordionExample2">
                                                         <!-- Nested Accordion Item #2 -->
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="false" aria-controls="nested-sub-nested-collapseTwo">
-                                                                    Nested Accordion Item #2
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
-                                                                <div class="accordion-body">
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <div class="accordion" id="nested-sub-nested-accordionExample2">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="false" aria-controls="nested-sub-nested-collapseTwo">
+                                                                        Second Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
+                                                                    <div class="accordion-body">
+                                                                        <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorphys3Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
 
-                                                        <!-- Add more nested accordion items as needed -->
-                                                    </div>
-
-                                                    <div class="accordion" id="nested-sub-nested-accordionExample3">
-                                                        <!-- Nested Accordion Item #3 -->
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-headingThree">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseThree" aria-expanded="false" aria-controls="nested-sub-nested-collapseThree">
-                                                                    Nested Accordion Item #3
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapseThree" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingThree" data-bs-parent="#nested-sub-nested-accordionExample3">
-                                                                <div class="accordion-body">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- Add more nested accordion items as needed -->
-                                                    </div>
-
-                                                    <div class="accordion" id="nested-sub-nested-accordionExample4">
-                                                        <!-- Nested Accordion Item #4 -->
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-headingFour">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseFour" aria-expanded="false" aria-controls="nested-sub-nested-collapseFour">
-                                                                    Nested Accordion Item #4
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapseFour" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingFour" data-bs-parent="#nested-sub-nested-accordionExample4">
-                                                                <div class="accordion-body">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- Add more nested accordion items as needed -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Nested Nested Accordion Item #4 -->
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="nested-sub-headingFour">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseFour" aria-expanded="true" aria-controls="nested-sub-collapseFour">
-                                                    Chemistry
-                                                </button>
-                                            </h2>
-                                            <div id="nested-sub-collapseFour" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-headingFour" data-bs-parent="#nested-sub-accordionExample">
-                                                <div class="accordion-body">
-                                                    <!-- Nested Accordion #1 -->
-                                                    <div class="accordion" id="nested-sub-nested-accordion1">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-heading1">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse1" aria-expanded="false" aria-controls="nested-sub-nested-collapse1">
-                                                                    Nested Accordion #1
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapse1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading1" data-bs-parent="#nested-sub-nested-accordion1">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion #1 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Nested Accordion #2 -->
-                                                    <div class="accordion" id="nested-sub-nested-accordion2">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-heading2">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse2" aria-expanded="false" aria-controls="nested-sub-nested-collapse2">
-                                                                    Nested Accordion #2
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapse2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading2" data-bs-parent="#nested-sub-nested-accordion2">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion #2 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Nested Accordion #3 -->
-                                                    <div class="accordion" id="nested-sub-nested-accordion3">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-heading3">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse3" aria-expanded="false" aria-controls="nested-sub-nested-collapse3">
-                                                                    Nested Accordion #3
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapse3" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading3" data-bs-parent="#nested-sub-nested-accordion3">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion #3 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Nested Accordion #4 -->
-                                                    <div class="accordion" id="nested-sub-nested-accordion4">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-sub-nested-heading4">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse4" aria-expanded="false" aria-controls="nested-sub-nested-collapse4">
-                                                                    Nested Accordion #4
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-sub-nested-collapse4" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading4" data-bs-parent="#nested-sub-nested-accordion4">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion #4 -->
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
 
+
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="nested-sub-headingbio3">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapsebio3" aria-expanded="false" aria-controls="nested-sub-collapsebio3">
+                                                        Biology
+                                                    </button>
+                                                </h2>
+                                                <div id="nested-sub-collapsebio3" class="accordion-collapse collapse" aria-labelledby="nested-sub-headingbio3" data-bs-parent="#nested-sub-accordionExample">
+                                                    <div class="accordion-body">
+                                                        <!-- Nested Accordion Item #1 -->
+                                                        <div class="accordion" id="nested-sub-nested-accordionExample1">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-sub-nested-headingOne">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="false" aria-controls="nested-sub-nested-collapseOne">
+                                                                        First Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
+                                                                    <div class="accordion-body">
+                                                                        <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorbio3 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="accordion" id="nested-sub-nested-accordionExample2">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="false" aria-controls="nested-sub-nested-collapseTwo">
+                                                                        Second Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
+                                                                    <div class="accordion-body">
+                                                                        <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorbio3Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="accordion" id="nested-sub-accordionExample">
+                                                <!-- Mathematics Accordion Item -->
+                                                <div class="accordion-item science-math-3">
+                                                    <h2 class="accordion-header" id="nested-sub-headingThree">
+                                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseThree" aria-expanded="true" aria-controls="nested-sub-collapseThree">
+                                                            Mathematics
+                                                        </button>
+                                                    </h2>
+                                                    <div id="nested-sub-collapseThree" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-headingThree" data-bs-parent="#nested-sub-accordionExample">
+                                                        <div class="accordion-body">
+                                                            <div class="accordion science-math-3" id="nested-sub-nested-accordionExample1">
+                                                                <!-- Nested Accordion Item #1 -->
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="nested-sub-nested-headingOne">
+                                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseOne" aria-expanded="false" aria-controls="nested-sub-nested-collapseOne">
+                                                                            First Semester
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="nested-sub-nested-collapseOne" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingOne" data-bs-parent="#nested-sub-nested-accordionExample1">
+                                                                        <div class="accordion-body">
+                                                                        <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursormath3 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Add more nested accordion items as needed -->
+                                                            </div>
+
+                                                            <div class="accordion science-math-3" id="nested-sub-nested-accordionExample2">
+                                                                <!-- Nested Accordion Item #2 -->
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="nested-sub-nested-headingTwo">
+                                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapseTwo" aria-expanded="false" aria-controls="nested-sub-nested-collapseTwo">
+                                                                            Second Semester
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="nested-sub-nested-collapseTwo" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-headingTwo" data-bs-parent="#nested-sub-nested-accordionExample2">
+                                                                        <div class="accordion-body">
+                                                                        <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursormath3Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="nested-sub-headingFour">
+                                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapseFour" aria-expanded="true" aria-controls="nested-sub-collapseFour">
+                                                        Chemistry
+                                                    </button>
+                                                </h2>
+                                                <div id="nested-sub-collapseFour" class="accordion-collapse collapse hide" aria-labelledby="nested-sub-headingFour" data-bs-parent="#nested-sub-accordionExample">
+                                                    <div class="accordion-body">
+                                                        <!-- Nested Accordion #1 -->
+                                                        <div class="accordion" id="nested-sub-nested-accordion1">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-sub-nested-heading1">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse1" aria-expanded="false" aria-controls="nested-sub-nested-collapse1">
+                                                                        First Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-sub-nested-collapse1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading1" data-bs-parent="#nested-sub-nested-accordion1">
+                                                                    <div class="accordion-body">
+                                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorchem3 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Nested Accordion #2 -->
+                                                        <div class="accordion" id="nested-sub-nested-accordion2">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-sub-nested-heading2">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse2" aria-expanded="false" aria-controls="nested-sub-nested-collapse2">
+                                                                        Second Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-sub-nested-collapse2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading2" data-bs-parent="#nested-sub-nested-accordion2">
+                                                                    <div class="accordion-body">
+                                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorchem3Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                    <!-- Repeat similar structure for additional nested nested items (3, 4, and 5) -->
                                 </div>
                             </div>
                         </div>
@@ -1155,434 +2391,2175 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Social
-            </button>
-        </h2>
-        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Social
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
 
-                <!-- Nested Accordion #1 -->
-                <div class="accordion" id="nested-sub-accordion1">
+                    <div class="accordion" id="nested-sub-accordion1">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="nested-sub-heading1">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapse1" aria-expanded="false" aria-controls="nested-sub-collapse1">
+                                    Grade 1
+                                </button>
+                            </h2>
+                            <div id="nested-sub-collapse1" class="accordion-collapse collapse" aria-labelledby="nested-sub-heading1" data-bs-parent="#nested-sub-accordion1">
+                                <div class="accordion-body">
+
+                                    <!-- Nested Accordion #1 -->
+                                    <div class="accordion" id="nested-sub-nested-accordion1">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="nested-sub-nested-heading1">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse1" aria-expanded="false" aria-controls="nested-sub-nested-collapse1">
+                                                    Economics
+                                                </button>
+                                            </h2>
+                                            <div id="nested-sub-nested-collapse1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading1" data-bs-parent="#nested-sub-nested-accordion1">
+                                                <div class="accordion-body">
+
+                                                    <!-- Nested Accordion #1 -->
+                                                    <div class="accordion" id="nested-sub-nested-nested-accordion1">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="nested-sub-nested-nested-heading1">
+                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse1" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse1">
+                                                                    First Semester
+                                                                </button>
+                                                            </h2>
+                                                            <div id="nested-sub-nested-nested-collapse1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading1" data-bs-parent="#nested-sub-nested-nested-accordion1">
+                                                                <div class="accordion-body">
+                                                                <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursoreco1 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Nested Accordion #2 -->
+                                                    <div class="accordion" id="nested-sub-nested-nested-accordion2">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="nested-sub-nested-nested-heading2">
+                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse2" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse2">
+                                                                    Second Semester
+                                                                </button>
+                                                            </h2>
+                                                            <div id="nested-sub-nested-nested-collapse2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading2" data-bs-parent="#nested-sub-nested-nested-accordion2">
+                                                                <div class="accordion-body">
+                                                                <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursoreco1Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Nested Accordion #2 -->
+                                    <div class="accordion" id="nested-sub-nested-accordion2">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="nested-sub-nested-heading2">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse2" aria-expanded="false" aria-controls="nested-sub-nested-collapse2">
+                                                    Accounting
+                                                </button>
+                                            </h2>
+                                            <div id="nested-sub-nested-collapse2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading2" data-bs-parent="#nested-sub-nested-accordion2">
+                                                <div class="accordion-body">
+
+                                                    <!-- Nested Accordion #1 -->
+                                                    <div class="accordion" id="nested-sub-nested-nested-accordion2-1">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="nested-sub-nested-nested-heading2-1">
+                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse2-1" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse2-1">
+                                                                    First Semester
+                                                                </button>
+                                                            </h2>
+                                                            <div id="nested-sub-nested-nested-collapse2-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading2-1" data-bs-parent="#nested-sub-nested-nested-accordion2-1">
+                                                                <div class="accordion-body">
+                                                                <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursoracc1 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Nested Accordion #2 -->
+                                                    <div class="accordion" id="nested-sub-nested-nested-accordion2-2">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="nested-sub-nested-nested-heading2-2">
+                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse2-2" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse2-2">
+                                                                    Second Semester
+                                                                </button>
+                                                            </h2>
+                                                            <div id="nested-sub-nested-nested-collapse2-2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading2-2" data-bs-parent="#nested-sub-nested-nested-accordion2-2">
+                                                                <div class="accordion-body">
+                                                                <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursoracc1Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Nested Accordion #3 -->
+                                    <div class="accordion" id="nested-sub-nested-accordion3">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="nested-sub-nested-heading3">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse3" aria-expanded="false" aria-controls="nested-sub-nested-collapse3">
+                                                    Sociology
+                                                </button>
+                                            </h2>
+                                            <div id="nested-sub-nested-collapse3" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading3" data-bs-parent="#nested-sub-nested-accordion3">
+                                                <div class="accordion-body">
+
+                                                    <!-- Nested Accordion #1 -->
+                                                    <div class="accordion" id="nested-sub-nested-nested-accordion3-1">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="nested-sub-nested-nested-heading3-1">
+                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse3-1" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse3-1">
+                                                                    First Semester
+                                                                </button>
+                                                            </h2>
+                                                            <div id="nested-sub-nested-nested-collapse3-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading3-1" data-bs-parent="#nested-sub-nested-nested-accordion3-1">
+                                                                <div class="accordion-body">
+                                                                <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorsoc1 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Nested Accordion #2 -->
+                                                    <div class="accordion" id="nested-sub-nested-nested-accordion3-2">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="nested-sub-nested-nested-heading3-2">
+                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse3-2" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse3-2">
+                                                                    Second Semester
+                                                                </button>
+                                                            </h2>
+                                                            <div id="nested-sub-nested-nested-collapse3-2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading3-2" data-bs-parent="#nested-sub-nested-nested-accordion3-2">
+                                                                <div class="accordion-body">
+                                                                <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorsoc1Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="accordion" id="nested-sub-nested-accordion4">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="nested-sub-nested-heading4">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse4" aria-expanded="false" aria-controls="nested-sub-nested-collapse4">
+                                                    Geography
+                                                </button>
+                                            </h2>
+                                            <div id="nested-sub-nested-collapse4" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading4" data-bs-parent="#nested-sub-nested-accordion4">
+                                                <div class="accordion-body">
+
+                                                    <!-- Nested Accordion #1 -->
+                                                    <div class="accordion" id="nested-sub-nested-nested-accordion4-1">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="nested-sub-nested-nested-heading4-1">
+                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse4-1" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse4-1">
+                                                                    First Semester
+                                                                </button>
+                                                            </h2>
+                                                            <div id="nested-sub-nested-nested-collapse4-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading4-1" data-bs-parent="#nested-sub-nested-nested-accordion4-1">
+                                                                <div class="accordion-body">
+                                                                <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorgeo1 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Nested Accordion #2 -->
+                                                    <div class="accordion" id="nested-sub-nested-nested-accordion4-2">
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="nested-sub-nested-nested-heading4-2">
+                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse4-2" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse4-2">
+                                                                    Second Semester
+                                                                </button>
+                                                            </h2>
+                                                            <div id="nested-sub-nested-nested-collapse4-2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading4-2" data-bs-parent="#nested-sub-nested-nested-accordion4-2">
+                                                                <div class="accordion-body">
+                                                                <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorgeo1Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Nested Accordion #2 -->
+                    <div class="accordion" id="nested-sub-accordion2">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="nested-sub-heading2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapse2" aria-expanded="false" aria-controls="nested-sub-collapse2">
+                                    Grade 2
+                                </button>
+                            </h2>
+                            <div id="nested-sub-collapse2" class="accordion-collapse collapse" aria-labelledby="nested-sub-heading2" data-bs-parent="#nested-sub-accordion2">
+                                <div class="accordion-body">
+
+                                    <!-- Nested Accordion #1 -->
+                                    <div class="accordion" id="nested-sub-nested-accordion2-1">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="nested-sub-nested-heading2-1">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse2-1" aria-expanded="false" aria-controls="nested-sub-nested-collapse2-1">
+                                                    Economics
+                                                </button>
+                                            </h2>
+                                            <div id="nested-sub-nested-collapse2-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading2-1" data-bs-parent="#nested-sub-nested-accordion2-1">
+                                                <div class="accordion-body">
+                                                    <!-- Content for Economics Accordion -->
+                                                    <div class="accordion" id="nested-accordion-level-1">
+                                                        <!-- Nested Accordion #1 -->
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="nested-heading-level-1-1">
+                                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-1-1" aria-expanded="false" aria-controls="nested-collapse-level-1-1">
+                                                                    First Semester
+                                                                </button>
+                                                            </h2>
+                                                            <div id="nested-collapse-level-1-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-1-1" data-bs-parent="#nested-accordion-level-1">
+                                                                <div class="accordion-body">
+                                                                <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursoreco2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Nested Accordion #2 -->
+                                                        <div class="accordion-item">
+                                                            <h2 class="accordion-header" id="nested-heading-level-1-2">
+                                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-1-2" aria-expanded="false" aria-controls="nested-collapse-level-1-2">
+                                                                    Second Semester
+                                                                </button>
+                                                            </h2>
+                                                            <div id="nested-collapse-level-1-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-1-2" data-bs-parent="#nested-accordion-level-1">
+                                                                <div class="accordion-body">
+                                                                <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursoreco2Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Nested Accordion #2 -->
+                                    <div class="accordion" id="nested-sub-nested-accordion2-2">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="nested-sub-nested-heading2-2">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse2-2" aria-expanded="false" aria-controls="nested-sub-nested-collapse2-2">
+                                                    Accounting </button>
+                                            </h2>
+                                            <div id="nested-sub-nested-collapse2-2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading2-2" data-bs-parent="#nested-sub-nested-accordion2-2">
+                                                <div class="accordion-body">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Nested Accordion #2 -->
+                                                        <div class="accordion" id="nested-accordion-level-3-1">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-heading-level-3-1">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-3-1" aria-expanded="false" aria-controls="nested-collapse-level-3-1">
+                                                                        First Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-collapse-level-3-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-3-1" data-bs-parent="#nested-accordion-level-3-1">
+                                                                    <div class="accordion-body">
+                                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursoracc2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="accordion" id="nested-accordion-level-3-2">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-heading-level-3-2">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-3-2" aria-expanded="false" aria-controls="nested-collapse-level-3-2">
+                                                                        Second Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-collapse-level-3-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-3-2" data-bs-parent="#nested-accordion-level-3-2">
+                                                                    <div class="accordion-body">
+                                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursoracc2Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Nested Accordion #3 -->
+                                    <div class="accordion" id="nested-sub-nested-accordion2-3">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="nested-sub-nested-heading2-3">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse2-3" aria-expanded="false" aria-controls="nested-sub-nested-collapse2-3">
+                                                    Sociology </button>
+                                            </h2>
+                                            <div id="nested-sub-nested-collapse2-3" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading2-3" data-bs-parent="#nested-sub-nested-accordion2-3">
+                                                <div class="accordion-body">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Nested Accordion #3 -->
+                                                        <div class="accordion" id="nested-accordion-level-4-1">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-heading-level-4-1">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-4-1" aria-expanded="false" aria-controls="nested-collapse-level-4-1">
+                                                                        First Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-collapse-level-4-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-1" data-bs-parent="#nested-accordion-level-4-1">
+                                                                    <div class="accordion-body">
+                                                                       <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                <?php
+                                                                                                                    foreach ($cursorsoc2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="accordion" id="nested-accordion-level-4-2">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-heading-level-4-2">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-4-2" aria-expanded="false" aria-controls="nested-collapse-level-4-2">
+                                                                        Second Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-collapse-level-4-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-2" data-bs-parent="#nested-accordion-level-4-2">
+                                                                    <div class="accordion-body">
+                                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorsoc2Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Nested Accordion #4 -->
+                                    <div class="accordion" id="nested-sub-nested-accordion2-4">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="nested-sub-nested-heading2-4">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse2-4" aria-expanded="false" aria-controls="nested-sub-nested-collapse2-4">
+                                                    Geography </button>
+                                            </h2>
+                                            <div id="nested-sub-nested-collapse2-4" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading2-4" data-bs-parent="#nested-sub-nested-accordion2-4">
+                                                <div class="accordion-body">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Nested Accordion #3 -->
+                                                        <div class="accordion" id="nested-accordion-level-4-1">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-heading-level-4-1">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-4-1" aria-expanded="false" aria-controls="nested-collapse-level-4-1">
+                                                                        First Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-collapse-level-4-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-1" data-bs-parent="#nested-accordion-level-4-1">
+                                                                    <div class="accordion-body">
+                                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorgeo2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="accordion" id="nested-accordion-level-4-2">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-heading-level-4-2">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-4-2" aria-expanded="false" aria-controls="nested-collapse-level-4-2">
+                                                                        Second Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-collapse-level-4-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-2" data-bs-parent="#nested-accordion-level-4-2">
+                                                                    <div class="accordion-body">
+                                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorgeo2Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Nested Accordion #3 -->
+                    <div class="accordion" id="nested-sub-accordion-social-grade3">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="nested-sub-heading-social-grade3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapse-social-grade3" aria-expanded="false" aria-controls="nested-sub-collapse-social-grade3">
+                                    Grade 3 </button>
+                            </h2>
+                            <div id="nested-sub-collapse-social-grade3" class="accordion-collapse collapse" aria-labelledby="nested-sub-heading-social-grade3" data-bs-parent="#nested-sub-accordion-social-grade3">
+                                <div class="accordion-body">
+                                    <div class="accordion-body">
+                                        <!-- Content for Nested Accordion #3 -->
+                                        <div class="accordion" id="nested-accordion-eco">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="nested-heading-eco">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-eco" aria-expanded="false" aria-controls="nested-collapse-eco">
+                                                        Economics </button>
+                                                </h2>
+                                                <div id="nested-collapse-eco" class="accordion-collapse collapse" aria-labelledby="nested-heading-eco" data-bs-parent="#nested-accordion-eco">
+                                                    <div class="accordion-body">
+                                                        <div class="accordion-body">
+                                                            <!-- Content for Nested Accordion 1 -->
+                                                            <div class="accordion" id="nested-accordion-eco1">
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="nested-heading-eco1">
+                                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-eco1" aria-expanded="false" aria-controls="nested-collapse-eco1">
+                                                                            First Semester
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="nested-collapse-eco1" class="accordion-collapse collapse" aria-labelledby="nested-heading-eco1" data-bs-parent="#nested-accordion-eco1">
+                                                                        <div class="accordion-body">
+                                                                        <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursoreco3 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="accordion" id="nested-accordion-eco2">
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="nested-heading-eco2">
+                                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-eco2" aria-expanded="false" aria-controls="nested-collapse-eco2">
+                                                                            Second Semester
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="nested-collapse-eco2" class="accordion-collapse collapse" aria-labelledby="nested-heading-eco2" data-bs-parent="#nested-accordion-eco2">
+                                                                        <div class="accordion-body">
+                                                                        <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursoreco3Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion" id="nested-accordion-acc">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="nested-heading-acc">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-acc" aria-expanded="false" aria-controls="nested-collapse-acc">
+                                                        Accounting </button>
+                                                </h2>
+                                                <div id="nested-collapse-acc" class="accordion-collapse collapse" aria-labelledby="nested-heading-acc" data-bs-parent="#nested-accordion-acc">
+                                                    <div class="accordion-body">
+                                                        <div class="accordion-body">
+                                                            <!-- Content for Nested Accordion 2 -->
+                                                            <div class="accordion" id="nested-accordion-acc1">
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="nested-heading-acc1">
+                                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-acc1" aria-expanded="false" aria-controls="nested-collapse-acc1">
+                                                                            First Semester
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="nested-collapse-acc1" class="accordion-collapse collapse" aria-labelledby="nested-heading-acc1" data-bs-parent="#nested-accordion-acc1">
+                                                                        <div class="accordion-body">
+                                                                        <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursoracc3 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="accordion" id="nested-accordion-acc2">
+                                                                <div class="accordion-item">
+                                                                    <h2 class="accordion-header" id="nested-heading-acc2">
+                                                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-acc2" aria-expanded="false" aria-controls="nested-collapse-acc2">
+                                                                            Second Semester
+                                                                        </button>
+                                                                    </h2>
+                                                                    <div id="nested-collapse-acc2" class="accordion-collapse collapse" aria-labelledby="nested-heading-acc2" data-bs-parent="#nested-accordion-acc2">
+                                                                        <div class="accordion-body">
+                                                                        <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursoracc3Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion" id="nested-accordion-level-4-3">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="nested-heading-level-4-3">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-4-3" aria-expanded="false" aria-controls="nested-collapse-level-4-3">
+                                                        Sociology
+                                                    </button>
+                                                </h2>
+                                                <div id="nested-collapse-level-4-3" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-3" data-bs-parent="#nested-accordion-level-4-3">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Nested Accordion 3 -->
+
+                                                        <!-- First Nested Accordion -->
+                                                        <div class="accordion" id="nested-sub-accordion-level-4-3-1">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-sub-heading-level-4-3-1">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapse-level-4-3-1" aria-expanded="false" aria-controls="nested-sub-collapse-level-4-3-1">
+                                                                        First Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-sub-collapse-level-4-3-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-heading-level-4-3-1" data-bs-parent="#nested-sub-accordion-level-4-3-1">
+                                                                    <div class="accordion-body">
+                                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorsoc3 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- Second Nested Accordion -->
+                                                        <div class="accordion" id="nested-sub-accordion-level-4-3-2">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-sub-heading-level-4-3-2">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapse-level-4-3-2" aria-expanded="false" aria-controls="nested-sub-collapse-level-4-3-2">
+                                                                        Second Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-sub-collapse-level-4-3-2" class="accordion-collapse collapse" aria-labelledby="nested-sub-heading-level-4-3-2" data-bs-parent="#nested-sub-accordion-level-4-3-2">
+                                                                    <div class="accordion-body">
+                                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorsoc3Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="accordion" id="nested-accordion-geo-3">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="nested-heading-level-4-4">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-geo-3" aria-expanded="false" aria-controls="nested-collapse-geo-3">
+                                                        Geography </button>
+                                                </h2>
+                                                <div id="nested-collapse-geo-3" class="accordion-collapse collapse" aria-labelledby="nested-heading-geo-3" data-bs-parent="#nested-accordion-geo-3">
+                                                    <div class="accordion-body">
+                                                        <div class="accordion" id="nested-accordion-geo-3">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-heading-geo-3-1">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-geo-3-1" aria-expanded="false" aria-controls="nested-collapse-geo-3-1">
+                                                                        First Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-collapse-geo-3-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-geo-3-1" data-bs-parent="#nested-accordion-geo-3-1">
+                                                                    <div class="accordion-body">
+                                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorgeo3 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="accordion" id="nested-accordion-geo-3-2">
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header" id="nested-heading-geo-3-2">
+                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-geo-3-2" aria-expanded="false" aria-controls="nested-collapse-geo-3-2">
+                                                                        Second Semester
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="nested-collapse-geo-3-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-geo-3-2" data-bs-parent="#nested-accordion-geo-3-2">
+                                                                    <div class="accordion-body">
+                                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorgeo3Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headinglang">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapselang" aria-expanded="false" aria-controls="collapselang">
+                    Language
+                </button>
+            </h2>
+            <div id="collapselang" class="accordion-collapse collapse" aria-labelledby="headinglang" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="nested-sub-heading1">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapse1" aria-expanded="false" aria-controls="nested-sub-collapse1">
+                        <h2 class="accordion-header" id="headinglang-1-1">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapselang-1-1" aria-expanded="false" aria-controls="collapselang-1-1">
                                 Grade 1
                             </button>
                         </h2>
-                        <div id="nested-sub-collapse1" class="accordion-collapse collapse" aria-labelledby="nested-sub-heading1" data-bs-parent="#nested-sub-accordion1">
+                        <div id="collapselang-1-1" class="accordion-collapse collapse" aria-labelledby="headinglang-1-1" data-bs-parent="#collapselang-1-1">
                             <div class="accordion-body">
+                                <!-- First Nested Accordion -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading1-1">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-1" aria-expanded="false" aria-controls="collapse1-1">
+                                            Korean
+                                        </button>
+                                    </h2>
+                                    <div id="collapse1-1" class="accordion-collapse collapse" aria-labelledby="heading1-1" data-bs-parent="#collapselang-1-1">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading1-1-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-1-1" aria-expanded="false" aria-controls="collapse1-1-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse1-1-1" class="accordion-collapse collapse" aria-labelledby="heading1-1-1" data-bs-parent="#collapse1-1">
+                                                    <div class="accordion-body">
+                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorkor1 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
 
-                                <!-- Nested Accordion #1 -->
-                                <div class="accordion" id="nested-sub-nested-accordion1">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="nested-sub-nested-heading1">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse1" aria-expanded="false" aria-controls="nested-sub-nested-collapse1">
-                                                Economics
-                                            </button>
-                                        </h2>
-                                        <div id="nested-sub-nested-collapse1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading1" data-bs-parent="#nested-sub-nested-accordion1">
-                                            <div class="accordion-body">
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                    </div>
+                                                </div>
+                                            </div>
 
-                                                <!-- Nested Accordion #1 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion1">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading1">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse1" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse1">
-                                                                Nested Accordion #1
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading1" data-bs-parent="#nested-sub-nested-nested-accordion1">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #1 -->
-                                                            </div>
-                                                        </div>
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading1-1-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-1-2" aria-expanded="false" aria-controls="collapse1-1-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse1-1-2" class="accordion-collapse collapse" aria-labelledby="heading1-1-2" data-bs-parent="#collapse1-1">
+                                                    <div class="accordion-body">
+                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorkor1Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
                                                     </div>
                                                 </div>
-
-                                                <!-- Nested Accordion #2 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion2">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading2">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse2" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse2">
-                                                                Nested Accordion #2
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading2" data-bs-parent="#nested-sub-nested-nested-accordion2">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #2 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Nested Accordion #3 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion3">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading3">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse3" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse3">
-                                                                Nested Accordion #3
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse3" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading3" data-bs-parent="#nested-sub-nested-nested-accordion3">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #3 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Nested Accordion #4 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion4">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading4">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse4" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse4">
-                                                                Nested Accordion #4
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse4" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading4" data-bs-parent="#nested-sub-nested-nested-accordion4">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #4 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <!-- Nested Accordion #2 -->
-                                <div class="accordion" id="nested-sub-nested-accordion2">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="nested-sub-nested-heading2">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse2" aria-expanded="false" aria-controls="nested-sub-nested-collapse2">
-                                                Accounting
-                                            </button>
-                                        </h2>
-                                        <div id="nested-sub-nested-collapse2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading2" data-bs-parent="#nested-sub-nested-accordion2">
-                                            <div class="accordion-body">
+                                <!-- Second Nested Accordion -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading1-2">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-2" aria-expanded="false" aria-controls="collapse1-2">
+                                            Mandarin
+                                        </button>
+                                    </h2>
+                                    <div id="collapse1-2" class="accordion-collapse collapse" aria-labelledby="heading1-2" data-bs-parent="#collapselang-1-1">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading1-2-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-2-1" aria-expanded="false" aria-controls="collapse1-2-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse1-2-1" class="accordion-collapse collapse" aria-labelledby="heading1-2-1" data-bs-parent="#collapse1-2">
+                                                    <div class="accordion-body">
+                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorman1 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
 
-                                                <!-- Nested Accordion #1 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion2-1">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading2-1">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse2-1" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse2-1">
-                                                                Nested Accordion #1
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse2-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading2-1" data-bs-parent="#nested-sub-nested-nested-accordion2-1">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #1 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                    </div>
                                                 </div>
+                                            </div>
 
-                                                <!-- Nested Accordion #2 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion2-2">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading2-2">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse2-2" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse2-2">
-                                                                Nested Accordion #2
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse2-2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading2-2" data-bs-parent="#nested-sub-nested-nested-accordion2-2">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #2 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading1-2-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-2-2" aria-expanded="false" aria-controls="collapse1-2-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse1-2-2" class="accordion-collapse collapse" aria-labelledby="heading1-2-2" data-bs-parent="#collapse1-2">
+                                                    <div class="accordion-body">
+                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorman1Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                    </div>
                                                 </div>
-
-                                                <!-- Nested Accordion #3 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion2-3">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading2-3">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse2-3" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse2-3">
-                                                                Nested Accordion #3
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse2-3" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading2-3" data-bs-parent="#nested-sub-nested-nested-accordion2-3">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #3 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Nested Accordion #4 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion2-4">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading2-4">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse2-4" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse2-4">
-                                                                Nested Accordion #4
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse2-4" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading2-4" data-bs-parent="#nested-sub-nested-nested-accordion2-4">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #4 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <!-- Nested Accordion #3 -->
-                                <div class="accordion" id="nested-sub-nested-accordion3">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="nested-sub-nested-heading3">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse3" aria-expanded="false" aria-controls="nested-sub-nested-collapse3">
-                                                Sociology
-                                            </button>
-                                        </h2>
-                                        <div id="nested-sub-nested-collapse3" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading3" data-bs-parent="#nested-sub-nested-accordion3">
-                                            <div class="accordion-body">
+                                <!-- Third Nested Accordion -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading1-3">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-3" aria-expanded="false" aria-controls="collapse1-3">
+                                            French
+                                        </button>
+                                    </h2>
+                                    <div id="collapse1-3" class="accordion-collapse collapse" aria-labelledby="heading1-3" data-bs-parent="#collapselang-1-1">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading1-3-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-3-1" aria-expanded="false" aria-controls="collapse1-3-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse1-3-1" class="accordion-collapse collapse" aria-labelledby="heading1-3-1" data-bs-parent="#collapse1-3">
+                                                    <div class="accordion-body">
+                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorfre1 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
 
-                                                <!-- Nested Accordion #1 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion3-1">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading3-1">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse3-1" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse3-1">
-                                                                Nested Accordion #1
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse3-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading3-1" data-bs-parent="#nested-sub-nested-nested-accordion3-1">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #1 -->
-                                                            </div>
-                                                        </div>
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading1-3-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-3-2" aria-expanded="false" aria-controls="collapse1-3-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse1-3-2" class="accordion-collapse collapse" aria-labelledby="heading1-3-2" data-bs-parent="#collapse1-3">
+                                                    <div class="accordion-body">
+                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorfre1Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>
                                                     </div>
                                                 </div>
-
-                                                <!-- Nested Accordion #2 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion3-2">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading3-2">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse3-2" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse3-2">
-                                                                Nested Accordion #2
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse3-2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading3-2" data-bs-parent="#nested-sub-nested-nested-accordion3-2">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #2 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Nested Accordion #3 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion3-3">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading3-3">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse3-3" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse3-3">
-                                                                Nested Accordion #3
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse3-3" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading3-3" data-bs-parent="#nested-sub-nested-nested-accordion3-3">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #3 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Nested Accordion #4 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion3-4">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading3-4">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse3-4" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse3-4">
-                                                                Nested Accordion #4
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse3-4" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading3-4" data-bs-parent="#nested-sub-nested-nested-accordion3-4">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #4 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <div class="accordion" id="nested-sub-nested-accordion4">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="nested-sub-nested-heading4">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse4" aria-expanded="false" aria-controls="nested-sub-nested-collapse4">
-                                                Geography
-                                            </button>
-                                        </h2>
-                                        <div id="nested-sub-nested-collapse4" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading4" data-bs-parent="#nested-sub-nested-accordion4">
-                                            <div class="accordion-body">
+                                <!-- Fourth Nested Accordion -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading1-4">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-4" aria-expanded="false" aria-controls="collapse1-4">
+                                            German
+                                        </button>
+                                    </h2>
+                                    <div id="collapse1-4" class="accordion-collapse collapse" aria-labelledby="heading1-4" data-bs-parent="#collapselang-1-1">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading1-4-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-4-1" aria-expanded="false" aria-controls="collapse1-4-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse1-4-1" class="accordion-collapse collapse" aria-labelledby="heading1-4-1" data-bs-parent="#collapse1-4">
+                                                    <div class="accordion-body">
+                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorger1 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
 
-                                                <!-- Nested Accordion #1 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion4-1">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading4-1">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse4-1" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse4-1">
-                                                                Nested Accordion #1
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse4-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading4-1" data-bs-parent="#nested-sub-nested-nested-accordion4-1">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #1 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                    </div>
                                                 </div>
+                                            </div>
 
-                                                <!-- Nested Accordion #2 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion4-2">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading4-2">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse4-2" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse4-2">
-                                                                Nested Accordion #2
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse4-2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading4-2" data-bs-parent="#nested-sub-nested-nested-accordion4-2">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #2 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading1-4-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1-4-2" aria-expanded="false" aria-controls="collapse1-4-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse1-4-2" class="accordion-collapse collapse" aria-labelledby="heading1-4-2" data-bs-parent="#collapse1-4">
+                                                    <div class="accordion-body">
+                                                    <section class="intro">
+                                                                            <div class="bg-image h-100">
+                                                                                <div class="mask d-flex align-items-center h-100">
+                                                                                    <div class="container">
+                                                                                        <div class="row justify-content-center">
+                                                                                            <div class="col-12">
+                                                                                                <div class="card" id="card2">
+                                                                                                    <div class="card-body p-0">
+                                                                                                        <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
+                                                                                                            <table class="table table-striped mb-0">
+                                                                                                                <thead style="background-color: #fff;">
+                                                                                                                    <th scope="col">Student ID</th>
+                                                                                                                    <th scope="col">Full Name</th>
+                                                                                                                    <th scope="col">Score</th>
+                                                                                                                    <th scope="col">Exam</th>
+                                                                                                                </thead>
+                                                                                                                <tbody>
+                                                                                                                    <?php
+                                                                                                                    foreach ($cursorger1Sem2 as $exam) {
+                                                                                                                        foreach ($exam['SCORE_DATA'] as $scoreData) {
+                                                                                                                            $studentId = $scoreData['student_id'];
+                                                                                                                            $sql = "SELECT full_name FROM student WHERE student_id = '$studentId'";
+                                                                                                                            $result = mysqli_query($conn, $sql);
+                                                                                                                            $row = mysqli_fetch_assoc($result);
+                                                                                                                            $fullName = $row['full_name'];
+                                                                                                                            $finalScore = $scoreData['scores']['score1'] + $scoreData['scores']['score2'];
+                                                                                                                            $examtype = $exam['EXAM_TYPE'];
+
+                                                                                                                            echo "<tr><td>" . $studentId . "</td><td>" . $fullName . "</td><td>" . $finalScore . "</td><td>" . $examtype . "</td></tr>"; // Fix: Close the <tr> tag
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                    ?>
+                                                                                                                </tbody>
+                                                                                                            </table>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </section>                                                    </div>
                                                 </div>
-
-                                                <!-- Nested Accordion #3 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion4-3">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading4-3">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse4-3" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse4-3">
-                                                                Nested Accordion #3
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse4-3" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading4-3" data-bs-parent="#nested-sub-nested-nested-accordion4-3">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #3 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Nested Accordion #4 -->
-                                                <div class="accordion" id="nested-sub-nested-nested-accordion4-4">
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-sub-nested-nested-heading4-4">
-                                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-nested-collapse4-4" aria-expanded="false" aria-controls="nested-sub-nested-nested-collapse4-4">
-                                                                Nested Accordion #4
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-sub-nested-nested-collapse4-4" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-nested-heading4-4" data-bs-parent="#nested-sub-nested-nested-accordion4-4">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #4 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
 
                             </div>
                         </div>
                     </div>
-                </div>
 
 
-                <!-- Nested Accordion #2 -->
-                <div class="accordion" id="nested-sub-accordion2">
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="nested-sub-heading2">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapse2" aria-expanded="false" aria-controls="nested-sub-collapse2">
+                        <h2 class="accordion-header" id="headinglang-1-2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapselang-1-2" aria-expanded="false" aria-controls="collapselang-1-2">
                                 Grade 2
                             </button>
                         </h2>
-                        <div id="nested-sub-collapse2" class="accordion-collapse collapse" aria-labelledby="nested-sub-heading2" data-bs-parent="#nested-sub-accordion2">
+                        <div id="collapselang-1-2" class="accordion-collapse collapse" aria-labelledby="headinglang-1-2" data-bs-parent="#collapselang-1-2">
                             <div class="accordion-body">
-
-                                <!-- Nested Accordion #1 -->
-                                <div class="accordion" id="nested-sub-nested-accordion2-1">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="nested-sub-nested-heading2-1">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse2-1" aria-expanded="false" aria-controls="nested-sub-nested-collapse2-1">
-                                                Economics
-                                            </button>
-                                        </h2>
-                                        <div id="nested-sub-nested-collapse2-1" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading2-1" data-bs-parent="#nested-sub-nested-accordion2-1">
-                                            <div class="accordion-body">
-                                                <!-- Content for Economics Accordion -->
-                                                <div class="accordion" id="nested-accordion-level-1">
-                                                    <!-- Nested Accordion #1 -->
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-heading-level-1-1">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-1-1" aria-expanded="false" aria-controls="nested-collapse-level-1-1">
-                                                                Nested Accordion 1
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-collapse-level-1-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-1-1" data-bs-parent="#nested-accordion-level-1">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #1 -->
-                                                            </div>
-                                                        </div>
+                                <!-- First Nested Accordion -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading2-1">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-1" aria-expanded="false" aria-controls="collapse2-1">
+                                            Korean
+                                        </button>
+                                    </h2>
+                                    <div id="collapse2-1" class="accordion-collapse collapse" aria-labelledby="heading2-1" data-bs-parent="#collapselang-1-2">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading2-1-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-1-1" aria-expanded="false" aria-controls="collapse2-1-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse2-1-1" class="accordion-collapse collapse" aria-labelledby="heading2-1-1" data-bs-parent="#collapse2-1">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
                                                     </div>
+                                                </div>
+                                            </div>
 
-                                                    <!-- Nested Accordion #2 -->
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-heading-level-1-2">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-1-2" aria-expanded="false" aria-controls="nested-collapse-level-1-2">
-                                                                Nested Accordion 2
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-collapse-level-1-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-1-2" data-bs-parent="#nested-accordion-level-1">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #2 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Nested Accordion #3 -->
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-heading-level-1-3">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-1-3" aria-expanded="false" aria-controls="nested-collapse-level-1-3">
-                                                                Nested Accordion 3
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-collapse-level-1-3" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-1-3" data-bs-parent="#nested-accordion-level-1">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #3 -->
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Nested Accordion #4 -->
-                                                    <div class="accordion-item">
-                                                        <h2 class="accordion-header" id="nested-heading-level-1-4">
-                                                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-1-4" aria-expanded="false" aria-controls="nested-collapse-level-1-4">
-                                                                Nested Accordion 4
-                                                            </button>
-                                                        </h2>
-                                                        <div id="nested-collapse-level-1-4" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-1-4" data-bs-parent="#nested-accordion-level-1">
-                                                            <div class="accordion-body">
-                                                                <!-- Content for Nested Accordion #4 -->
-                                                            </div>
-                                                        </div>
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading2-1-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-1-2" aria-expanded="false" aria-controls="collapse2-1-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse2-1-2" class="accordion-collapse collapse" aria-labelledby="heading2-1-2" data-bs-parent="#collapse2-1">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -1591,75 +4568,39 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                                 </div>
 
 
-                                <!-- Nested Accordion #2 -->
-                                <div class="accordion" id="nested-sub-nested-accordion2-2">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="nested-sub-nested-heading2-2">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse2-2" aria-expanded="false" aria-controls="nested-sub-nested-collapse2-2">
-                                                Accounting </button>
-                                        </h2>
-                                        <div id="nested-sub-nested-collapse2-2" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading2-2" data-bs-parent="#nested-sub-nested-accordion2-2">
-                                            <div class="accordion-body">
-                                                <div class="accordion-body">
-                                                    <!-- Content for Nested Accordion #2 -->
-                                                    <div class="accordion" id="nested-accordion-level-3-1">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-level-3-1">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-3-1" aria-expanded="false" aria-controls="nested-collapse-level-3-1">
-                                                                    Nested Accordion 1
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-level-3-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-3-1" data-bs-parent="#nested-accordion-level-3-1">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 1 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                <!-- Second Nested Accordion -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading2-2">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-2" aria-expanded="false" aria-controls="collapse2-2">
+                                            Mandarin
+                                        </button>
+                                    </h2>
+                                    <div id="collapse2-2" class="accordion-collapse collapse" aria-labelledby="heading2-2" data-bs-parent="#collapselang-1-2">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading2-2-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-2-1" aria-expanded="false" aria-controls="collapse2-2-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse2-2-1" class="accordion-collapse collapse" aria-labelledby="heading2-2-1" data-bs-parent="#collapse2-2">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
                                                     </div>
+                                                </div>
+                                            </div>
 
-                                                    <div class="accordion" id="nested-accordion-level-3-2">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-level-3-2">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-3-2" aria-expanded="false" aria-controls="nested-collapse-level-3-2">
-                                                                    Nested Accordion 2
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-level-3-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-3-2" data-bs-parent="#nested-accordion-level-3-2">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 2 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="accordion" id="nested-accordion-level-3-3">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-level-3-3">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-3-3" aria-expanded="false" aria-controls="nested-collapse-level-3-3">
-                                                                    Nested Accordion 3
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-level-3-3" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-3-3" data-bs-parent="#nested-accordion-level-3-3">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 3 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="accordion" id="nested-accordion-level-3-4">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-level-3-4">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-3-4" aria-expanded="false" aria-controls="nested-collapse-level-3-4">
-                                                                    Nested Accordion 4
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-level-3-4" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-3-4" data-bs-parent="#nested-accordion-level-3-4">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 4 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading2-2-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-2-2" aria-expanded="false" aria-controls="collapse2-2-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse2-2-2" class="accordion-collapse collapse" aria-labelledby="heading2-2-2" data-bs-parent="#collapse2-2">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -1667,75 +4608,40 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                                     </div>
                                 </div>
 
-                                <!-- Nested Accordion #3 -->
-                                <div class="accordion" id="nested-sub-nested-accordion2-3">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="nested-sub-nested-heading2-3">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse2-3" aria-expanded="false" aria-controls="nested-sub-nested-collapse2-3">
-                                                Sociology </button>
-                                        </h2>
-                                        <div id="nested-sub-nested-collapse2-3" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading2-3" data-bs-parent="#nested-sub-nested-accordion2-3">
-                                            <div class="accordion-body">
-                                                <div class="accordion-body">
-                                                    <!-- Content for Nested Accordion #3 -->
-                                                    <div class="accordion" id="nested-accordion-level-4-1">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-level-4-1">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-4-1" aria-expanded="false" aria-controls="nested-collapse-level-4-1">
-                                                                    Nested Accordion 1
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-level-4-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-1" data-bs-parent="#nested-accordion-level-4-1">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 1 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="accordion" id="nested-accordion-level-4-2">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-level-4-2">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-4-2" aria-expanded="false" aria-controls="nested-collapse-level-4-2">
-                                                                    Nested Accordion 2
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-level-4-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-2" data-bs-parent="#nested-accordion-level-4-2">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 2 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                <!-- Third Nested Accordion -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading2-3">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-3" aria-expanded="false" aria-controls="collapse2-3">
+                                            French
+                                        </button>
+                                    </h2>
+                                    <div id="collapse2-3" class="accordion-collapse collapse" aria-labelledby="heading2-3" data-bs-parent="#collapselang-1-2">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading2-3-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-3-1" aria-expanded="false" aria-controls="collapse2-3-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse2-3-1" class="accordion-collapse collapse" aria-labelledby="heading2-3-1" data-bs-parent="#collapse2-3">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
                                                     </div>
+                                                </div>
+                                            </div>
 
-                                                    <div class="accordion" id="nested-accordion-level-4-3">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-level-4-3">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-4-3" aria-expanded="false" aria-controls="nested-collapse-level-4-3">
-                                                                    Nested Accordion 3
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-level-4-3" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-3" data-bs-parent="#nested-accordion-level-4-3">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 3 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="accordion" id="nested-accordion-level-4-4">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-level-4-4">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-4-4" aria-expanded="false" aria-controls="nested-collapse-level-4-4">
-                                                                    Nested Accordion 4
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-level-4-4" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-4" data-bs-parent="#nested-accordion-level-4-4">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 4 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading2-3-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-3-2" aria-expanded="false" aria-controls="collapse2-3-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse2-3-2" class="accordion-collapse collapse" aria-labelledby="heading2-3-2" data-bs-parent="#collapse2-3">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -1743,75 +4649,40 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                                     </div>
                                 </div>
 
-                                <!-- Nested Accordion #4 -->
-                                <div class="accordion" id="nested-sub-nested-accordion2-4">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="nested-sub-nested-heading2-4">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-nested-collapse2-4" aria-expanded="false" aria-controls="nested-sub-nested-collapse2-4">
-                                                Geography </button>
-                                        </h2>
-                                        <div id="nested-sub-nested-collapse2-4" class="accordion-collapse collapse" aria-labelledby="nested-sub-nested-heading2-4" data-bs-parent="#nested-sub-nested-accordion2-4">
-                                            <div class="accordion-body">
-                                                <div class="accordion-body">
-                                                    <!-- Content for Nested Accordion #3 -->
-                                                    <div class="accordion" id="nested-accordion-level-4-1">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-level-4-1">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-4-1" aria-expanded="false" aria-controls="nested-collapse-level-4-1">
-                                                                    Nested Accordion 1
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-level-4-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-1" data-bs-parent="#nested-accordion-level-4-1">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 1 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
 
-                                                    <div class="accordion" id="nested-accordion-level-4-2">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-level-4-2">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-4-2" aria-expanded="false" aria-controls="nested-collapse-level-4-2">
-                                                                    Nested Accordion 2
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-level-4-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-2" data-bs-parent="#nested-accordion-level-4-2">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 2 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                <!-- Fourth Nested Accordion -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading2-4">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-4" aria-expanded="false" aria-controls="collapse2-4">
+                                            German
+                                        </button>
+                                    </h2>
+                                    <div id="collapse2-4" class="accordion-collapse collapse" aria-labelledby="heading2-4" data-bs-parent="#collapselang-1-2">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading2-4-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-4-1" aria-expanded="false" aria-controls="collapse2-4-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse2-4-1" class="accordion-collapse collapse" aria-labelledby="heading2-4-1" data-bs-parent="#collapse2-4">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
                                                     </div>
+                                                </div>
+                                            </div>
 
-                                                    <div class="accordion" id="nested-accordion-level-4-3">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-level-4-3">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-4-3" aria-expanded="false" aria-controls="nested-collapse-level-4-3">
-                                                                    Nested Accordion 3
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-level-4-3" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-3" data-bs-parent="#nested-accordion-level-4-3">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 3 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="accordion" id="nested-accordion-level-4-4">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-level-4-4">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-4-4" aria-expanded="false" aria-controls="nested-collapse-level-4-4">
-                                                                    Nested Accordion 4
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-level-4-4" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-4" data-bs-parent="#nested-accordion-level-4-4">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 4 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading2-4-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2-4-2" aria-expanded="false" aria-controls="collapse2-4-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse2-4-2" class="accordion-collapse collapse" aria-labelledby="heading2-4-2" data-bs-parent="#collapse2-4">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -1822,250 +4693,517 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                             </div>
                         </div>
                     </div>
-                </div>
 
 
-                <!-- Nested Accordion #3 -->
-                <div class="accordion" id="nested-sub-accordion-social-grade3">
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="nested-sub-heading-social-grade3">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-sub-collapse-social-grade3" aria-expanded="false" aria-controls="nested-sub-collapse-social-grade3">
-                                Grade 3 </button>
+                        <h2 class="accordion-header" id="headinglang-1-3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapselang-1-3" aria-expanded="false" aria-controls="collapselang-1-3">
+                                Grade 3
+                            </button>
                         </h2>
-                        <div id="nested-sub-collapse-social-grade3" class="accordion-collapse collapse" aria-labelledby="nested-sub-heading-social-grade3" data-bs-parent="#nested-sub-accordion-social-grade3">
+                        <div id="collapselang-1-3" class="accordion-collapse collapse" aria-labelledby="headinglang-1-3" data-bs-parent="#collapselang-1-3">
                             <div class="accordion-body">
-                                <div class="accordion-body">
-                                    <!-- Content for Nested Accordion #3 -->
-                                    <div class="accordion" id="nested-accordion-eco">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="nested-heading-eco">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-eco" aria-expanded="false" aria-controls="nested-collapse-eco">
-                                                    Economics </button>
-                                            </h2>
-                                            <div id="nested-collapse-eco" class="accordion-collapse collapse" aria-labelledby="nested-heading-eco" data-bs-parent="#nested-accordion-eco">
-                                                <div class="accordion-body">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading3-1">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-1" aria-expanded="false" aria-controls="collapse3-1">
+                                            Korean
+                                        </button>
+                                    </h2>
+                                    <div id="collapse3-1" class="accordion-collapse collapse" aria-labelledby="heading3-1" data-bs-parent="#collapselang-1-3">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading3-1-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-1-1" aria-expanded="false" aria-controls="collapse3-1-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse3-1-1" class="accordion-collapse collapse" aria-labelledby="heading3-1-1" data-bs-parent="#collapse3-1">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Nested Accordion 1 -->
-                                                        <div class="accordion" id="nested-accordion-eco1">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-heading-eco1">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-eco1" aria-expanded="false" aria-controls="nested-collapse-eco1">
-                                                                        Nested Accordion 1
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-collapse-eco1" class="accordion-collapse collapse" aria-labelledby="nested-heading-eco1" data-bs-parent="#nested-accordion-eco1">
-                                                                    <div class="accordion-body">
-                                                                        <!-- Content for Nested Accordion 1 -->
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="accordion" id="nested-accordion-eco2">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-heading-eco2">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-eco2" aria-expanded="false" aria-controls="nested-collapse-eco2">
-                                                                        Nested Accordion 2
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-collapse-eco2" class="accordion-collapse collapse" aria-labelledby="nested-heading-eco2" data-bs-parent="#nested-accordion-eco2">
-                                                                    <div class="accordion-body">
-                                                                        <!-- Content for Nested Accordion 2 -->
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="accordion" id="nested-accordion-eco3">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-heading-eco3">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-eco3" aria-expanded="false" aria-controls="nested-collapse-eco3">
-                                                                        Nested Accordion 3
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-collapse-eco3" class="accordion-collapse collapse" aria-labelledby="nested-heading-eco3" data-bs-parent="#nested-accordion-eco3">
-                                                                    <div class="accordion-body">
-                                                                        <!-- Content for Nested Accordion 3 -->
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="accordion" id="nested-accordion-eco4">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-heading-eco4">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-eco4" aria-expanded="false" aria-controls="nested-collapse-eco4">
-                                                                        Nested Accordion 4
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-collapse-eco4" class="accordion-collapse collapse" aria-labelledby="nested-heading-eco4" data-bs-parent="#nested-accordion-eco4">
-                                                                    <div class="accordion-body">
-                                                                        <!-- Content for Nested Accordion 4 -->
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <!-- Content for First Test -->
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="accordion" id="nested-accordion-acc">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="nested-heading-acc">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-acc" aria-expanded="false" aria-controls="nested-collapse-acc">
-                                                    Accounting </button>
-                                            </h2>
-                                            <div id="nested-collapse-acc" class="accordion-collapse collapse" aria-labelledby="nested-heading-acc" data-bs-parent="#nested-accordion-acc">
-                                                <div class="accordion-body">
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading3-1-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-1-2" aria-expanded="false" aria-controls="collapse3-1-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse3-1-2" class="accordion-collapse collapse" aria-labelledby="heading3-1-2" data-bs-parent="#collapse3-1">
                                                     <div class="accordion-body">
-                                                        <!-- Content for Nested Accordion 2 -->
-                                                        <div class="accordion" id="nested-accordion-acc1">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-heading-acc1">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-acc1" aria-expanded="false" aria-controls="nested-collapse-acc1">
-                                                                        Nested Accordion 1
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-collapse-acc1" class="accordion-collapse collapse" aria-labelledby="nested-heading-acc1" data-bs-parent="#nested-accordion-acc1">
-                                                                    <div class="accordion-body">
-                                                                        <!-- Content for Nested Accordion 1 -->
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="accordion" id="nested-accordion-acc2">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-heading-acc2">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-acc2" aria-expanded="false" aria-controls="nested-collapse-acc2">
-                                                                        Nested Accordion 2
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-collapse-acc2" class="accordion-collapse collapse" aria-labelledby="nested-heading-acc2" data-bs-parent="#nested-accordion-acc2">
-                                                                    <div class="accordion-body">
-                                                                        <!-- Content for Nested Accordion 2 -->
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="accordion" id="nested-accordion-acc3">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-heading-acc3">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-acc3" aria-expanded="false" aria-controls="nested-collapse-acc3">
-                                                                        Nested Accordion 3
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-collapse-acc3" class="accordion-collapse collapse" aria-labelledby="nested-heading-acc3" data-bs-parent="#nested-accordion-acc3">
-                                                                    <div class="accordion-body">
-                                                                        <!-- Content for Nested Accordion 3 -->
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="accordion" id="nested-accordion-acc4">
-                                                            <div class="accordion-item">
-                                                                <h2 class="accordion-header" id="nested-heading-acc4">
-                                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-acc4" aria-expanded="false" aria-controls="nested-collapse-acc4">
-                                                                        Nested Accordion 4
-                                                                    </button>
-                                                                </h2>
-                                                                <div id="nested-collapse-acc4" class="accordion-collapse collapse" aria-labelledby="nested-heading-acc4" data-bs-parent="#nested-accordion-acc4">
-                                                                    <div class="accordion-body">
-                                                                        <!-- Content for Nested Accordion 4 -->
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="accordion" id="nested-accordion-level-4-3">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="nested-heading-level-4-3">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-level-4-3" aria-expanded="false" aria-controls="nested-collapse-level-4-3">
-                                                    Sociology </button>
-                                            </h2>
-                                            <div id="nested-collapse-level-4-3" class="accordion-collapse collapse" aria-labelledby="nested-heading-level-4-3" data-bs-parent="#nested-accordion-level-4-3">
-                                                <div class="accordion-body">
-                                                    <!-- Content for Nested Accordion 3 -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading3-2">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-2" aria-expanded="false" aria-controls="collapse3-2">
+                                            Mandarin
+                                        </button>
+                                    </h2>
+                                    <div id="collapse3-2" class="accordion-collapse collapse" aria-labelledby="heading3-2" data-bs-parent="#collapselang-1-3">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading3-2-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-2-1" aria-expanded="false" aria-controls="collapse3-2-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse3-2-1" class="accordion-collapse collapse" aria-labelledby="heading3-2-1" data-bs-parent="#collapse3-2">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading3-2-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-2-2" aria-expanded="false" aria-controls="collapse3-2-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse3-2-2" class="accordion-collapse collapse" aria-labelledby="heading3-2-2" data-bs-parent="#collapse3-2">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="accordion" id="nested-accordion-geo-3">
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="nested-heading-level-4-4">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-geo-3" aria-expanded="false" aria-controls="nested-collapse-geo-3">
-                                                    Geography </button>
-                                            </h2>
-                                            <div id="nested-collapse-geo-3" class="accordion-collapse collapse" aria-labelledby="nested-heading-geo-3" data-bs-parent="#nested-accordion-geo-3">
-                                                <div class="accordion-body">
-                                                    <div class="accordion" id="nested-accordion-geo-3">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-geo-3-1">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-geo-3-1" aria-expanded="false" aria-controls="nested-collapse-geo-3-1">
-                                                                    Nested Accordion 1
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-geo-3-1" class="accordion-collapse collapse" aria-labelledby="nested-heading-geo-3-1" data-bs-parent="#nested-accordion-geo-3-1">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 1 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading3-3">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-3" aria-expanded="false" aria-controls="collapse3-3">
+                                            French
+                                        </button>
+                                    </h2>
+                                    <div id="collapse3-3" class="accordion-collapse collapse" aria-labelledby="heading3-3" data-bs-parent="#collapselang-1-3">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading3-3-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-3-1" aria-expanded="false" aria-controls="collapse3-3-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse3-3-1" class="accordion-collapse collapse" aria-labelledby="heading3-3-1" data-bs-parent="#collapse3-3">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
                                                     </div>
+                                                </div>
+                                            </div>
 
-                                                    <div class="accordion" id="nested-accordion-geo-3-2">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-geo-3-2">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-geo-3-2" aria-expanded="false" aria-controls="nested-collapse-geo-3-2">
-                                                                    Nested Accordion 2
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-geo-3-2" class="accordion-collapse collapse" aria-labelledby="nested-heading-geo-3-2" data-bs-parent="#nested-accordion-geo-3-2">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 2 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading3-3-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-3-2" aria-expanded="false" aria-controls="collapse3-3-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse3-3-2" class="accordion-collapse collapse" aria-labelledby="heading3-3-2" data-bs-parent="#collapse3-3">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                                    <div class="accordion" id="nested-accordion-geo-3-3">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-geo-3-3">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-geo-3-3" aria-expanded="false" aria-controls="nested-collapse-geo-3-3">
-                                                                    Nested Accordion 3
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-geo-3-3" class="accordion-collapse collapse" aria-labelledby="nested-heading-geo-3-3" data-bs-parent="#nested-accordion-geo-3-3">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 3 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading3-4">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-4" aria-expanded="false" aria-controls="collapse3-4">
+                                            German
+                                        </button>
+                                    </h2>
+                                    <div id="collapse3-4" class="accordion-collapse collapse" aria-labelledby="heading3-4" data-bs-parent="#collapselang-1-3">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading3-4-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-4-1" aria-expanded="false" aria-controls="collapse3-4-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse3-4-1" class="accordion-collapse collapse" aria-labelledby="heading3-4-1" data-bs-parent="#collapse3-4">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
                                                     </div>
+                                                </div>
+                                            </div>
 
-                                                    <div class="accordion" id="nested-accordion-geo-3-4">
-                                                        <div class="accordion-item">
-                                                            <h2 class="accordion-header" id="nested-heading-geo-3-4">
-                                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nested-collapse-geo-3-4" aria-expanded="false" aria-controls="nested-collapse-geo-3-4">
-                                                                    Nested Accordion 4
-                                                                </button>
-                                                            </h2>
-                                                            <div id="nested-collapse-geo-3-4" class="accordion-collapse collapse" aria-labelledby="nested-heading-geo-3-4" data-bs-parent="#nested-accordion-geo-3-4">
-                                                                <div class="accordion-body">
-                                                                    <!-- Content for Nested Accordion 4 -->
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading3-4-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3-4-2" aria-expanded="false" aria-controls="collapse3-4-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse3-4-2" class="accordion-collapse collapse" aria-labelledby="heading3-4-2" data-bs-parent="#collapse3-4">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingmand">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand" aria-expanded="false" aria-controls="collapsemand">
+                    Mandatory
+                </button>
+            </h2>
+            <div id="collapsemand" class="accordion-collapse collapse" aria-labelledby="headingmand" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingmand-1">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1" aria-expanded="false" aria-controls="collapsemand-1">
+                                Grade 1
+                            </button>
+                        </h2>
+                        <div id="collapsemand-1" class="accordion-collapse collapse" aria-labelledby="headingmand-1" data-bs-parent="#collapsemand">
+                            <div class="accordion-body">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingmand-1-1">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-1" aria-expanded="false" aria-controls="collapsemand-1-1">
+                                            Art
+                                        </button>
+                                    </h2>
+                                    <div id="collapsemand-1-1" class="accordion-collapse collapse" aria-labelledby="headingmand-1-1" data-bs-parent="#collapsemand-1">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-1-1-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-1-1" aria-expanded="false" aria-controls="collapsemand-1-1-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-1-1-1" class="accordion-collapse collapse" aria-labelledby="headingmand-1-1-1" data-bs-parent="#collapsemand-1-1">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-1-1-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-1-2" aria-expanded="false" aria-controls="collapsemand-1-1-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-1-1-2" class="accordion-collapse collapse" aria-labelledby="headingmand-1-1-2" data-bs-parent="#collapsemand-1-1">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingmand-1-2">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-2" aria-expanded="false" aria-controls="collapsemand-1-2">
+                                            Indonesian
+                                        </button>
+                                    </h2>
+                                    <div id="collapsemand-1-2" class="accordion-collapse collapse" aria-labelledby="headingmand-1-2" data-bs-parent="#collapsemand-1">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-1-2-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-2-1" aria-expanded="false" aria-controls="collapsemand-1-2-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-1-2-1" class="accordion-collapse collapse" aria-labelledby="headingmand-1-2-1" data-bs-parent="#collapsemand-1-2">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-1-2-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-2-2" aria-expanded="false" aria-controls="collapsemand-1-2-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-1-2-2" class="accordion-collapse collapse" aria-labelledby="headingmand-1-2-2" data-bs-parent="#collapsemand-1-2">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingmand-1-3">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-3" aria-expanded="false" aria-controls="collapsemand-1-3">
+                                            History
+                                        </button>
+                                    </h2>
+                                    <div id="collapsemand-1-3" class="accordion-collapse collapse" aria-labelledby="headingmand-1-3" data-bs-parent="#collapsemand-1">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-1-3-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-3-1" aria-expanded="false" aria-controls="collapsemand-1-3-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-1-3-1" class="accordion-collapse collapse" aria-labelledby="headingmand-1-3-1" data-bs-parent="#collapsemand-1-3">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-1-3-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-3-2" aria-expanded="false" aria-controls="collapsemand-1-3-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-1-3-2" class="accordion-collapse collapse" aria-labelledby="headingmand-1-3-2" data-bs-parent="#collapsemand-1-3">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingmand-1-4">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-4" aria-expanded="false" aria-controls="collapsemand-1-4">
+                                            Civic
+                                        </button>
+                                    </h2>
+                                    <div id="collapsemand-1-4" class="accordion-collapse collapse" aria-labelledby="headingmand-1-4" data-bs-parent="#collapsemand-1">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-1-4-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-4-1" aria-expanded="false" aria-controls="collapsemand-1-4-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-1-4-1" class="accordion-collapse collapse" aria-labelledby="headingmand-1-4-1" data-bs-parent="#collapsemand-1-4">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-1-4-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-1-4-2" aria-expanded="false" aria-controls="collapsemand-1-4-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-1-4-2" class="accordion-collapse collapse" aria-labelledby="headingmand-1-4-2" data-bs-parent="#collapsemand-1-4">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingmand-2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2" aria-expanded="false" aria-controls="collapsemand-2">
+                                Grade 2
+                            </button>
+                        </h2>
+                        <div id="collapsemand-2" class="accordion-collapse collapse" aria-labelledby="headingmand-2" data-bs-parent="#collapsemand">
+                            <div class="accordion-body">
+                                <!-- First Nested Accordion -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingmand-2-1">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-1" aria-expanded="false" aria-controls="collapsemand-2-1">
+                                            Art
+                                        </button>
+                                    </h2>
+                                    <div id="collapsemand-2-1" class="accordion-collapse collapse" aria-labelledby="headingmand-2-1" data-bs-parent="#collapsemand-2">
+                                        <div class="accordion-body">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-2-1-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-1-1" aria-expanded="false" aria-controls="collapsemand-2-1-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-2-1-1" class="accordion-collapse collapse" aria-labelledby="headingmand-2-1-1" data-bs-parent="#collapsemand-2-1">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-2-1-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-1-2" aria-expanded="false" aria-controls="collapsemand-2-1-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-2-1-2" class="accordion-collapse collapse" aria-labelledby="headingmand-2-1-2" data-bs-parent="#collapsemand-2-1">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingmand-2-2">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-2" aria-expanded="false" aria-controls="collapsemand-2-2">
+                                            Indonesian
+                                        </button>
+                                    </h2>
+                                    <div id="collapsemand-2-2" class="accordion-collapse collapse" aria-labelledby="headingmand-2-2" data-bs-parent="#collapsemand-2">
+                                        <div class="accordion-body">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-2-2-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-2-1" aria-expanded="false" aria-controls="collapsemand-2-2-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-2-2-1" class="accordion-collapse collapse" aria-labelledby="headingmand-2-2-1" data-bs-parent="#collapsemand-2-2">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-2-2-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-2-2" aria-expanded="false" aria-controls="collapsemand-2-2-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-2-2-2" class="accordion-collapse collapse" aria-labelledby="headingmand-2-2-2" data-bs-parent="#collapsemand-2-2">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingmand-2-3">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-3" aria-expanded="false" aria-controls="collapsemand-2-3">
+                                            History
+                                        </button>
+                                    </h2>
+                                    <div id="collapsemand-2-3" class="accordion-collapse collapse" aria-labelledby="headingmand-2-3" data-bs-parent="#collapsemand-2">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-2-3-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-3-1" aria-expanded="false" aria-controls="collapsemand-2-3-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-2-3-1" class="accordion-collapse collapse" aria-labelledby="headingmand-2-3-1" data-bs-parent="#collapsemand-2-3">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-2-3-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-3-2" aria-expanded="false" aria-controls="collapsemand-2-3-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-2-3-2" class="accordion-collapse collapse" aria-labelledby="headingmand-2-3-2" data-bs-parent="#collapsemand-2-3">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingmand-2-4">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-4" aria-expanded="false" aria-controls="collapsemand-2-4">
+                                            Civic
+                                        </button>
+                                    </h2>
+                                    <div id="collapsemand-2-4" class="accordion-collapse collapse" aria-labelledby="headingmand-2-4" data-bs-parent="#collapsemand-2">
+                                        <div class="accordion-body">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-2-4-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-4-1" aria-expanded="false" aria-controls="collapsemand-2-4-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-2-4-1" class="accordion-collapse collapse" aria-labelledby="headingmand-2-4-1" data-bs-parent="#collapsemand-2-4">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-2-4-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-2-4-2" aria-expanded="false" aria-controls="collapsemand-2-4-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-2-4-2" class="accordion-collapse collapse" aria-labelledby="headingmand-2-4-2" data-bs-parent="#collapsemand-2-4">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -2075,69 +5213,180 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingmand-3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3" aria-expanded="false" aria-controls="collapsemand-3">
+                                Grade 3
+                            </button>
+                        </h2>
+                        <div id="collapsemand-3" class="accordion-collapse collapse" aria-labelledby="headingmand-3" data-bs-parent="#collapsemand">
+                            <div class="accordion-body">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingmand-3-1">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-1" aria-expanded="false" aria-controls="collapsemand-3-1">
+                                            Art
+                                        </button>
+                                    </h2>
+                                    <div id="collapsemand-3-1" class="accordion-collapse collapse" aria-labelledby="headingmand-3-1" data-bs-parent="#collapsemand-3">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-3-1-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-1-1" aria-expanded="false" aria-controls="collapsemand-3-1-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-3-1-1" class="accordion-collapse collapse" aria-labelledby="headingmand-3-1-1" data-bs-parent="#collapsemand-3-1">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-3-1-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-1-2" aria-expanded="false" aria-controls="collapsemand-3-1-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-3-1-2" class="accordion-collapse collapse" aria-labelledby="headingmand-3-1-2" data-bs-parent="#collapsemand-3-1">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingmand-3-2">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-2" aria-expanded="false" aria-controls="collapsemand-3-2">
+                                            Indonesian
+                                        </button>
+                                    </h2>
+                                    <div id="collapsemand-3-2" class="accordion-collapse collapse" aria-labelledby="headingmand-3-2" data-bs-parent="#collapsemand-3">
+                                        <div class="accordion-body">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-3-2-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-2-1" aria-expanded="false" aria-controls="collapsemand-3-2-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-3-2-1" class="accordion-collapse collapse" aria-labelledby="headingmand-3-2-1" data-bs-parent="#collapsemand-3-2">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-3-2-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-2-2" aria-expanded="false" aria-controls="collapsemand-3-2-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-3-2-2" class="accordion-collapse collapse" aria-labelledby="headingmand-3-2-2" data-bs-parent="#collapsemand-3-2">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingmand-3-3">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-3" aria-expanded="false" aria-controls="collapsemand-3-3">
+                                            History
+                                        </button>
+                                    </h2>
+                                    <div id="collapsemand-3-3" class="accordion-collapse collapse" aria-labelledby="headingmand-3-3" data-bs-parent="#collapsemand-3">
+                                        <div class="accordion-body">
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-3-3-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-3-1" aria-expanded="false" aria-controls="collapsemand-3-3-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-3-3-1" class="accordion-collapse collapse" aria-labelledby="headingmand-3-3-1" data-bs-parent="#collapsemand-3-3">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-3-3-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-3-2" aria-expanded="false" aria-controls="collapsemand-3-3-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-3-3-2" class="accordion-collapse collapse" aria-labelledby="headingmand-3-3-2" data-bs-parent="#collapsemand-3-3">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingmand-3-4">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-4" aria-expanded="false" aria-controls="collapsemand-3-4">
+                                            Civic
+                                        </button>
+                                    </h2>
+                                    <div id="collapsemand-3-4" class="accordion-collapse collapse" aria-labelledby="headingmand-3-4" data-bs-parent="#collapsemand-3">
+                                        <div class="accordion-body">
+                                            <!-- First Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-3-4-1">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-4-1" aria-expanded="false" aria-controls="collapsemand-3-4-1">
+                                                        First Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-3-4-1" class="accordion-collapse collapse" aria-labelledby="headingmand-3-4-1" data-bs-parent="#collapsemand-3-4">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for First Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Second Nested Accordion -->
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="headingmand-3-4-2">
+                                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand-3-4-2" aria-expanded="false" aria-controls="collapsemand-3-4-2">
+                                                        Second Semester
+                                                    </button>
+                                                </h2>
+                                                <div id="collapsemand-3-4-2" class="accordion-collapse collapse" aria-labelledby="headingmand-3-4-2" data-bs-parent="#collapsemand-3-4">
+                                                    <div class="accordion-body">
+                                                        <!-- Content for Second Test -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="headinglang">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapselang" aria-expanded="false" aria-controls="collapselang">
-                Language
-            </button>
-        </h2>
-        <div id="collapselang" class="accordion-collapse collapse" aria-labelledby="headinglang" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headinglang-1-1">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapselang-1-1" aria-expanded="false" aria-controls="collapselang-1-1">
-                            Grade 1
-                        </button>
-                    </h2>
-                    <div id="collapselang-1-1" class="accordion-collapse collapse" aria-labelledby="headinglang-1-1" data-bs-parent="#collapselang-1-1">
-                        <div class="accordion-body">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headinglang-1-2">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapselang-1-2" aria-expanded="false" aria-controls="collapselang-1-2">
-                            Grade 2
-                        </button>
-                    </h2>
-                    <div id="collapselang-1-2" class="accordion-collapse collapse" aria-labelledby="headinglang-1-2" data-bs-parent="#collapselang-1-2">
-                        <div class="accordion-body">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headinglang-1-3">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapselang-1-3" aria-expanded="false" aria-controls="collapselang-1-3">
-                            Grade 3
-                        </button>
-                    </h2>
-                    <div id="collapselang-1-3" class="accordion-collapse collapse" aria-labelledby="headinglang-1-3" data-bs-parent="#collapselang-1-3">
-                        <div class="accordion-body">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="headingmand">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsemand" aria-expanded="false" aria-controls="collapsemand">
-                Mandatory
-            </button>
-        </h2>
-        <div id="collapsemand" class="accordion-collapse collapse" aria-labelledby="headingmand" data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-            </div>
-        </div>
-    </div>
     </div>
 
     <!-- <div class="accordion" id="accordionPanelsStayOpenExample">
@@ -2168,7 +5417,7 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                                                                 <div class="card-body p-0">
                                                                     <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
                                                                         <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #002d72;">
+                                                                            <thead style="background-color: #fff;">
                                                                                 <th scope="col">Student ID</th>
                                                                                 <th scope="col">Full Name</th>
                                                                                 <th scope="col">Score</th>
@@ -2220,7 +5469,7 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                                                                 <div class="card-body p-0">
                                                                     <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
                                                                         <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #002d72;">
+                                                                            <thead style="background-color: #fff;">
                                                                                 <th scope="col">Student ID</th>
                                                                                 <th scope="col">Full Name</th>
                                                                                 <th scope="col">Score</th>
@@ -2272,7 +5521,7 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                                                                 <div class="card-body p-0">
                                                                     <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
                                                                         <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #002d72;">
+                                                                            <thead style="background-color: #fff;">
                                                                                 <th scope="col">Student ID</th>
                                                                                 <th scope="col">Full Name</th>
                                                                                 <th scope="col">Score</th>
@@ -2324,7 +5573,7 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                                                                 <div class="card-body p-0">
                                                                     <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
                                                                         <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #002d72;">
+                                                                            <thead style="background-color: #fff;">
                                                                                 <th scope="col">Student ID</th>
                                                                                 <th scope="col">Full Name</th>
                                                                                 <th scope="col">Score</th>
@@ -2376,7 +5625,7 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                                                                 <div class="card-body p-0">
                                                                     <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
                                                                         <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #002d72;">
+                                                                            <thead style="background-color: #fff;">
                                                                                 <th scope="col">Student ID</th>
                                                                                 <th scope="col">Full Name</th>
                                                                                 <th scope="col">Score</th>
@@ -2427,7 +5676,7 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                                                                 <div class="card-body p-0">
                                                                     <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
                                                                         <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #002d72;">
+                                                                            <thead style="background-color: #fff;">
                                                                                 <th scope="col">Student ID</th>
                                                                                 <th scope="col">Full Name</th>
                                                                                 <th scope="col">Score</th>
@@ -2478,7 +5727,7 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                                                                 <div class="card-body p-0">
                                                                     <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
                                                                         <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #002d72;">
+                                                                            <thead style="background-color: #fff;">
                                                                                 <th scope="col">Student ID</th>
                                                                                 <th scope="col">Full Name</th>
                                                                                 <th scope="col">Score</th>
@@ -2529,7 +5778,7 @@ $cursor8 = $exams->find($conditions8, ['projection' => $projection]);
                                                                 <div class="card-body p-0">
                                                                     <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px;">
                                                                         <table class="table table-striped mb-0">
-                                                                            <thead style="background-color: #002d72;">
+                                                                            <thead style="background-color: #fff;">
                                                                                 <th scope="col">Student ID</th>
                                                                                 <th scope="col">Full Name</th>
                                                                                 <th scope="col">Score</th>
