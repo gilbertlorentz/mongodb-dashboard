@@ -290,7 +290,6 @@ for ($i = 0; $i < 1; $i++) {
             margin: auto;
         }
 
-        /* Style for individual chart divs */
         .chartDiv {
             flex: 1 1 calc(50% - 10px);
             max-width: calc(50% - 10px);

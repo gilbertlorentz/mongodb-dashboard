@@ -8,22 +8,86 @@ $departments = $client->academic_data->department;
 
 $pipeline = [
     [
-        '$unwind' => '$subjects'
+        '$unwind' => '$subjects',
     ],
     [
-        '$unwind' => '$subjects.teachers_list'
+        '$unwind' => '$subjects.teachers_list',
+    ],
+    [
+        '$unwind' => '$subjects.teachers_list.students_taught',
     ],
     [
         '$project' => [
-            '_id' => 0,
             'teacher_id' => '$subjects.teachers_list.teacher_id',
-            'rating' => '$subjects.teachers_list.rating'
-        ]
-    ]
+            'scores' => '$subjects.teachers_list.students_taught.angket_score',
+        ],
+    ],
+    [
+        '$unwind' => '$scores',
+    ],
+    [
+        '$group' => [
+            '_id' => '$teacher_id',
+            'averageRating' => ['$avg' => '$scores'],
+        ],
+    ],
+    [
+        '$sort' => ['averageRating' => -1],
+    ],
+    [
+        '$limit' => 5,
+    ],
+    [
+        '$project' => [
+            '_id' => 1,
+            'averageRating' => 1,
+        ],
+    ],
 ];
 
-// Execute the aggregation pipeline on the $departments collection
+$pipeline2 = [
+    [
+        '$unwind' => '$subjects',
+    ],
+    [
+        '$unwind' => '$subjects.teachers_list',
+    ],
+    [
+        '$unwind' => '$subjects.teachers_list.students_taught',
+    ],
+    [
+        '$project' => [
+            'teacher_id' => '$subjects.teachers_list.teacher_id',
+            'scores' => '$subjects.teachers_list.students_taught.angket_score',
+        ],
+    ],
+    [
+        '$unwind' => '$scores',
+    ],
+    [
+        '$group' => [
+            '_id' => '$teacher_id',
+            'averageRating' => ['$avg' => '$scores'],
+        ],
+    ],
+    [
+        '$sort' => ['averageRating' => 1], // Change to ascending order
+    ],
+    [
+        '$limit' => 5,
+    ],
+    [
+        '$project' => [
+            '_id' => 1,
+            'averageRating' => 1,
+        ],
+    ],
+];
+
+
 $result = $departments->aggregate($pipeline);
+$result2 = $departments->aggregate($pipeline2);
+
 
 ?>
 <!DOCTYPE html>
@@ -144,37 +208,84 @@ $result = $departments->aggregate($pipeline);
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-12">
-                            <div class="card" id="card2" style="display: none;">
+                            <div class="card" id="card2" style="display: none; margin: 20px 0;">
                                 <div class="card-body p-0">
-                                    <h3 style="text-align: center;">Top 5 teacher with the highest rating</h3>
-                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px; display:none">
+                                    <h3 style="text-align: center; margin-bottom: 20px;">Top 5 Teachers with the Highest Rating</h3>
+                                    <div class="table-responsive table-scroll" id="rankTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 200px; display: none;">
                                         <table class="table table-striped mb-0">
                                             <thead style="background-color: #002d72;">
                                                 <th scope="col">Rank</th>
                                                 <th scope="col">ID</th>
                                                 <th scope="col">Full Name</th>
+                                                <th scope="col">Rating</th>
                                             </thead>
                                             <?php
                                             $rowNumber = 1;
-
                                             foreach ($result as $document) {
-                                            echo "<tr>";
+                                                echo '<tr>';
                                                 echo "<td>" . $rowNumber . "</td>"; // Display the row number
-                                                echo "<td>" . $document['teacher_id'] . "</td>";
-                                                echo "<td>" . $document['rating'] . "</td>";
-                                                echo "</tr>";
-                                            $rowNumber += 1;
+                                                echo '<td>' . $document['_id'] . '</td>';
+                                                $teacherId = $document['_id']; // Assuming 'teacher_id' is the field storing teacher ID in your documents
+                                                $sql = "SELECT full_name FROM teacher WHERE teacher_id = '$teacherId'";
+                                                $teacherResult = mysqli_query($conn, $sql);
+                                                $teacherRow = mysqli_fetch_assoc($teacherResult);
+                                                $teacherFullName = $teacherRow['full_name'];
 
-                                            if ($rowNumber > 10) {
-                                            break; // Break out of the loop after displaying the top 10 rows
-                                            }
+                                                echo '<td>' . $teacherFullName . '</td>';
+                                                echo '<td>' . $document['averageRating'] . '</td>';
+                                                echo '</tr>';
+
+                                                $rowNumber += 1;
+
+                                                if ($rowNumber > 10) {
+                                                    break;
+                                                }
                                             }
                                             ?>
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="card" id="card3" style="display: none; margin: 20px 0;">
+                                <div class="card-body p-0">
+                                    <h3 style="text-align: center; margin-bottom: 20px;">Top 5 Teachers with the Lowest Rating</h3>
+                                    <div class="table-responsive table-scroll" id="lowestTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 200px; display: none;">
+                                        <table class="table table-striped mb-0">
+                                            <thead style="background-color: #002d72;">
+                                                <th scope="col">Rank</th>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Full Name</th>
+                                                <th scope="col">Rating</th>
+                                            </thead>
+                                            <?php
+                                            $rowNumber = 1;
+                                            foreach ($result2 as $document) {
+                                                echo '<tr>';
+                                                echo "<td>" . $rowNumber . "</td>"; // Display the row number
+                                                echo '<td>' . $document['_id'] . '</td>';
+                                                $teacherId = $document['_id']; // Assuming 'teacher_id' is the field storing teacher ID in your documents
+                                                $sql = "SELECT full_name FROM teacher WHERE teacher_id = '$teacherId'";
+                                                $teacherResult = mysqli_query($conn, $sql);
+                                                $teacherRow = mysqli_fetch_assoc($teacherResult);
+                                                $teacherFullName = $teacherRow['full_name'];
+
+                                                echo '<td>' . $teacherFullName . '</td>';
+                                                echo '<td>' . $document['averageRating'] . '</td>';
+                                                echo '</tr>';
+
+                                                $rowNumber += 1;
+
+                                                if ($rowNumber > 10) {
+                                                    break;
+                                                }
+                                            }
+                                            ?>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="card" id="card1">
                                 <div class="card-body p-0">
                                     <div class="table-responsive table-scroll" id="bigTable" data-mdb-perfect-scrollbar="true" style="position: relative; height: 500px; visibility:visible">
@@ -291,7 +402,10 @@ $result = $departments->aggregate($pipeline);
             document.getElementById('filter').style.visibility = 'hidden';
             document.getElementById('labelDepartment').style.visibility = 'hidden';
             document.getElementById('card2').style.display = 'flex';
+            document.getElementById('card3').style.display = 'flex';
             document.getElementById('rankTable').style.display = 'flex';
+            document.getElementById('lowestTable').style.display = 'flex';
+
         }
         document.getElementById('table').onclick = function() {
             document.getElementById('card2').style.display = 'flex';
