@@ -1,9 +1,9 @@
 <?php
 
-$conn = mysqli_connect("localhost", "root", "", "academic_data", 3306);
+$conn = new mysqli("localhost", "root", "", "academic_data", 3306);
 
 if ($conn->connect_error) {
-    echo "Error: could no connect. " . mysqli_connect_error();
+    echo "Error: could not connect. " . $conn->connect_error;
 }
 
 // Student per Dept
@@ -512,6 +512,25 @@ for ($i = 0; $i < 1; $i++) {
             margin: 0 5px;
         }
 
+        #filterContainer,
+        #CorrDiv1Container {
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            max-width: 200px;
+        }
+
+
+        #dataTable {
+            max-width: 400px;
+            /* Adjust the maximum width as needed */
+            margin: 0 auto;
+            /* Centers the table */
+        }
+
 
 
 
@@ -841,6 +860,93 @@ for ($i = 0; $i < 1; $i++) {
 
     // var_dump($series_1);
     // echo json_encode(array_column(array_column($series_1, 'points'), 0));
+
+
+
+
+
+    // $pipeline7 = [
+    //     ['$unwind' => '$SCORE_DATA'],
+    //     ['$project' => [
+    //         '_id' => 0,
+    //         'student_id' => '$SCORE_DATA.student_id',
+    //         'averageScore' => ['$avg' => ['$sum' => ['$SCORE_DATA.scores.score1', '$SCORE_DATA.scores.score2']]]
+    //     ]],
+    //     ['$group' => [
+    //         '_id' => '$student_id',
+    //         'averageScore' => ['$avg' => '$averageScore']
+    //     ]],
+    //     ['$project' => [
+    //         '_id' => 0,
+    //         'x' => '$_id',
+    //         'y' => '$averageScore'
+    //     ]]
+    // ];
+
+    // $result = $exams->aggregate($pipeline7)->toArray();
+
+    // $topStudentAvg = [];
+
+    // foreach ($result as $doc) {
+    //     $topStudentAvg[] = [
+    //         'x' => $doc['x'],
+    //         'y' => $doc['y']
+    //     ];
+    // }
+
+    // // Sort based on the student_id
+    // usort($topStudentAvg, function ($a, $b) {
+    //     return $b['y'] <=> $a['y'];
+    // });
+    // $top3student = array_slice($topStudentAvg, 0, 3);
+
+
+    // var_dump($top3student);
+
+
+
+
+
+
+    // Define the initial pipeline stages
+    $pipeline7 = [
+        ['$unwind' => '$SCORE_DATA'],
+        ['$project' => [
+            '_id' => 0,
+            'student_id' => '$SCORE_DATA.student_id',
+            'averageScore' => ['$avg' => ['$sum' => ['$SCORE_DATA.scores.score1', '$SCORE_DATA.scores.score2']]]
+        ]],
+        ['$group' => [
+            '_id' => '$student_id',
+            'averageScore' => ['$avg' => '$averageScore']
+        ]],
+        ['$project' => [
+            '_id' => 0,
+            'x' => '$_id',
+            'y' => '$averageScore'
+        ]]
+    ];
+
+    // Execute the MongoDB aggregation query using the updated pipeline
+    $result = $exams->aggregate($pipeline7)->toArray();
+
+
+    $topStudentAvg = [];
+
+    foreach ($result as $doc) {
+        $topStudentAvg[] = [
+            'x' => $doc['x'],
+            'y' => $doc['y']
+        ];
+    }
+
+    // Sort based on the student_id
+    usort($topStudentAvg, function ($a, $b) {
+        return $b['y'] <=> $a['y'];
+    });
+    $top3student = array_slice($topStudentAvg, 0, 3);
+
+
     ?>
 
 
@@ -896,58 +1002,46 @@ for ($i = 0; $i < 1; $i++) {
 
 
 
-    <div class="col-lg-12" id="mainContainer" style="display: flex; margin: 0px 5px 0px 5px;">
-        <div class="col-lg-6 card-border">
-            <div class="mb-3">
-                <label for="gradeFilter">Filter by Grade:</label>
-                <select id="gradeFilter" class="form-control">
-                    <option value="all">All Grades</option>
-                    <option value="grade1">Grade 1</option>
-                    <option value="grade2">Grade 2</option>
-                    <option value="grade3">Grade 3</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="departmentFilter">Filter by Department:</label>
-                <select id="departmentFilter" class="form-control">
-                    <option value="all">All Departments</option>
-                    <option value="science">Science</option>
-                    <option value="social">Social</option>
-                    <option value="language">Language</option>
-                </select>
-            </div>
+    <div class="col-lg-12 justify-content-center" id="mainContainer">
+        <div class="col-lg-6 card-border"> <!-- Added margin-bottom -->
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="gradeFilter">Filter by Grade:</label>
+                    <select id="gradeFilter" name="gradeFilter" class="form-control">
+                        <option value="all">All Grades</option>
+                        <option value="grade1">Grade 1</option>
+                        <option value="grade2">Grade 2</option>
+                        <option value="grade3">Grade 3</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="departmentFilter">Filter by Department:</label>
+                    <select id="departmentFilter" name="departmentFilter" class="form-control">
+                        <option value="all">All Departments</option>
+                        <option value="science">Science</option>
+                        <option value="social">Social</option>
+                        <option value="language">Language</option>
+                    </select>
+                </div>
+            </form>
             <table id="dataTable" class="table table-striped">
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Grade</th>
-                        <th>Department</th>
+                        <th>Score</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>Grade 1</td>
-                        <td>Science</td>
-                    </tr>
-                    <tr>
-                        <td>Alice</td>
-                        <td>Grade 2</td>
-                        <td>Language</td>
-                    </tr>
-                    <tr>
-                        <td>Emma</td>
-                        <td>Grade 3</td>
-                        <td>Social</td>
-                    </tr>
+                    <?php foreach ($top3student as $student) : ?>
+                        <tr>
+                            <td><?= $student['x'] ?></td>
+                            <td><?= number_format($student['y'], 2) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
-        </div>
-        <!-- Bootstrap JS CDN -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-        <script>
+            <script>
             $(document).ready(function() {
                 $('#gradeFilter, #departmentFilter').change(function() {
                     const grade = $('#gradeFilter').val();
@@ -962,12 +1056,15 @@ for ($i = 0; $i < 1; $i++) {
                     }
                 });
             });
-        </script>
+            </script>
+        </div>
+
 
         <div class="col-lg-6 card-border">
             <div id="CorrDiv1"></div>
         </div>
     </div>
+
 
 
 
