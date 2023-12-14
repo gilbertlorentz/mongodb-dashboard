@@ -274,6 +274,11 @@ for ($i = 0; $i < 1; $i++) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
         @import url(https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css);
     </style>
@@ -429,6 +434,22 @@ for ($i = 0; $i < 1; $i++) {
             background-color: #f3f3f3;
         }
 
+        #mainContainer2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            max-width: 1380px;
+            /* Adjusted width to fit the screen better */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            padding: 10px 30px 0px 0px;
+            margin-bottom: 20px;
+            background-color: #f3f3f3;
+        }
+
 
         .widget-card {
             background-color: #fff;
@@ -512,8 +533,7 @@ for ($i = 0; $i < 1; $i++) {
             margin: 0 5px;
         }
 
-        #filterContainer,
-        #CorrDiv1Container {
+        #filterContainer {
             border-radius: 8px;
             border: 1px solid #ddd;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -525,13 +545,74 @@ for ($i = 0; $i < 1; $i++) {
 
 
         #dataTable {
-            max-width: 400px;
+            max-width: 800px;
             /* Adjust the maximum width as needed */
             margin: 0 auto;
             /* Centers the table */
         }
 
+        /* Change left and right carousel controls */
+        /* Centering the left and right carousel control buttons */
+        .left.carousel-control,
+        .right.carousel-control {
+            background-image: none;
+            background-color: black;
+            /* Change the background color as desired */
+            width: 50px;
+            height: 50px;
+            opacity: 0.3;
+            position: absolute;
+            top: 50%;
+            /* Adjust vertical positioning */
+            transform: translateY(-50%);
+            /* Center vertically */
+        }
 
+        .left.carousel-control {
+            left: 10px;
+            /* Adjust horizontal positioning for the left button */
+        }
+
+        .right.carousel-control {
+            right: 10px;
+            /* Adjust horizontal positioning for the right button */
+        }
+
+        .left.carousel-control:hover,
+        .right.carousel-control:hover {
+            background-color: red;
+            /* Change the hover color as desired */
+            opacity: 1;
+        }
+
+        /* Make the carousel content more colorful */
+        .carousel-inner {
+            background-color: #f0f0f0;
+            /* Change the background color of the carousel inner content */
+            color: #333;
+            /* Change text color as desired */
+        }
+
+        .carousel-inner .item {
+            background-color: #fff;
+            /* Change the background color of carousel items */
+            color: #fff;
+            /* Change text color as desired */
+        }
+
+        /* Adjust table styles */
+        .table th,
+        .table td {
+            border-color: #fff;
+            /* Change table border color */
+        }
+
+        #myCarousel {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
 
 
         /* Media query for smaller screens */
@@ -946,7 +1027,166 @@ for ($i = 0; $i < 1; $i++) {
     });
     $top3student = array_slice($topStudentAvg, 0, 3);
 
+    // var_dump($top3student);
 
+
+
+
+
+
+
+
+
+    $pipelineScience = [
+        ['$match' => [
+            'DEPARTMENT' => 'Science' // Filter for the Science Department
+        ]],
+        ['$unwind' => '$SCORE_DATA'],
+        ['$project' => [
+            '_id' => 0,
+            'student_id' => '$SCORE_DATA.student_id',
+            'averageScore' => ['$avg' => ['$sum' => ['$SCORE_DATA.scores.score1', '$SCORE_DATA.scores.score2']]]
+        ]],
+        ['$group' => [
+            '_id' => '$student_id',
+            'averageScore' => ['$avg' => '$averageScore']
+        ]],
+        ['$project' => [
+            '_id' => 0,
+            'x' => '$_id',
+            'y' => '$averageScore'
+        ]]
+    ];
+
+    // Execute the MongoDB aggregation query using the updated pipeline
+    $result = $exams->aggregate($pipelineScience)->toArray();
+
+    $topStudentAvgScience = [];
+
+    foreach ($result as $doc) {
+        $topStudentAvgScience[] = [
+            'x' => $doc['x'],
+            'y' => $doc['y']
+        ];
+    }
+
+    // Sort based on the student_id
+    usort($topStudentAvgScience, function ($a, $b) {
+        return $b['y'] <=> $a['y'];
+    });
+
+    $top3studentScience = array_slice($topStudentAvgScience, 0, 3);
+
+
+    // Output or use $top3StudentScience as needed
+    // echo "<br>";
+    // var_dump($top3studentScience);
+
+
+
+
+
+
+
+
+
+    $pipelineSocial = [
+        ['$match' => [
+            'DEPARTMENT' => 'Social' // Filter for the Science Department
+        ]],
+        ['$unwind' => '$SCORE_DATA'],
+        ['$project' => [
+            '_id' => 0,
+            'student_id' => '$SCORE_DATA.student_id',
+            'averageScore' => ['$avg' => ['$sum' => ['$SCORE_DATA.scores.score1', '$SCORE_DATA.scores.score2']]]
+        ]],
+        ['$group' => [
+            '_id' => '$student_id',
+            'averageScore' => ['$avg' => '$averageScore']
+        ]],
+        ['$project' => [
+            '_id' => 0,
+            'x' => '$_id',
+            'y' => '$averageScore'
+        ]]
+    ];
+
+    // Execute the MongoDB aggregation query using the updated pipeline
+    $result = $exams->aggregate($pipelineSocial)->toArray();
+
+    $topStudentAvgSocial = [];
+
+    foreach ($result as $doc) {
+        $topStudentAvgSocial[] = [
+            'x' => $doc['x'],
+            'y' => $doc['y']
+        ];
+    }
+
+    // Sort based on the student_id
+    usort($topStudentAvgSocial, function ($a, $b) {
+        return $b['y'] <=> $a['y'];
+    });
+
+    $top3studentSocial = array_slice($topStudentAvgSocial, 0, 3);
+
+
+    // Output or use $top3StudentScience as needed
+    // echo "<br>";
+    // var_dump($top3studentSocial);
+
+
+
+
+
+
+
+
+
+    $pipelineLanguage = [
+        ['$match' => [
+            'DEPARTMENT' => 'Language' // Filter for the Science Department
+        ]],
+        ['$unwind' => '$SCORE_DATA'],
+        ['$project' => [
+            '_id' => 0,
+            'student_id' => '$SCORE_DATA.student_id',
+            'averageScore' => ['$avg' => ['$sum' => ['$SCORE_DATA.scores.score1', '$SCORE_DATA.scores.score2']]]
+        ]],
+        ['$group' => [
+            '_id' => '$student_id',
+            'averageScore' => ['$avg' => '$averageScore']
+        ]],
+        ['$project' => [
+            '_id' => 0,
+            'x' => '$_id',
+            'y' => '$averageScore'
+        ]]
+    ];
+
+    // Execute the MongoDB aggregation query using the updated pipeline
+    $result = $exams->aggregate($pipelineLanguage)->toArray();
+
+    $topStudentAvgLanguage = [];
+
+    foreach ($result as $doc) {
+        $topStudentAvgLanguage[] = [
+            'x' => $doc['x'],
+            'y' => $doc['y']
+        ];
+    }
+
+    // Sort based on the student_id
+    usort($topStudentAvgLanguage, function ($a, $b) {
+        return $b['y'] <=> $a['y'];
+    });
+
+    $top3studentLanguage = array_slice($topStudentAvgLanguage, 0, 3);
+
+
+    // Output or use $top3StudentScience as needed
+    // echo "<br>";
+    // var_dump($top3studentLanguage);
     ?>
 
 
@@ -974,7 +1214,7 @@ for ($i = 0; $i < 1; $i++) {
 
         <div id="widgetsWrapper" class="grid-container">
             <div id="chartDiv1" class="chartDiv">
-                <h3 style="margin-top: 20px;">Total New Students</h3>
+                <h5 style="margin-top: 20px;"><b>Total New Students</b></h5>
                 <p class="widget-value" style="color: #E4C100;"><?php echo $new_student; ?></p>
                 <p class="prev-value">Previous: <?php echo $prev_student; ?></p>
                 <?php
@@ -990,7 +1230,7 @@ for ($i = 0; $i < 1; $i++) {
 
             </div>
             <div id="chartDiv2" class="chartDiv">
-                <h3>Total Teachers</h3>
+                <h5><b>Total Teachers</b></h5>
                 <p class="widget-value"><?php echo $total_teachers; ?></p>
 
                 <p class="prev-value">New Teachers: <?php echo $new_teachers; ?></p>
@@ -1002,65 +1242,156 @@ for ($i = 0; $i < 1; $i++) {
 
 
 
-    <div class="col-lg-12 justify-content-center" id="mainContainer">
-        <div class="col-lg-6 card-border"> <!-- Added margin-bottom -->
-            <form method="POST">
-                <div class="mb-3">
-                    <label for="gradeFilter">Filter by Grade:</label>
-                    <select id="gradeFilter" name="gradeFilter" class="form-control">
-                        <option value="all">All Grades</option>
-                        <option value="grade1">Grade 1</option>
-                        <option value="grade2">Grade 2</option>
-                        <option value="grade3">Grade 3</option>
-                    </select>
+    <div class="col-lg-12 justify-content-center d-flex" id="mainContainer2" style="margin-left: 70px; margin-bottom: 50px;">
+        <div class="card-border">
+            <div class="container">
+                <h3>Top 3 Students per Departments</h3>
+                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner card-border">
+                        <div class="item active">
+                            <h4 style="color:black; margin: 20px 50px;">All Departments</h4> <!-- Add the h4 header here -->
+                            <table id="dataTable" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php 
+                                    foreach ($top3student as $student) : ?>
+                                        <tr>
+
+                                            <td><?php
+                                                $studentId = $student['x']; // Assuming 'x' holds the student ID
+                                                $query = "SELECT full_name FROM student WHERE student_id = $studentId";
+                                                $result = mysqli_query($conn, $query);
+                                                if ($row = mysqli_fetch_assoc($result)) {
+                                                    echo $row['full_name'];
+                                                } else {
+                                                    echo "Student Not Found";
+                                                }
+                                                ?></td>
+                                            <td><?= number_format($student['y'], 2) ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="item">
+                            <h4 style="color:black; margin: 20px 50px;">Science Department</h4> <!-- Add the h4 header here -->
+                            <table id="dataTable" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($top3studentScience as $student) : ?>
+                                        <tr>
+                                            <td><?php
+                                                $studentId = $student['x']; // Assuming 'x' holds the student ID
+                                                $query = "SELECT full_name FROM student WHERE student_id = $studentId";
+                                                $result = mysqli_query($conn, $query);
+                                                if ($row = mysqli_fetch_assoc($result)) {
+                                                    echo $row['full_name'];
+                                                } else {
+                                                    echo "Student Not Found";
+                                                }
+                                                ?></td>
+                                            <td><?= number_format($student['y'], 2) ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="item">
+                            <h4 style="color:black; margin: 20px 50px;">Social Departments</h4> <!-- Add the h4 header here -->
+                            <table id="dataTable" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($top3studentSocial as $student) : ?>
+                                        <tr>
+                                            <td><?php
+                                                $studentId = $student['x']; // Assuming 'x' holds the student ID
+                                                $query = "SELECT full_name FROM student WHERE student_id = $studentId";
+                                                $result = mysqli_query($conn, $query);
+                                                if ($row = mysqli_fetch_assoc($result)) {
+                                                    echo $row['full_name'];
+                                                } else {
+                                                    echo "Student Not Found";
+                                                }
+                                                ?></td>
+                                            <td><?= number_format($student['y'], 2) ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="item">
+                            <h4 style="color:black; margin: 20px 50px;">Language Departments</h4> <!-- Add the h4 header here -->
+                            <table id="dataTable" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Score</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($top3studentLanguage as $student) : ?>
+                                        <tr>
+                                            <td><?php
+                                                $studentId = $student['x']; // Assuming 'x' holds the student ID
+                                                $query = "SELECT full_name FROM student WHERE student_id = $studentId";
+                                                $result = mysqli_query($conn, $query);
+                                                if ($row = mysqli_fetch_assoc($result)) {
+                                                    echo $row['full_name'];
+                                                } else {
+                                                    echo "Student Not Found";
+                                                }
+                                                ?></td>
+                                            <td><?= number_format($student['y'], 2) ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <!-- <span class="sr-only">Previous</span> -->
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <!-- <span class="sr-only">Next</span> -->
+                    </a>
                 </div>
-                <div class="mb-3">
-                    <label for="departmentFilter">Filter by Department:</label>
-                    <select id="departmentFilter" name="departmentFilter" class="form-control">
-                        <option value="all">All Departments</option>
-                        <option value="science">Science</option>
-                        <option value="social">Social</option>
-                        <option value="language">Language</option>
-                    </select>
-                </div>
-            </form>
-            <table id="dataTable" class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Score</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($top3student as $student) : ?>
-                        <tr>
-                            <td><?= $student['x'] ?></td>
-                            <td><?= number_format($student['y'], 2) ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-
-            <script>
-            $(document).ready(function() {
-                $('#gradeFilter, #departmentFilter').change(function() {
-                    const grade = $('#gradeFilter').val();
-                    const department = $('#departmentFilter').val();
-
-                    $('#dataTable tbody tr').hide();
-
-                    if (grade === 'all' && department === 'all') {
-                        $('#dataTable tbody tr').show();
-                    } else {
-                        $(`#dataTable tbody tr${grade !== 'all' ? `[data-grade="${grade}"]` : ''}${department !== 'all' ? `[data-department="${department}"]` : ''}`).show();
-                    }
-                });
-            });
-            </script>
+            </div>
         </div>
 
 
-        <div class="col-lg-6 card-border">
+        <div class="col-lg-6 card-border align-self-center">
             <div id="CorrDiv1"></div>
         </div>
     </div>
@@ -1072,12 +1403,12 @@ for ($i = 0; $i < 1; $i++) {
 
 
 
-    <div class="col-lg-12 justify-content-center" id="mainContainer">
-        <div class="col-lg-6" style="padding-top: 20px;">
+    <div class="col-lg-12 justify-content-center  d-flex" id="mainContainer" style="margin-left: 70px;">
+        <div class="col-lg-6 d-flex align-items-center" style="padding-top: 20px;">
             <!-- Average Teachers Salary -->
             <div id="AvgTeacherSalDiv" class="card-border"></div>
         </div>
-        <div class="col-lg-6 row" style="margin-top: 10px;">
+        <div class="col-lg-6 row justify-content-center align-items-center" style="margin-top: 10px;">
             <div class="col-lg-12"><!-- per Dept -->
                 <div class="row card-border">
                     <div class="col-lg-6 no-padding"><!-- First Column for Students per Dept -->
