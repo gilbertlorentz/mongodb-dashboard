@@ -513,7 +513,7 @@ for ($i = 0; $i < 1; $i++) {
         }
 
         .chartDiv {
-            flex: 0 0 calc(50% - 10px);
+            flex: 1 1 calc(50% - 10px);
             max-width: calc(50% - 10px);
             height: 180px;
             margin: 5px;
@@ -1809,12 +1809,12 @@ for ($i = 0; $i < 1; $i++) {
         var widget3 = new JSCWidgets.Circular(
             'chartDiv3', {
                 title: '  Average Students Score',
-                label: 'Score123',
+                // label: 'Score',
                 color: '#E4C100',
                 value: 0,
                 icon: 'material/social/school',
                 max: 100,
-                valueText: '%value<span style="font-size:9.5px;">/{%max}</span>',
+                valueText: '<span style="font-size:16px;">{%value}</span><span style="font-size:9.5px;">/{%max}</span>',
                 // labelText: '{%max-%value} GB <br>Remaining',
                 barWidth: 5
             },
@@ -1834,12 +1834,12 @@ for ($i = 0; $i < 1; $i++) {
 
         var widget4 = new JSCWidgets.Circular('chartDiv4', {
                 title: 'Average Teachers Rating',
-                label: 'Rating',
+                // label: 'Rating',
                 icon: 'linearicons/smile',
                 value: 0,
                 max: 5,
                 color: '#673AB7',
-                valueText: '%value<span style="font-size:9.5px;">/{%max}</span>',
+                valueText: '<span style="font-size:16px;">{%value}</span><span style="font-size:9.5px;">/{%max}</span>',
                 labelPosition: 'inside',
                 barWidth: 5,
                 barRounded: true
@@ -1856,6 +1856,22 @@ for ($i = 0; $i < 1; $i++) {
                     });
                 }, 1);
             });
+
+
+
+
+        // var widget1 = new JSCWidgets.Circular(
+        //     'chartDiv1234', {
+        //         title: 'Cloud Storage (10GB Plan)',
+        //         label: 'Space Used',
+        //         value: 4.34,
+        //         icon: 'linear/basic/cloud',
+        //         max: 10,
+        //         valueText: '%value GB',
+        //         labelText: '{%max-%value} GB <br>Remaining',
+        //         barWidth: 5
+        //     }
+        // );
 
 
 
