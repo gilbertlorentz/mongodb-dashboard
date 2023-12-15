@@ -612,6 +612,27 @@ for ($i = 0; $i < 1; $i++) {
             border-radius: 8px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             background-color: white;
+            margin-bottom: 20px;
+        }
+
+
+        #mainContainer2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        #mainContainer2>div {
+            flex: 0 0 calc(50% - 10px);
+            /* Two columns with a 10px margin between them */
+            margin-bottom: 20px;
+            /* Adjust the margin bottom as needed */
+            box-sizing: border-box;
+        }
+
+        #mainContainer2>.col-lg-6 {
+            margin-left: 0;
+            /* Reset margin for the second div */
         }
 
 
@@ -1243,150 +1264,146 @@ for ($i = 0; $i < 1; $i++) {
 
 
     <div class="col-lg-12 justify-content-center d-flex" id="mainContainer2" style="margin-left: 70px; margin-bottom: 50px;">
-        <div class="card-border">
-            <div class="container">
-                <h3>Top 3 Students per Departments</h3>
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
+        <div class="container" style="max-width: 500px;">
+            <h3>Top 3 Students per Departments</h3>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active card-border"></li>
+                    <li data-target="#myCarousel" data-slide-to="1" class="card-border"></li>
+                    <li data-target="#myCarousel" data-slide-to="2" class="card-border"></li>
+                    <li data-target="#myCarousel" data-slide-to="3" class="card-border"></li>
+                </ol>
 
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner card-border">
-                        <div class="item active">
-                            <h4 style="color:black; margin: 20px 50px;">All Departments</h4> <!-- Add the h4 header here -->
-                            <table id="dataTable" class="table table-striped">
-                                <thead>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner card-border" style="padding: 20px 70px;">
+                    <div class="item active card-border">
+                        <h4 style="color:black; margin: 20px 50px;">All Departments</h4> <!-- Add the h4 header here -->
+                        <table id="dataTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                foreach ($top3student as $student) : ?>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Score</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php 
-                                    foreach ($top3student as $student) : ?>
-                                        <tr>
 
-                                            <td><?php
-                                                $studentId = $student['x']; // Assuming 'x' holds the student ID
-                                                $query = "SELECT full_name FROM student WHERE student_id = $studentId";
-                                                $result = mysqli_query($conn, $query);
-                                                if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo $row['full_name'];
-                                                } else {
-                                                    echo "Student Not Found";
-                                                }
-                                                ?></td>
-                                            <td><?= number_format($student['y'], 2) ?></td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="item">
-                            <h4 style="color:black; margin: 20px 50px;">Science Department</h4> <!-- Add the h4 header here -->
-                            <table id="dataTable" class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Score</th>
+                                        <td><?php
+                                            $studentId = $student['x']; // Assuming 'x' holds the student ID
+                                            $query = "SELECT full_name FROM student WHERE student_id = $studentId";
+                                            $result = mysqli_query($conn, $query);
+                                            if ($row = mysqli_fetch_assoc($result)) {
+                                                echo $row['full_name'];
+                                            } else {
+                                                echo "Student Not Found";
+                                            }
+                                            ?></td>
+                                        <td><?= number_format($student['y'], 2) ?></td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($top3studentScience as $student) : ?>
-                                        <tr>
-                                            <td><?php
-                                                $studentId = $student['x']; // Assuming 'x' holds the student ID
-                                                $query = "SELECT full_name FROM student WHERE student_id = $studentId";
-                                                $result = mysqli_query($conn, $query);
-                                                if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo $row['full_name'];
-                                                } else {
-                                                    echo "Student Not Found";
-                                                }
-                                                ?></td>
-                                            <td><?= number_format($student['y'], 2) ?></td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="item">
-                            <h4 style="color:black; margin: 20px 50px;">Social Departments</h4> <!-- Add the h4 header here -->
-                            <table id="dataTable" class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Score</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($top3studentSocial as $student) : ?>
-                                        <tr>
-                                            <td><?php
-                                                $studentId = $student['x']; // Assuming 'x' holds the student ID
-                                                $query = "SELECT full_name FROM student WHERE student_id = $studentId";
-                                                $result = mysqli_query($conn, $query);
-                                                if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo $row['full_name'];
-                                                } else {
-                                                    echo "Student Not Found";
-                                                }
-                                                ?></td>
-                                            <td><?= number_format($student['y'], 2) ?></td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="item">
-                            <h4 style="color:black; margin: 20px 50px;">Language Departments</h4> <!-- Add the h4 header here -->
-                            <table id="dataTable" class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Score</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($top3studentLanguage as $student) : ?>
-                                        <tr>
-                                            <td><?php
-                                                $studentId = $student['x']; // Assuming 'x' holds the student ID
-                                                $query = "SELECT full_name FROM student WHERE student_id = $studentId";
-                                                $result = mysqli_query($conn, $query);
-                                                if ($row = mysqli_fetch_assoc($result)) {
-                                                    echo $row['full_name'];
-                                                } else {
-                                                    echo "Student Not Found";
-                                                }
-                                                ?></td>
-                                            <td><?= number_format($student['y'], 2) ?></td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     </div>
 
+                    <div class="item card-border">
+                        <h4 style="color:black; margin: 20px 50px;">Science Department</h4> <!-- Add the h4 header here -->
+                        <table id="dataTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($top3studentScience as $student) : ?>
+                                    <tr>
+                                        <td><?php
+                                            $studentId = $student['x']; // Assuming 'x' holds the student ID
+                                            $query = "SELECT full_name FROM student WHERE student_id = $studentId";
+                                            $result = mysqli_query($conn, $query);
+                                            if ($row = mysqli_fetch_assoc($result)) {
+                                                echo $row['full_name'];
+                                            } else {
+                                                echo "Student Not Found";
+                                            }
+                                            ?></td>
+                                        <td><?= number_format($student['y'], 2) ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
 
+                    <div class="item card-border">
+                        <h4 style="color:black; margin: 20px 50px;">Social Departments</h4> <!-- Add the h4 header here -->
+                        <table id="dataTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($top3studentSocial as $student) : ?>
+                                    <tr>
+                                        <td><?php
+                                            $studentId = $student['x']; // Assuming 'x' holds the student ID
+                                            $query = "SELECT full_name FROM student WHERE student_id = $studentId";
+                                            $result = mysqli_query($conn, $query);
+                                            if ($row = mysqli_fetch_assoc($result)) {
+                                                echo $row['full_name'];
+                                            } else {
+                                                echo "Student Not Found";
+                                            }
+                                            ?></td>
+                                        <td><?= number_format($student['y'], 2) ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
 
-                    <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                        <!-- <span class="sr-only">Previous</span> -->
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                        <!-- <span class="sr-only">Next</span> -->
-                    </a>
+                    <div class="item card-border">
+                        <h4 style="color:black; margin: 20px 50px;">Language Departments</h4> <!-- Add the h4 header here -->
+                        <table id="dataTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($top3studentLanguage as $student) : ?>
+                                    <tr>
+                                        <td><?php
+                                            $studentId = $student['x']; // Assuming 'x' holds the student ID
+                                            $query = "SELECT full_name FROM student WHERE student_id = $studentId";
+                                            $result = mysqli_query($conn, $query);
+                                            if ($row = mysqli_fetch_assoc($result)) {
+                                                echo $row['full_name'];
+                                            } else {
+                                                echo "Student Not Found";
+                                            }
+                                            ?></td>
+                                        <td><?= number_format($student['y'], 2) ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="background:none; border:none;">
+                    <span class="glyphicon glyphicon-chevron-left" style="color: black;"></span>
+                    <!-- <span class="sr-only">Previous</span> -->
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next" style="background:none; border:none;">
+                    <span class="glyphicon glyphicon-chevron-right" style="color: black;"></span>
+                    <!-- <span class="sr-only">Next</span> -->
+                </a>
             </div>
         </div>
 
@@ -1792,7 +1809,7 @@ for ($i = 0; $i < 1; $i++) {
         var widget3 = new JSCWidgets.Circular(
             'chartDiv3', {
                 title: '  Average Students Score',
-                label: 'Score',
+                label: 'Score123',
                 color: '#E4C100',
                 value: 0,
                 icon: 'material/social/school',
